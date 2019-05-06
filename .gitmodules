@@ -1,0 +1,15 @@
+[submodule "narvie"]
+	path = narvie
+	url = https://github.com/physical-computation/narvie.git
+[submodule "yosys"]
+	path = yosys
+	url = https://github.com/YosysHQ/yosys.git
+[submodule "icestorm"]
+	path = icestorm
+	url = https://github.com/cliffordwolf/icestorm.git
+[submodule "nextpnr"]
+	path = nextpnr
+	url = https://github.com/YosysHQ/nextpnr.git
+[submodule "sunflower"]
+	path = sunflower
+	url = https://github.com/phillipstanleymarbell/sunflower-simulator.git
