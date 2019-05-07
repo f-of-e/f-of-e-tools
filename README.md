@@ -6,7 +6,7 @@ The project is organized and run by the [Physical Computation Laboratory](http:/
 ## Cloning the Repository 
 The correct way to clone this repository to get the hardware and firmware submodules is:
 
-	git clone --recursive git@github.com:physical-computation/CUED-GB3-RISC-V-2019.git
+	git clone --recursive https://github.com/physical-computation/CUED-GB3-RISC-V-2019.git
 
 To update all submodules
 
