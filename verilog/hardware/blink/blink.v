@@ -1,10 +1,9 @@
 module blink(led);
 	output led;
-	wire clk;
 
-	reg LEDstatus = 1;
-
-	integer count = 0;
+	wire		clk;
+	reg		LEDstatus = 1;
+	reg [31:0]	count = 0;
 
 	/*
 	 *	Creates a 50MHz clock signal from
@@ -32,5 +31,5 @@ module blink(led);
 	/*
 	 *	Assign output led to value in LEDstatus register
 	 */
-	assign led = LEDstatus;
+	assign	led = LEDstatus;
 endmodule
