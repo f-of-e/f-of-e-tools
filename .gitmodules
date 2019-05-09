@@ -16,3 +16,6 @@
 [submodule "verilog/hardware/processor/sail-core"]
 	path = verilog/hardware/processor/sail-core
 	url = https://github.com/physical-computation/Sail-RV32I-common
+[submodule "tools/arachnepnr"]
+	path = tools/arachnepnr
+	url = https://github.com/YosysHQ/arachne-pnr.git

@@ -1,10 +1,20 @@
 DESIGN	= sail
 
-psa-nextpnr:
+sail-arachnepnr:
+	cp programs/data.hex verilog/
+	cp programs/program.hex verilog/
 	yosys -q ../../../yscripts/$(DESIGN).ys
-	nextpnr-ice40 --up5k --json $(DESIGN).json --pcf pcf/$(DESIGN).pcf --asc $(DESIGN).asc
+	arachne-pnr -d 5k -P uwg30 -p pcf/$(DESIGN).pcf $(DESIGN).blif -o $(DESIGN).asc
+	icepack $(DESIGN).asc $(DESIGN).bin
+	iceprog -S $(DESIGN).bin
+
+sail-nextpnr:
+	cp programs/data.hex verilog/
+	cp programs/program.hex verilog/
+	yosys -q ../../../yscripts/$(DESIGN).ys
+	nextpnr-ice40 --up5k --package uwg30 --json $(DESIGN).json --pcf pcf/$(DESIGN).pcf --asc $(DESIGN).asc
 	icepack $(DESIGN).asc $(DESIGN).bin
 	iceprog -S $(DESIGN).bin
 
 clean:
-	rm *.blif *.asc *.bin
+	rm -f *.json *.blif *.asc *.bin
