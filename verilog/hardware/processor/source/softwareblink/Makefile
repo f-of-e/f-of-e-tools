@@ -28,8 +28,8 @@ $(PROGRAM).sr:$(PROGRAM)
 $(PROGRAM).o: $(PROGRAM).c Makefile
 	$(CC) $(CFLAGS) $(OPTFLAGS) -c $(PROGRAM).c
 
-install:
-	$(SREC2HEX) led.sr
+install: all
+	$(SREC2HEX) $(PROGRAM).sr
 	cp program.hex ../../programs
 	cp data.hex ../../programs
 
