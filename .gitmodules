@@ -19,3 +19,6 @@
 [submodule "tools/arachnepnr"]
 	path = tools/arachnepnr
 	url = https://github.com/YosysHQ/arachne-pnr.git
+[submodule "tools/srec2hex"]
+	path = tools/srec2hex
+	url = https://github.com/physical-computation/srec2hex.git
