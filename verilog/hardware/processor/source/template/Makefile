@@ -17,7 +17,7 @@ OBJS	=\
 all:	$(PROGRAM) $(PROGRAM).sr Makefile
 
 $(INIT).o: $(INIT).S
-	$(CC) -O0 -c -o $(INIT).o $(INIT).s
+	$(CC) -O0 -c -o $(INIT).o $(INIT).S
 
 $(PROGRAM): $(OBJS) $(INIT).o
 	$(LD) $(LDFLAGS) $(INIT).o $(OBJS) -o $@ -lc -lm
