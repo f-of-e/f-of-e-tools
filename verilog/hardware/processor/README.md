@@ -1,1 +1,1 @@
-Run `make` to generate a programming bitstream and `sudo make install` to program the FPGA.
+Run `make` to generate a programming bitstream and to program the FPGA.
