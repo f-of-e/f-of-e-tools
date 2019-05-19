@@ -1,5 +1,5 @@
 module blink(led);
-	output led;
+	output		led;
 
 	wire		clk;
 	reg		LEDstatus = 1;
