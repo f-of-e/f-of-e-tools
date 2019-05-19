@@ -6,8 +6,7 @@ module simpleTestbench;
 	simple simpleInstance(.inSignal(signalIn), .outSignal(singnalOut));
 
 	initial begin
-
-	/*
+		/*
 	 *	Delay for one time unit (1ns, as defined above), then set singalIn to 0
 	 */
 	#1	signalIn = 0;
@@ -18,7 +17,7 @@ module simpleTestbench;
 	#1	signalIn = 1;
 
 	/*
-	 *	Delay for one time unit (1ns, as defined above), then set singalIn to 1
+	 *	Delay for 10 time units (10ns, as defined above), then set singalIn to 0
 	 */
 	#10	signalIn = 0;
 
