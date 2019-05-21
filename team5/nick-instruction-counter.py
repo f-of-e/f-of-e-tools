@@ -9,6 +9,7 @@ A function which takes the location of a log file from the output of the sunflow
 and counts the number of invocations of all of the assembly instructions used in the program
 """
 def count(location):
+    file = open(location,"r")
 
     #read the content of the file
     content = file.readlines()
