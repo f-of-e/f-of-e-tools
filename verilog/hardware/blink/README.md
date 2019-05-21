@@ -14,7 +14,7 @@ To synthesize the design, run:
 
 To run place and route using Arachne-PNR:
 
-	$ arachne-pnr -d 5k -P sg48 -p blink.pcf blink.blif -o blink.asc
+	$ arachne-pnr -d 5k -P uwg30 -p blink.pcf blink.blif -o blink.asc
 
 To convert the output `blink.asc` ASCII file to iCE40 .bin file:
 

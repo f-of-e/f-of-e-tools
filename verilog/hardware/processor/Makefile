@@ -10,6 +10,8 @@ sail-arachnepnr:
 	sudo iceprog -S $(DESIGN).bin
 	#icetime -tmd up5k $(DESIGN).asc
 
+
+
 sail-nextpnr:
 	cp programs/data.hex verilog/
 	cp programs/program.hex verilog/
