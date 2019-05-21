@@ -1,0 +1,25 @@
+DESIGN	= sail
+
+sail-arachnepnr:
+	cp programs/data.hex sail-core/verilog/
+	cp programs/program.hex sail-core/verilog/
+	yosys -q ../../yscripts/$(DESIGN).ys
+	arachne-pnr -d 5k -P uwg30 -p pcf/$(DESIGN).pcf $(DESIGN).blif -o $(DESIGN).asc
+	icetime -p pcf/sail.pcf -P uwg30 -d up5k -t sail.asc
+	icepack $(DESIGN).asc $(DESIGN).bin
+	sudo iceprog -S $(DESIGN).bin
+	#icetime -tmd up5k $(DESIGN).asc
+
+
+
+sail-nextpnr:
+	cp programs/data.hex sail-core/verilog/
+	cp programs/program.hex sail-core/verilog/
+	yosys -q ../../yscripts/$(DESIGN).ys
+	nextpnr-ice40 --up5k --package uwg30 --json $(DESIGN).json --pcf pcf/$(DESIGN).pcf --asc $(DESIGN).asc
+	icetime -p pcf/sail.pcf -P uwg30 -d up5k -t sail.asc
+	icepack $(DESIGN).asc $(DESIGN).bin
+	sudo iceprog -S $(DESIGN).bin
+
+clean:
+	rm -f *.json *.blif *.asc *.bin

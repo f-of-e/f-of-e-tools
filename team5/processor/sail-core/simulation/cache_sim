@@ -1,0 +1,5 @@
+#!/bin/bash
+
+iverilog cache.v cache_tb.v
+vvp a.out
+gtkwave cache.vcd

@@ -1,0 +1,62 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000000000000                . = 0x0
+
+.text           0x0000000000000000      0x400
+                0x0000000000000000                _text = .
+ *(.text)
+ .text          0x0000000000000000       0x10 init.o
+                0x0000000000000000                _start
+ .text          0x0000000000000010       0x20 template.o
+                0x0000000000000010                main
+                0x0000000000000400                . = 0x400
+ *fill*         0x0000000000000030      0x3d0 
+ *(.strings)
+                0x0000000000000400                _etext = .
+
+.rela.dyn       0x0000000000000400        0x0
+ .rela.text     0x0000000000000400        0x0 init.o
+
+.data           0x0000000000000400        0x0
+ *(.data)
+ .data          0x0000000000000400        0x0 init.o
+ .data          0x0000000000000400        0x0 template.o
+
+.bss            0x0000000000000400        0x0
+ *(.bss)
+ .bss           0x0000000000000400        0x0 init.o
+ .bss           0x0000000000000400        0x0 template.o
+LOAD init.o
+LOAD template.o
+LOAD /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a
+LOAD /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libm.a
+OUTPUT(template elf32-littleriscv)
+
+.debug_frame    0x0000000000000000       0x44
+ .debug_frame   0x0000000000000000       0x44 template.o
+
+.debug_info     0x0000000000000000       0x43
+ .debug_info    0x0000000000000000       0x43 template.o
+
+.debug_abbrev   0x0000000000000000       0x3b
+ .debug_abbrev  0x0000000000000000       0x3b template.o
+
+.debug_aranges  0x0000000000000000       0x20
+ .debug_aranges
+                0x0000000000000000       0x20 template.o
+
+.debug_line     0x0000000000000000       0x4b
+ .debug_line    0x0000000000000000       0x4b template.o
+
+.debug_str      0x0000000000000000       0x8d
+ .debug_str     0x0000000000000000       0x8d template.o
+
+.comment        0x0000000000000000       0x11
+ .comment       0x0000000000000000       0x11 template.o
+                                         0x12 (size before relaxing)

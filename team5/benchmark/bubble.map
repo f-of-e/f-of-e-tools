@@ -1,0 +1,444 @@
+Archive member included to satisfy reference by file (symbol)
+
+/home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+                              init.o (exit)
+/home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+                              /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o) (_global_impure_ptr)
+/home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+                              /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o) (__call_exitprocs)
+/home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+                              /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o) (_exit)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+Address of section .text set to 0x8004000
+LOAD init.o
+LOAD bubble.o
+LOAD /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libprintf.a
+LOAD /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a
+LOAD /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libgcc.a
+LOAD /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libgloss.a
+                [!provide]                        PROVIDE (__executable_start, SEGMENT_START ("text-segment", 0x10000))
+                0x0000000000010074                . = (SEGMENT_START ("text-segment", 0x10000) + SIZEOF_HEADERS)
+
+.interp
+ *(.interp)
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.hash
+ *(.hash)
+
+.gnu.hash
+ *(.gnu.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rela.dyn       0x0000000000010074        0x0
+ *(.rela.init)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ .rela.text     0x0000000000010074        0x0 init.o
+ *(.rela.fini)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rela.ctors)
+ *(.rela.dtors)
+ *(.rela.got)
+ *(.rela.sdata .rela.sdata.* .rela.gnu.linkonce.s.*)
+ *(.rela.sbss .rela.sbss.* .rela.gnu.linkonce.sb.*)
+ *(.rela.sdata2 .rela.sdata2.* .rela.gnu.linkonce.s2.*)
+ *(.rela.sbss2 .rela.sbss2.* .rela.gnu.linkonce.sb2.*)
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+                [!provide]                        PROVIDE (__rela_iplt_start, .)
+ *(.rela.iplt)
+                [!provide]                        PROVIDE (__rela_iplt_end, .)
+
+.rela.plt
+ *(.rela.plt)
+
+.init
+ *(SORT(.init))
+
+.plt
+ *(.plt)
+
+.iplt
+ *(.iplt)
+
+.text           0x0000000008004000      0xb4c
+ *(.text.unlikely .text.*_unlikely .text.unlikely.*)
+ *(.text.exit .text.exit.*)
+ *(.text.startup .text.startup.*)
+ *(.text.hot .text.hot.*)
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x0000000008004000       0x1c init.o
+                0x0000000008004000                _start
+                0x0000000008004010                __errno
+ .text          0x000000000800401c      0x15c bubble.o
+                0x000000000800401c                main
+ .text          0x0000000008004178       0x34 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+                0x0000000008004178                exit
+ .text          0x00000000080041ac        0x0 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+ .text          0x00000000080041ac      0x11c /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+                0x00000000080041ac                __call_exitprocs
+ .text          0x00000000080042c8      0x884 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+                0x000000000800436c                __syscall_error
+                0x000000000800439c                _open
+                0x00000000080043e4                _openat
+                0x0000000008004428                _lseek
+                0x0000000008004470                _read
+                0x00000000080044b8                _write
+                0x0000000008004500                _fstat
+                0x0000000008004568                _stat
+                0x00000000080045d0                _lstat
+                0x0000000008004638                _fstatat
+                0x0000000008004698                _access
+                0x00000000080046e4                _faccessat
+                0x0000000008004728                _close
+                0x0000000008004778                _link
+                0x00000000080047c4                _unlink
+                0x0000000008004814                _execve
+                0x0000000008004838                _fork
+                0x000000000800485c                _getpid
+                0x0000000008004864                _kill
+                0x0000000008004888                _wait
+                0x00000000080048ac                _isatty
+                0x00000000080048dc                _gettimeofday
+                0x000000000800492c                _times
+                0x00000000080049d0                _ftime
+                0x00000000080049ec                _utime
+                0x00000000080049f4                _chown
+                0x00000000080049fc                _chmod
+                0x0000000008004a04                _chdir
+                0x0000000008004a0c                _getcwd
+                0x0000000008004a14                _sysconf
+                0x0000000008004a30                _sbrk
+                0x0000000008004b10                _exit
+ *(.gnu.warning)
+
+.fini
+ *(SORT(.fini))
+                [!provide]                        PROVIDE (__etext, .)
+                [!provide]                        PROVIDE (_etext, .)
+                [!provide]                        PROVIDE (etext, .)
+
+.rodata
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+
+.rodata1
+ *(.rodata1)
+
+.sdata2
+ *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
+
+.sbss2
+ *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+ *(.eh_frame_entry .eh_frame_entry.*)
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.gnu_extab
+ *(.gnu_extab*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+                0x0000000008005b4c                . = DATA_SEGMENT_ALIGN (CONSTANT (MAXPAGESIZE), CONSTANT (COMMONPAGESIZE))
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.gnu_extab
+ *(.gnu_extab)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+
+.tdata
+ *(.tdata .tdata.* .gnu.linkonce.td.*)
+
+.tbss
+ *(.tbss .tbss.* .gnu.linkonce.tb.*)
+ *(.tcommon)
+
+.preinit_array  0x0000000008005b4c        0x0
+                [!provide]                        PROVIDE (__preinit_array_start, .)
+ *(.preinit_array)
+                [!provide]                        PROVIDE (__preinit_array_end, .)
+
+.init_array     0x0000000008005b4c        0x0
+                [!provide]                        PROVIDE (__init_array_start, .)
+ *(SORT(.init_array.*) SORT(.ctors.*))
+ *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
+                [!provide]                        PROVIDE (__init_array_end, .)
+
+.fini_array     0x0000000008005b4c        0x0
+                [!provide]                        PROVIDE (__fini_array_start, .)
+ *(SORT(.fini_array.*) SORT(.dtors.*))
+ *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
+                [!provide]                        PROVIDE (__fini_array_end, .)
+
+.ctors
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
+ *(SORT(.ctors.*))
+ *(.ctors)
+
+.dtors
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
+ *(SORT(.dtors.*))
+ *(.dtors)
+
+.jcr
+ *(.jcr)
+
+.data.rel.ro
+ *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
+ *(.data.rel.ro .data.rel.ro.* .gnu.linkonce.d.rel.ro.*)
+
+.dynamic
+ *(.dynamic)
+                0x0000000008005b4c                . = DATA_SEGMENT_RELRO_END (., 0x0)
+
+.data           0x0000000008005b50      0x428
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x0000000008005b50        0x0 init.o
+ .data          0x0000000008005b50        0x0 bubble.o
+ .data          0x0000000008005b50        0x0 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+ .data          0x0000000008005b50      0x428 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+ .data          0x0000000008005f78        0x0 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+ .data          0x0000000008005f78        0x0 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+
+.data1
+ *(.data1)
+
+.got
+ *(.got.plt)
+ *(.igot.plt)
+ *(.got)
+ *(.igot)
+
+.sdata          0x0000000008005f78        0x8
+                0x0000000008006778                __global_pointer$ = (. + 0x800)
+ *(.srodata.cst16)
+ *(.srodata.cst8)
+ *(.srodata.cst4)
+ *(.srodata.cst2)
+ *(.srodata .srodata.*)
+ .srodata       0x0000000008005f78        0x4 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+                0x0000000008005f78                _global_impure_ptr
+ *(.sdata .sdata.* .gnu.linkonce.s.*)
+ .sdata         0x0000000008005f7c        0x4 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+                0x0000000008005f7c                _impure_ptr
+                0x0000000008005f80                _edata = .
+                [!provide]                        PROVIDE (edata, .)
+                0x0000000008005f80                . = .
+                0x0000000008005f80                __bss_start = .
+
+.sbss           0x0000000008005f80        0x4
+ *(.dynsbss)
+ *(.sbss .sbss.* .gnu.linkonce.sb.*)
+ .sbss          0x0000000008005f80        0x4 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+ *(.scommon)
+
+.bss            0x0000000008005f88       0x10
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x0000000008005f88        0x0 init.o
+ .bss           0x0000000008005f88        0x0 bubble.o
+ .bss           0x0000000008005f88        0x0 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+ .bss           0x0000000008005f88        0x0 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+ .bss           0x0000000008005f88        0x0 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+ .bss           0x0000000008005f88       0x10 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+ *(COMMON)
+                0x0000000008005f98                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x0000000008005f98                . = ALIGN (0x4)
+                0x0000000008005f98                . = SEGMENT_START ("ldata-segment", .)
+                0x0000000008005f98                . = ALIGN (0x4)
+                0x0000000008005f98                _end = .
+                [!provide]                        PROVIDE (end, .)
+                0x0000000008005f98                . = DATA_SEGMENT_END (.)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x11
+ *(.comment)
+ .comment       0x0000000000000000       0x11 bubble.o
+                                         0x12 (size before relaxing)
+ .comment       0x0000000000000011       0x12 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+ .comment       0x0000000000000011       0x12 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+ .comment       0x0000000000000011       0x12 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+ .comment       0x0000000000000011       0x12 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000       0xb8
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0x20 init.o
+ .debug_aranges
+                0x0000000000000020       0x20 bubble.o
+ .debug_aranges
+                0x0000000000000040       0x20 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+ .debug_aranges
+                0x0000000000000060       0x18 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+ .debug_aranges
+                0x0000000000000078       0x20 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+ .debug_aranges
+                0x0000000000000098       0x20 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000     0x3fb1
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x0000000000000000       0x26 init.o
+ .debug_info    0x0000000000000026       0xcc bubble.o
+ .debug_info    0x00000000000000f2      0x9d8 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+ .debug_info    0x0000000000000aca      0x936 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+ .debug_info    0x0000000000001400      0x9f3 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+ .debug_info    0x0000000000001df3     0x21be /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+
+.debug_abbrev   0x0000000000000000      0xb1f
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000       0x14 init.o
+ .debug_abbrev  0x0000000000000014       0x83 bubble.o
+ .debug_abbrev  0x0000000000000097      0x21c /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+ .debug_abbrev  0x00000000000002b3      0x1b8 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+ .debug_abbrev  0x000000000000046b      0x24f /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+ .debug_abbrev  0x00000000000006ba      0x465 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+
+.debug_line     0x0000000000000000     0x2160
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x0000000000000000       0x41 init.o
+ .debug_line    0x0000000000000041      0x157 bubble.o
+ .debug_line    0x0000000000000198      0x257 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+ .debug_line    0x00000000000003ef      0x156 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+ .debug_line    0x0000000000000545      0x3d5 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+ .debug_line    0x000000000000091a     0x1846 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+
+.debug_frame    0x0000000000000000      0x780
+ *(.debug_frame)
+ .debug_frame   0x0000000000000000       0x44 bubble.o
+ .debug_frame   0x0000000000000044       0x30 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+ .debug_frame   0x0000000000000074       0x90 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+ .debug_frame   0x0000000000000104      0x67c /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+
+.debug_str      0x0000000000000000      0xb26
+ *(.debug_str)
+ .debug_str     0x0000000000000000       0x69 init.o
+ .debug_str     0x0000000000000069       0x47 bubble.o
+                                         0xa8 (size before relaxing)
+ .debug_str     0x00000000000000b0      0x53c /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+                                        0x5b6 (size before relaxing)
+ .debug_str     0x00000000000005ec       0xaf /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+                                        0x56a (size before relaxing)
+ .debug_str     0x000000000000069b       0x59 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+                                        0x5b3 (size before relaxing)
+ .debug_str     0x00000000000006f4      0x432 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+                                        0x98a (size before relaxing)
+
+.debug_loc      0x0000000000000000     0x1916
+ *(.debug_loc)
+ .debug_loc     0x0000000000000000       0x1e /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+ .debug_loc     0x000000000000001e      0x16e /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+ .debug_loc     0x000000000000018c     0x178a /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x0000000000000000      0x278
+ *(.debug_ranges)
+ .debug_ranges  0x0000000000000000       0x20 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+ .debug_ranges  0x0000000000000020      0x258 /home/team5/CUED-GB3-RISC-V-2019/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+
+.debug_macro
+ *(.debug_macro)
+
+.debug_addr
+ *(.debug_addr)
+
+.gnu.attributes
+ *(.gnu.attributes)
+
+/DISCARD/
+ *(.note.GNU-stack)
+ *(.gnu_debuglink)
+ *(.gnu.lto_*)
+OUTPUT(bubble.out elf32-littleriscv)

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+iverilog main_memory.v instruction_cache.v instruction_cache_tb.v
+vvp a.out
+gtkwave instruction_cache.vcd
