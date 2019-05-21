@@ -8,7 +8,7 @@ sail-arachnepnr:
 	icetime -p pcf/sail.pcf -P uwg30 -d up5k -t sail.asc
 	icepack $(DESIGN).asc $(DESIGN).bin
 	sudo iceprog -S $(DESIGN).bin
-	icetime -tmd up5k $(DESIGN).asc
+	#icetime -tmd up5k $(DESIGN).asc
 
 sail-nextpnr:
 	cp programs/data.hex verilog/
