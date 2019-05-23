@@ -5,7 +5,7 @@ PROGRAM		= template
 INIT		= init
 
 OPTFLAGS	= -g -O0
-CFLAGS		= $(TARGET-ARCH-FLAGS) -Wall 
+CFLAGS		= -march=rv32i $(TARGET-ARCH-FLAGS) -Wall 
 LDFLAGS		= -L$(TOOLSLIB)/$(TARGET) -Map $(PROGRAM).map -Tsail.ld	#-Ttext $(LOADADDR)
 LOADADDR	= 0x00
 SREC2HEX	= $(TREEROOT)/tools/srec2hex/srec2hex
@@ -20,7 +20,7 @@ $(INIT).o: $(INIT).S
 	$(CC) -O0 -c -o $(INIT).o $(INIT).S
 
 $(PROGRAM): $(OBJS) $(INIT).o
-	$(LD) $(LDFLAGS) $(INIT).o $(OBJS) -o $@ -lc -lm
+	$(LD) $(LDFLAGS) $(INIT).o $(OBJS) -o $@ -lc -lm -lgcc
 
 $(PROGRAM).sr:$(PROGRAM)
 	$(OBJCOPY) -O srec $(PROGRAM) $@
