@@ -15,7 +15,7 @@ To update all submodules
 
 If you forgot to clone with `--recursive`, and end up with empty submodule directories, you can remedy this with
 
-	git submodule update --init
+	git submodule update --init --recursive
 
 ## Acknowledgements
 This project is developed with support from a 2019 Technology-Enabled Learning Pilot (TELP) award in cooperation with Cambridge University Press.
