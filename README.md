@@ -17,5 +17,10 @@ If you forgot to clone with `--recursive`, and end up with empty submodule direc
 
 	git submodule update --init --recursive
 
+Checkout master branch and take each submodule out of the "Detached HEAD" state:
+```bash
+	git submodule foreach git checkout master
+```
+
 ## Acknowledgements
 This project is developed with support from a 2019 Technology-Enabled Learning Pilot (TELP) award in cooperation with Cambridge University Press.
