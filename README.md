@@ -1,5 +1,5 @@
-# CUED-GB3-RISC-V-2019
-This is the repository for the the University of Cambridge Department of Engineering _GB3: RISC-V Processor Design_ IIA project.
+# F-of-E Tools
+This is the repository for the Foundations of Embedded Systems, comprising the University of Cambridge Department of Engineering _GB3: RISC-V Processor Design_ IIA (3rd year yundergraduate) project and the the University of Cambridge Department of Engineering _4B25: Embedded Systems_ IIB (4th year / M.Sc.) course.
 
 The project is organized and run by the [Physical Computation Laboratory](http://physcomp.eng.cam.ac.uk). Several other repositories, [`Warp-fpga`](https://github.com/physical-computation/Warp-fpga), [`Sunflower`](https://github.com/phillipstanleymarbell/sunflower-simulator) and [`Narvie`](https://github.com/physical-computation/narvie), contain the FPGA tools, processor emulator, and RISC-V read-eval-print-loop (REPL) tools, respectively. These repositories are included here as git submodules.
 
