@@ -1,14 +1,5 @@
 DESIGN	= sail
 
-sail-arachnepnr:
-	cp programs/data.hex verilog/
-	cp programs/program.hex verilog/
-	yosys -q ../../../yscripts/$(DESIGN).ys
-	arachne-pnr -d 5k -P uwg30 -p pcf/$(DESIGN).pcf $(DESIGN).blif -o $(DESIGN).asc
-	icetime -p pcf/sail.pcf -P uwg30 -d up5k -t sail.asc
-	icepack $(DESIGN).asc $(DESIGN).bin
-	sudo iceprog -S $(DESIGN).bin
-
 sail-nextpnr:
 	cp programs/data.hex verilog/
 	cp programs/program.hex verilog/

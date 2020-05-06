@@ -1,11 +1,15 @@
 TREEROOT	= ../../../../../
 include $(TREEROOT)/tools/sunflower/conf/setup.conf
 
+TARGET-ARCH	= riscv32-elf
+TARGET		= riscv
+
 PROGRAM		= template
 INIT		= init
 
 OPTFLAGS	= -g -O0
-CFLAGS		= -march=rv32i $(TARGET-ARCH-FLAGS) -Wall 
+CFLAGS		= -march=rv32i -mabi=ilp32 $(TARGET-ARCH-FLAGS) -Wall 
+ASFLAGS		= -march=rv32i -mabi=ilp32
 LDFLAGS		= -L$(TOOLSLIB)/$(TARGET) -Map $(PROGRAM).map -Tsail.ld	#-Ttext $(LOADADDR)
 LOADADDR	= 0x00
 SREC2HEX	= $(TREEROOT)/tools/srec2hex/srec2hex
@@ -17,7 +21,7 @@ OBJS	=\
 all:	$(PROGRAM) $(PROGRAM).sr Makefile
 
 $(INIT).o: $(INIT).S
-	$(CC) -O0 -c -o $(INIT).o $(INIT).S
+	$(CC) $(ASFLAGS) -O0 -c -o $(INIT).o $(INIT).S
 
 $(PROGRAM): $(OBJS) $(INIT).o
 	$(LD) $(LDFLAGS) $(INIT).o $(OBJS) -o $@ -lc -lm -lgcc
