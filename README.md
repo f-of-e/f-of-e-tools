@@ -1,12 +1,12 @@
 # F-of-E Tools
 This is the repository for the Foundations of Embedded Systems, comprising the University of Cambridge Department of Engineering _GB3: RISC-V Processor Design_ IIA (3rd year yundergraduate) project and the the University of Cambridge Department of Engineering _4B25: Embedded Systems_ IIB (4th year / M.Sc.) course.
 
-The project is organized and run by the [Physical Computation Laboratory](http://physcomp.eng.cam.ac.uk). Several other repositories, [`Warp-fpga`](https://github.com/physical-computation/Warp-fpga), [`Sunflower`](https://github.com/phillipstanleymarbell/sunflower-simulator) and [`Narvie`](https://github.com/physical-computation/narvie), contain the FPGA tools, processor emulator, and RISC-V read-eval-print-loop (REPL) tools, respectively. These repositories are included here as git submodules.
+The project is organized and run by the [Physical Computation Laboratory](http://physcomp.eng.cam.ac.uk). Several other repositories, [`Sunflower`](https://github.com/physical-computation/sunflower-simulator) and [`Narvie`](https://github.com/physical-computation/narvie), contain the FPGA tools, processor emulator, and RISC-V read-eval-print-loop (REPL) tools, respectively. These repositories are included here as git submodules.
 
 ## Cloning the Repository 
 The correct way to clone this repository to get the hardware and firmware submodules is:
 
-	git clone --recursive https://github.com/physical-computation/f-of-e-tools.git
+	git clone --recursive https://github.com/f-of-e/f-of-e-tools.git
 
 To update all submodules
 
