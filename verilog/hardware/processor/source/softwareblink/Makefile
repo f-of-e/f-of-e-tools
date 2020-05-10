@@ -12,7 +12,7 @@ CFLAGS		= -march=rv32i -mabi=ilp32 $(TARGET-ARCH-FLAGS) -Wall
 ASFLAGS		= -march=rv32i -mabi=ilp32
 LDFLAGS		= -L$(TOOLSLIB)/$(TARGET) -Map $(PROGRAM).map -Tsail.ld	#-Ttext $(LOADADDR)
 LOADADDR	= 0x00
-SREC2HEX	= $(TREEROOT)/tools/srec2hex/srec2hex
+SREC2HEX	= srec2hex
 
 OBJS	=\
 	$(PROGRAM).o\
