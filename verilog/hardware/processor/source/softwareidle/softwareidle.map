@@ -13,10 +13,10 @@ Linker script and memory map
  *(.text)
  .text          0x0000000000000000       0x10 init.o
                 0x0000000000000000                _start
- .text          0x0000000000000010       0x10 softwareidle.o
+ .text          0x0000000000000010       0x4c softwareidle.o
                 0x0000000000000010                main
                 0x0000000000000400                . = 0x400
- *fill*         0x0000000000000020      0x3e0 
+ *fill*         0x000000000000005c      0x3a4 
  *(.strings)
                 0x0000000000000400                _etext = .
 
@@ -42,18 +42,18 @@ OUTPUT(softwareidle elf32-littleriscv)
 .debug_frame    0x0000000000000000       0x38
  .debug_frame   0x0000000000000000       0x38 softwareidle.o
 
-.debug_info     0x0000000000000000       0x43
- .debug_info    0x0000000000000000       0x43 softwareidle.o
+.debug_info     0x0000000000000000       0x83
+ .debug_info    0x0000000000000000       0x83 softwareidle.o
 
-.debug_abbrev   0x0000000000000000       0x3b
- .debug_abbrev  0x0000000000000000       0x3b softwareidle.o
+.debug_abbrev   0x0000000000000000       0x57
+ .debug_abbrev  0x0000000000000000       0x57 softwareidle.o
 
 .debug_aranges  0x0000000000000000       0x20
  .debug_aranges
                 0x0000000000000000       0x20 softwareidle.o
 
-.debug_line     0x0000000000000000       0x4b
- .debug_line    0x0000000000000000       0x4b softwareidle.o
+.debug_line     0x0000000000000000       0x84
+ .debug_line    0x0000000000000000       0x84 softwareidle.o
 
 .debug_str      0x0000000000000000       0x8e
  .debug_str     0x0000000000000000       0x8e softwareidle.o
