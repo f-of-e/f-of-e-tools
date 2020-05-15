@@ -4,7 +4,7 @@ include $(TREEROOT)/tools/sunflower/conf/setup.conf
 TARGET-ARCH	= riscv32-elf
 TARGET		= riscv
 
-PROGRAM		= softwareidle
+PROGRAM		= idle
 INIT		= init
 
 OPTFLAGS	= -g -O0

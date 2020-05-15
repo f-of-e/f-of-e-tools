@@ -13,10 +13,10 @@ Linker script and memory map
  *(.text)
  .text          0x0000000000000000       0x10 init.o
                 0x0000000000000000                _start
- .text          0x0000000000000010       0x4c softwareidle.o
+ .text          0x0000000000000010       0x14 idle.o
                 0x0000000000000010                main
                 0x0000000000000400                . = 0x400
- *fill*         0x000000000000005c      0x3a4 
+ *fill*         0x0000000000000024      0x3dc 
  *(.strings)
                 0x0000000000000400                _etext = .
 
@@ -26,38 +26,38 @@ Linker script and memory map
 .data           0x0000000000000400        0x0
  *(.data)
  .data          0x0000000000000400        0x0 init.o
- .data          0x0000000000000400        0x0 softwareidle.o
+ .data          0x0000000000000400        0x0 idle.o
 
 .bss            0x0000000000000400        0x0
  *(.bss)
  .bss           0x0000000000000400        0x0 init.o
- .bss           0x0000000000000400        0x0 softwareidle.o
+ .bss           0x0000000000000400        0x0 idle.o
 LOAD init.o
-LOAD softwareidle.o
+LOAD idle.o
 LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a
 LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libm.a
 LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a
-OUTPUT(softwareidle elf32-littleriscv)
+OUTPUT(idle elf32-littleriscv)
 
 .debug_frame    0x0000000000000000       0x38
- .debug_frame   0x0000000000000000       0x38 softwareidle.o
+ .debug_frame   0x0000000000000000       0x38 idle.o
 
-.debug_info     0x0000000000000000       0x83
- .debug_info    0x0000000000000000       0x83 softwareidle.o
+.debug_info     0x0000000000000000       0x43
+ .debug_info    0x0000000000000000       0x43 idle.o
 
-.debug_abbrev   0x0000000000000000       0x57
- .debug_abbrev  0x0000000000000000       0x57 softwareidle.o
+.debug_abbrev   0x0000000000000000       0x3b
+ .debug_abbrev  0x0000000000000000       0x3b idle.o
 
 .debug_aranges  0x0000000000000000       0x20
  .debug_aranges
-                0x0000000000000000       0x20 softwareidle.o
+                0x0000000000000000       0x20 idle.o
 
-.debug_line     0x0000000000000000       0x84
- .debug_line    0x0000000000000000       0x84 softwareidle.o
+.debug_line     0x0000000000000000       0x43
+ .debug_line    0x0000000000000000       0x43 idle.o
 
-.debug_str      0x0000000000000000       0x8e
- .debug_str     0x0000000000000000       0x8e softwareidle.o
+.debug_str      0x0000000000000000       0x7e
+ .debug_str     0x0000000000000000       0x7e idle.o
 
 .comment        0x0000000000000000       0x11
- .comment       0x0000000000000000       0x11 softwareidle.o
+ .comment       0x0000000000000000       0x11 idle.o
                                          0x12 (size before relaxing)

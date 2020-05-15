@@ -1,0 +1,106 @@
+Archive member included to satisfy reference by file (symbol)
+
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
+                              calculate_e.o (__floatundidf)
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+                              calculate_e.o (__muldi3)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000000000000                . = 0x0
+
+.text           0x0000000000000000      0x400
+                0x0000000000000000                _text = .
+ *(.text)
+ .text          0x0000000000000000       0x10 init.o
+                0x0000000000000000                _start
+ .text          0x0000000000000010      0x168 calculate_e.o
+                0x0000000000000010                main
+ .text          0x0000000000000178       0x18 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
+                0x0000000000000178                __floatundidf
+ .text          0x0000000000000190       0x70 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+                0x0000000000000190                __muldi3
+                0x0000000000000400                . = 0x400
+ *fill*         0x0000000000000200      0x200 
+ *(.strings)
+                0x0000000000000400                _etext = .
+
+.rodata         0x0000000000000400       0x18
+ .rodata        0x0000000000000400       0x18 calculate_e.o
+
+.srodata.cst8   0x0000000000000418        0x8
+ .srodata.cst8  0x0000000000000418        0x8 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
+
+.rela.dyn       0x0000000000000420        0x0
+ .rela.text     0x0000000000000420        0x0 init.o
+
+.data           0x0000000000000420        0x0
+ *(.data)
+ .data          0x0000000000000420        0x0 init.o
+ .data          0x0000000000000420        0x0 calculate_e.o
+ .data          0x0000000000000420        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
+ .data          0x0000000000000420        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+
+.bss            0x0000000000000420        0x0
+ *(.bss)
+ .bss           0x0000000000000420        0x0 init.o
+ .bss           0x0000000000000420        0x0 calculate_e.o
+ .bss           0x0000000000000420        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
+ .bss           0x0000000000000420        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+LOAD init.o
+LOAD calculate_e.o
+LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a
+LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libm.a
+LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a
+OUTPUT(calculate_e elf32-littleriscv)
+
+.debug_frame    0x0000000000000000       0xac
+ .debug_frame   0x0000000000000000       0x6c calculate_e.o
+ .debug_frame   0x000000000000006c       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
+ .debug_frame   0x000000000000008c       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+
+.debug_info     0x0000000000000000     0x21dd
+ .debug_info    0x0000000000000000      0x9b5 calculate_e.o
+ .debug_info    0x00000000000009b5      0xb8f /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
+ .debug_info    0x0000000000001544      0xc99 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+
+.debug_abbrev   0x0000000000000000      0x695
+ .debug_abbrev  0x0000000000000000      0x20e calculate_e.o
+ .debug_abbrev  0x000000000000020e      0x21b /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
+ .debug_abbrev  0x0000000000000429      0x26c /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+
+.debug_aranges  0x0000000000000000       0x60
+ .debug_aranges
+                0x0000000000000000       0x20 calculate_e.o
+ .debug_aranges
+                0x0000000000000020       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
+ .debug_aranges
+                0x0000000000000040       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+
+.debug_line     0x0000000000000000      0x836
+ .debug_line    0x0000000000000000      0x21c calculate_e.o
+ .debug_line    0x000000000000021c      0x249 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
+ .debug_line    0x0000000000000465      0x3d1 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+
+.debug_str      0x0000000000000000      0x83f
+ .debug_str     0x0000000000000000      0x50b calculate_e.o
+                                        0x576 (size before relaxing)
+ .debug_str     0x000000000000050b      0x2af /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
+                                        0x740 (size before relaxing)
+ .debug_str     0x00000000000007ba       0x85 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+                                        0x7a7 (size before relaxing)
+
+.comment        0x0000000000000000       0x11
+ .comment       0x0000000000000000       0x11 calculate_e.o
+                                         0x12 (size before relaxing)
+ .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
+ .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+
+.debug_loc      0x0000000000000000      0x16a
+ .debug_loc     0x0000000000000000       0x14 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
+ .debug_loc     0x0000000000000014      0x156 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
