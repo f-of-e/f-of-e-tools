@@ -4,13 +4,13 @@ include $(TREEROOT)/tools/sunflower/conf/setup.conf
 TARGET-ARCH	= riscv32-elf
 TARGET		= riscv
 
-PROGRAM		= softwareblink
+PROGRAM		= matrix_mul
 INIT		= init
 
 OPTFLAGS	= -g -O0
 CFLAGS		= -march=rv32i -mabi=ilp32 $(TARGET-ARCH-FLAGS) -Wall 
 ASFLAGS		= -march=rv32i -mabi=ilp32
-LDFLAGS		= -L$(TOOLSLIB)/$(TARGET) -Map $(PROGRAM).map -Tsail.ld	#-Ttext $(LOADADDR)
+LDFLAGS		= -L$(TOOLSLIB)/$(TARGET) -Map $(PROGRAM).map -Tsail.ld #-Ttext $(LOADADDR)
 LOADADDR	= 0x00
 SREC2HEX	= srec2hex
 
