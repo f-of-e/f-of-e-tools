@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-const int size = 8;
+const int size = 9;
 int determinant(int matrix[size][size], int k);
 void mnr(int matrix[size][size], int intermidiate[size][size], int row, int column, int k);
 void inverse(int matrix[size][size], int det);
@@ -10,32 +10,33 @@ void inverse(int matrix[size][size], int det);
 int
 main(void)
 {
-	srand(time(0));	
-	int matrixA[size][size];	
-	
-	for(int i=0; i<size; i++){
-		for(int j=0; j<size; j++){
-			matrixA[i][j] = rand() % 10;
+	while(1) {
+		srand(time(0));	
+		int matrixA[size][size];	
+		
+		for(int i=0; i<size; i++){
+			for(int j=0; j<size; j++){
+				matrixA[i][j] = rand() % 9;
+			}
 		}
-	}
 
-	int det = determinant(matrixA, size);
-	//printf("%d\n", det);
-	if (abs(det) < 1) {
-		//printf("We have failed");
-	} else {
-		inverse(matrixA, det);
+		int det = determinant(matrixA, size);
+		//printf("%d\n", det);
+		if (abs(det) < 1) {
+			//printf("We have failed");
+		} else {
+			inverse(matrixA, det);
+		}
+		// print the array
+		//for(int i=0; i<size; i++){
+		//	for(int j=0; j<size; j++){
+		//		printf("%d ", matrixA[i][j]);	
+		//		if(j==size-1) {
+		//			printf("\n");
+		//		}
+		//	}
+		//}
 	}
-	// print the array
-	//for(int i=0; i<size; i++){
-	//	for(int j=0; j<size; j++){
-	//		printf("%d ", matrixA[i][j]);	
-	//		if(j==size-1) {
-	//			printf("\n");
-	//		}
-	//	}
-	//}
-
 	return 0;
 }
 
