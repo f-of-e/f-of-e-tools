@@ -33,7 +33,7 @@ $(PROGRAM).o: $(PROGRAM).c Makefile
 	$(CC) $(CFLAGS) $(OPTFLAGS) -c $(PROGRAM).c
 
 install: all
-	$(SREC2HEX) $(PROGRAM).sr
+	$(SREC2HEX) -b 4096 $(PROGRAM).sr
 	cp program.hex ../../programs
 	cp data.hex ../../programs
 
