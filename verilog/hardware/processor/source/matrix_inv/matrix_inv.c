@@ -1,17 +1,16 @@
-//#include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 
 const int size = 9;
 int determinant(int matrix[size][size], int k);
 void mnr(int matrix[size][size], int intermidiate[size][size], int row, int column, int k);
 void inverse(int matrix[size][size], int det);
+int init = 0;
 
 int
 main(void)
 {
 	while(1) {
-		srand(time(0));	
+		srand(init);	
 		int matrixA[size][size];	
 		
 		for(int i=0; i<size; i++){
@@ -21,21 +20,10 @@ main(void)
 		}
 
 		int det = determinant(matrixA, size);
-		//printf("%d\n", det);
-		if (abs(det) < 1) {
-			//printf("We have failed");
-		} else {
+		if (abs(det) > 1) {
 			inverse(matrixA, det);
 		}
-		// print the array
-		//for(int i=0; i<size; i++){
-		//	for(int j=0; j<size; j++){
-		//		printf("%d ", matrixA[i][j]);	
-		//		if(j==size-1) {
-		//			printf("\n");
-		//		}
-		//	}
-		//}
+		init++;
 	}
 	return 0;
 }
@@ -82,26 +70,15 @@ void mnr(int matrix[size][size], int intermidiate[size][size], int row, int colu
 
 // Calculate the cofactor matrix, transpose it and print the inverse
 void inverse(int matrix[size][size], int det) {
-	int inv[size][size];
+	float inv[size][size];
 	int intermidiate[size][size];
 	int sign = 1;
 	
 	for(int i=0; i < size; i++) {
 		for(int j=0; j < size; j++) {
 			mnr(matrix, intermidiate, i, j, size);
-			inv[j][i] = sign * determinant(intermidiate, size-1); // Note: for efficiency we could do dividion here
+			inv[j][i] = (float)sign * (float)determinant(intermidiate, size-1) / (float)det;
 			sign *= -1;
 		}
 	}
-	
-	
-	// print the array
-	//for(int i=0; i<size; i++){
-	//	for(int j=0; j<size; j++){
-	//		printf("%f ", (float)inv[i][j]/ (float)det);	
-	//		if(j==size-1) {
-	//			printf("\n");
-	//		}
-	//	}
-	//}
 }
