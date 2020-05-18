@@ -4,8 +4,8 @@ include $(TREEROOT)/tools/sunflower/conf/setup.conf
 TARGET-ARCH	= riscv32-elf
 TARGET		= riscv
 
-PROGRAM		= rf_bubblesort
-PROGRAM-SF	= rf_bubblesort-sf
+PROGRAM		= rf_calculate_e
+PROGRAM-SF	= rf_calculate_e-sf
 INIT		= init
 INIT-SF		= init-sf
 
@@ -50,7 +50,7 @@ $(PROGRAM-SF).sr:$(PROGRAM-SF)
 	$(OBJCOPY) -O srec $(PROGRAM-SF) $@
 
 install: all
-	$(SREC2HEX) -b 4096 $(PROGRAM).sr
+	$(SREC2HEX) -b 16384 $(PROGRAM).sr
 	cp program.hex ../../programs
 	cp data.hex ../../programs
 

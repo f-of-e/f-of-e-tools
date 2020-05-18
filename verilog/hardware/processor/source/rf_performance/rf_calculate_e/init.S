@@ -5,7 +5,7 @@ _start:
 
 init:
 	nop
-	li		sp,5120
+	li		sp,17408
 	j			main
 
 
