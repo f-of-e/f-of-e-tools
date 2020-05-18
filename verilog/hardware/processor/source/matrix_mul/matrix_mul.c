@@ -1,13 +1,14 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+
+int init = 0;
+
 int
 main(void)
 {
 	// This simple program intorduces a simple matrix inverse and multiplication calculation for two reference matrices. 
 	// It is used to evaluate the progress of the improvement of the processor implementation.
 	while(1) {
-		srand(time(0));	
+		srand(init);	
 
 		int size = 100;
 
@@ -30,16 +31,7 @@ main(void)
 				}
 			}
 		}
-
-		// Print the array
-		//for(int i=0; i<size; i++){
-		//	for(int j=0; j<size; j++){
-		//		printf("%d ", mult[i][j]);	
-		//		if(j==size-1) {
-		//			printf("\n");
-		//		}
-		//	}
-		//}
+		init++;
 	}
 	return 0;
 }
