@@ -4,8 +4,8 @@ include $(TREEROOT)/tools/sunflower/conf/setup.conf
 TARGET-ARCH	= riscv32-elf
 TARGET		= riscv
 
-PROGRAM		= rf_newtonraphson
-PROGRAM-SF	= rf_newtonraphson-sf
+PROGRAM		= rf_matrix_mul
+PROGRAM-SF	= rf_matrix_mul-sf
 INIT		= init
 INIT-SF		= init-sf
 

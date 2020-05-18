@@ -1,5 +1,5 @@
 newnode		riscv
 sizemem		65536	
-srecl		"rf_bubblesort-sf.sr"
+srecl		"rf_calculate_e-sf.sr"
 run
 on
