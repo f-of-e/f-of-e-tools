@@ -1,9 +1,25 @@
 Archive member included to satisfy reference by file (symbol)
 
-/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(adddf3.o)
+                              calculate_e.o (__adddf3)
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divdf3.o)
+                              calculate_e.o (__divdf3)
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(gedf2.o)
+                              calculate_e.o (__gedf2)
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subdf3.o)
+                              calculate_e.o (__subdf3)
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(floatundidf.o)
                               calculate_e.o (__floatundidf)
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(muldi3.o)
+                              /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divdf3.o) (__mulsi3)
 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
                               calculate_e.o (__muldi3)
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(div.o)
+                              /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divdf3.o) (__udivsi3)
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+                              /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(adddf3.o) (__clzsi2)
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
+                              /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o) (__clz_tab)
 
 Memory Configuration
 
@@ -14,44 +30,79 @@ Linker script and memory map
 
                 0x0000000000000000                . = 0x0
 
-.text           0x0000000000000000      0x400
+.text           0x0000000000000000     0x4000
                 0x0000000000000000                _text = .
  *(.text)
  .text          0x0000000000000000       0x10 init.o
                 0x0000000000000000                _start
- .text          0x0000000000000010      0x168 calculate_e.o
+ .text          0x0000000000000010      0x140 calculate_e.o
                 0x0000000000000010                main
- .text          0x0000000000000178       0x18 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
-                0x0000000000000178                __floatundidf
- .text          0x0000000000000190       0x70 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
-                0x0000000000000190                __muldi3
-                0x0000000000000400                . = 0x400
- *fill*         0x0000000000000200      0x200 
+ .text          0x0000000000000150      0x944 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(adddf3.o)
+                0x0000000000000150                __adddf3
+ .text          0x0000000000000a94      0x8b4 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divdf3.o)
+                0x0000000000000a94                __divdf3
+ .text          0x0000000000001348       0xf0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(gedf2.o)
+                0x0000000000001348                __gtdf2
+                0x0000000000001348                __gedf2
+ .text          0x0000000000001438      0x904 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subdf3.o)
+                0x0000000000001438                __subdf3
+ .text          0x0000000000001d3c      0x240 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(floatundidf.o)
+                0x0000000000001d3c                __floatundidf
+ .text          0x0000000000001f7c       0x24 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(muldi3.o)
+                0x0000000000001f7c                __mulsi3
+ .text          0x0000000000001fa0       0x90 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+                0x0000000000001fa0                __muldi3
+ .text          0x0000000000002030       0xb4 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(div.o)
+                0x0000000000002030                __divsi3
+                0x0000000000002038                __udivsi3
+                0x0000000000002080                __umodsi3
+                0x00000000000020b4                __modsi3
+ .text          0x00000000000020e4       0x94 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+                0x00000000000020e4                __clzsi2
+ .text          0x0000000000002178        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
+                0x0000000000004000                . = 0x4000
+ *fill*         0x0000000000002178     0x1e88 
  *(.strings)
-                0x0000000000000400                _etext = .
+                0x0000000000004000                _etext = .
 
-.rodata         0x0000000000000400       0x18
- .rodata        0x0000000000000400       0x18 calculate_e.o
+.rodata         0x0000000000004000      0x158
+ .rodata        0x0000000000004000       0x18 calculate_e.o
+ .rodata        0x0000000000004018       0x40 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divdf3.o)
+ .rodata        0x0000000000004058      0x100 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
+                0x0000000000004058                __clz_tab
 
-.srodata.cst8   0x0000000000000418        0x8
- .srodata.cst8  0x0000000000000418        0x8 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
+.rela.dyn       0x0000000000004158        0x0
+ .rela.text     0x0000000000004158        0x0 init.o
 
-.rela.dyn       0x0000000000000420        0x0
- .rela.text     0x0000000000000420        0x0 init.o
-
-.data           0x0000000000000420        0x0
+.data           0x0000000000004158        0x0
  *(.data)
- .data          0x0000000000000420        0x0 init.o
- .data          0x0000000000000420        0x0 calculate_e.o
- .data          0x0000000000000420        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
- .data          0x0000000000000420        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+ .data          0x0000000000004158        0x0 init.o
+ .data          0x0000000000004158        0x0 calculate_e.o
+ .data          0x0000000000004158        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(adddf3.o)
+ .data          0x0000000000004158        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divdf3.o)
+ .data          0x0000000000004158        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(gedf2.o)
+ .data          0x0000000000004158        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subdf3.o)
+ .data          0x0000000000004158        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(floatundidf.o)
+ .data          0x0000000000004158        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(muldi3.o)
+ .data          0x0000000000004158        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+ .data          0x0000000000004158        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(div.o)
+ .data          0x0000000000004158        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+ .data          0x0000000000004158        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
 
-.bss            0x0000000000000420        0x0
+.bss            0x0000000000004158        0x0
  *(.bss)
- .bss           0x0000000000000420        0x0 init.o
- .bss           0x0000000000000420        0x0 calculate_e.o
- .bss           0x0000000000000420        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
- .bss           0x0000000000000420        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+ .bss           0x0000000000004158        0x0 init.o
+ .bss           0x0000000000004158        0x0 calculate_e.o
+ .bss           0x0000000000004158        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(adddf3.o)
+ .bss           0x0000000000004158        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divdf3.o)
+ .bss           0x0000000000004158        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(gedf2.o)
+ .bss           0x0000000000004158        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subdf3.o)
+ .bss           0x0000000000004158        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(floatundidf.o)
+ .bss           0x0000000000004158        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(muldi3.o)
+ .bss           0x0000000000004158        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+ .bss           0x0000000000004158        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(div.o)
+ .bss           0x0000000000004158        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+ .bss           0x0000000000004158        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
 LOAD init.o
 LOAD calculate_e.o
 LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a
@@ -59,48 +110,127 @@ LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libm.a
 LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a
 OUTPUT(calculate_e elf32-littleriscv)
 
-.debug_frame    0x0000000000000000       0xac
- .debug_frame   0x0000000000000000       0x6c calculate_e.o
- .debug_frame   0x000000000000006c       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
- .debug_frame   0x000000000000008c       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+.debug_frame    0x0000000000000000      0x290
+ .debug_frame   0x0000000000000000       0x40 calculate_e.o
+ .debug_frame   0x0000000000000040       0x68 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(adddf3.o)
+ .debug_frame   0x00000000000000a8       0xa8 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divdf3.o)
+ .debug_frame   0x0000000000000150       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(gedf2.o)
+ .debug_frame   0x0000000000000170       0x68 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subdf3.o)
+ .debug_frame   0x00000000000001d8       0x5c /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(floatundidf.o)
+ .debug_frame   0x0000000000000234       0x3c /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+ .debug_frame   0x0000000000000270       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
 
-.debug_info     0x0000000000000000     0x21dd
+.debug_info     0x0000000000000000     0x4722
  .debug_info    0x0000000000000000      0x9b5 calculate_e.o
- .debug_info    0x00000000000009b5      0xb8f /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
- .debug_info    0x0000000000001544      0xc99 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+ .debug_info    0x00000000000009b5      0x5b9 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(adddf3.o)
+ .debug_info    0x0000000000000f6e      0x884 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divdf3.o)
+ .debug_info    0x00000000000017f2      0x288 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(gedf2.o)
+ .debug_info    0x0000000000001a7a      0x5b7 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subdf3.o)
+ .debug_info    0x0000000000002031      0x2e0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(floatundidf.o)
+ .debug_info    0x0000000000002311       0x26 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(muldi3.o)
+ .debug_info    0x0000000000002337      0xce6 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+ .debug_info    0x000000000000301d       0x26 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(div.o)
+ .debug_info    0x0000000000003043      0xba6 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+ .debug_info    0x0000000000003be9      0xb39 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
 
-.debug_abbrev   0x0000000000000000      0x695
- .debug_abbrev  0x0000000000000000      0x20e calculate_e.o
- .debug_abbrev  0x000000000000020e      0x21b /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
- .debug_abbrev  0x0000000000000429      0x26c /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+.debug_abbrev   0x0000000000000000     0x10d3
+ .debug_abbrev  0x0000000000000000      0x210 calculate_e.o
+ .debug_abbrev  0x0000000000000210      0x196 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(adddf3.o)
+ .debug_abbrev  0x00000000000003a6      0x1a1 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divdf3.o)
+ .debug_abbrev  0x0000000000000547      0x199 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(gedf2.o)
+ .debug_abbrev  0x00000000000006e0      0x1a7 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subdf3.o)
+ .debug_abbrev  0x0000000000000887      0x18b /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(floatundidf.o)
+ .debug_abbrev  0x0000000000000a12       0x14 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(muldi3.o)
+ .debug_abbrev  0x0000000000000a26      0x26f /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+ .debug_abbrev  0x0000000000000c95       0x14 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(div.o)
+ .debug_abbrev  0x0000000000000ca9      0x242 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+ .debug_abbrev  0x0000000000000eeb      0x1e8 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
 
-.debug_aranges  0x0000000000000000       0x60
+.debug_aranges  0x0000000000000000      0x158
  .debug_aranges
                 0x0000000000000000       0x20 calculate_e.o
  .debug_aranges
-                0x0000000000000020       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
+                0x0000000000000020       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(adddf3.o)
  .debug_aranges
-                0x0000000000000040       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+                0x0000000000000040       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divdf3.o)
+ .debug_aranges
+                0x0000000000000060       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(gedf2.o)
+ .debug_aranges
+                0x0000000000000080       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subdf3.o)
+ .debug_aranges
+                0x00000000000000a0       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(floatundidf.o)
+ .debug_aranges
+                0x00000000000000c0       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(muldi3.o)
+ .debug_aranges
+                0x00000000000000e0       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+ .debug_aranges
+                0x0000000000000100       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(div.o)
+ .debug_aranges
+                0x0000000000000120       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+ .debug_aranges
+                0x0000000000000140       0x18 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
 
-.debug_line     0x0000000000000000      0x836
- .debug_line    0x0000000000000000      0x21c calculate_e.o
- .debug_line    0x000000000000021c      0x249 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
- .debug_line    0x0000000000000465      0x3d1 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+.debug_line     0x0000000000000000     0x45ae
+ .debug_line    0x0000000000000000      0x214 calculate_e.o
+ .debug_line    0x0000000000000214     0x10b8 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(adddf3.o)
+ .debug_line    0x00000000000012cc     0x1056 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divdf3.o)
+ .debug_line    0x0000000000002322      0x317 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(gedf2.o)
+ .debug_line    0x0000000000002639     0x10bf /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subdf3.o)
+ .debug_line    0x00000000000036f8      0x413 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(floatundidf.o)
+ .debug_line    0x0000000000003b0b       0x86 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(muldi3.o)
+ .debug_line    0x0000000000003b91      0x401 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+ .debug_line    0x0000000000003f92      0x15c /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(div.o)
+ .debug_line    0x00000000000040ee      0x2ca /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+ .debug_line    0x00000000000043b8      0x1f6 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
 
-.debug_str      0x0000000000000000      0x83f
+.debug_str      0x0000000000000000      0xce3
  .debug_str     0x0000000000000000      0x50b calculate_e.o
                                         0x576 (size before relaxing)
- .debug_str     0x000000000000050b      0x2af /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
-                                        0x740 (size before relaxing)
- .debug_str     0x00000000000007ba       0x85 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
-                                        0x7a7 (size before relaxing)
+ .debug_str     0x000000000000050b      0x261 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(adddf3.o)
+                                        0x2e7 (size before relaxing)
+ .debug_str     0x000000000000076c      0x1de /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divdf3.o)
+                                        0x3b5 (size before relaxing)
+ .debug_str     0x000000000000094a       0x6b /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(gedf2.o)
+                                        0x225 (size before relaxing)
+ .debug_str     0x00000000000009b5       0x2a /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subdf3.o)
+                                        0x2e7 (size before relaxing)
+ .debug_str     0x00000000000009df       0x69 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(floatundidf.o)
+                                        0x29b (size before relaxing)
+ .debug_str     0x0000000000000a48       0x34 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(muldi3.o)
+                                         0x88 (size before relaxing)
+ .debug_str     0x0000000000000a7c      0x21c /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+                                        0x7af (size before relaxing)
+ .debug_str     0x0000000000000c98       0x23 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(div.o)
+                                         0x85 (size before relaxing)
+ .debug_str     0x0000000000000cbb       0x28 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+                                        0x734 (size before relaxing)
+ .debug_str     0x0000000000000ce3      0x717 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
 
 .comment        0x0000000000000000       0x11
  .comment       0x0000000000000000       0x11 calculate_e.o
                                          0x12 (size before relaxing)
- .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
+ .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(adddf3.o)
+ .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divdf3.o)
+ .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(gedf2.o)
+ .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subdf3.o)
+ .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(floatundidf.o)
  .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+ .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+ .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
 
-.debug_loc      0x0000000000000000      0x16a
- .debug_loc     0x0000000000000000       0x14 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_floatundidf.o)
- .debug_loc     0x0000000000000014      0x156 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+.debug_loc      0x0000000000000000     0x59a2
+ .debug_loc     0x0000000000000000     0x1ce3 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(adddf3.o)
+ .debug_loc     0x0000000000001ce3     0x19fb /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divdf3.o)
+ .debug_loc     0x00000000000036de      0x2a9 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(gedf2.o)
+ .debug_loc     0x0000000000003987     0x19bb /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subdf3.o)
+ .debug_loc     0x0000000000005342      0x3fd /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(floatundidf.o)
+ .debug_loc     0x000000000000573f      0x16e /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(multi3.o)
+ .debug_loc     0x00000000000058ad       0xf5 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+
+.debug_ranges   0x0000000000000000      0x840
+ .debug_ranges  0x0000000000000000      0x298 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(adddf3.o)
+ .debug_ranges  0x0000000000000298      0x1b0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divdf3.o)
+ .debug_ranges  0x0000000000000448       0x68 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(gedf2.o)
+ .debug_ranges  0x00000000000004b0      0x2a8 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subdf3.o)
+ .debug_ranges  0x0000000000000758       0xb8 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(floatundidf.o)
+ .debug_ranges  0x0000000000000810       0x30 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
