@@ -1,3 +1,6 @@
+OUTPUT_FORMAT("elf32-littleriscv")
+OUTPUT_ARCH(riscv)
+
 ENTRY(_start)
 
 SECTIONS
@@ -7,7 +10,7 @@ SECTIONS
 	{
 		_text = . ;
 		*(.text) 
-		. = 0x400;
+		. = 0x1000;
 		*(.strings)
 		_etext = . ;
 	}
