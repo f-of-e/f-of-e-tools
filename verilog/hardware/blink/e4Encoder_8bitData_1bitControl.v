@@ -178,4 +178,3 @@ module e4Encoder_8bitData_1bitControl(dataIn, worstCaseDeviationCode, encoderOut
 		endcase
 	end /* always @ (*) */
 endmodule /* e4Encoder_8bitData_1bitControl */
-

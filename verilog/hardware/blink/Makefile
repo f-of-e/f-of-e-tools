@@ -1,3 +1,5 @@
+default: blinkDataflow
+
 all: blink blinkDataflow dffDataflow dffHardIP blinkBehavioral blinkGate dffBehavioral dffGate simple simpleAlternative
 
 blink:

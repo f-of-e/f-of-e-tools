@@ -8,4 +8,4 @@
 #
 #		http://www.latticesemi.com/en/Products/FPGAandCPLD/iCE40UltraPlus
 #
-set_io led D3
+set_io	led D3

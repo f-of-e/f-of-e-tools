@@ -1,3 +1,5 @@
+`define	kFofE_HFOSC_CLOCK_DIVIDER_FOR_1Hz	24000000
+
 module blink(led);
 	output		led;
 
@@ -16,10 +18,11 @@ module blink(led);
 	);
 
 	/*
-	 *	Blinks LED at approximately 1Hz
+	 *	Blinks LED at approximately 1Hz. The constant kFofE_CLOCK_DIVIDER_FOR_1Hz
+	 *	(defined above) is calibrated to yield a blink rate of about 1Hz.
 	 */
 	always @(posedge clk) begin
-		if (count > 25000000) begin
+		if (count > `kFofE_HFOSC_CLOCK_DIVIDER_FOR_1Hz) begin
 			LEDstatus <= !LEDstatus;
 			count <= 0;
 		end
