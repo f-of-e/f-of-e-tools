@@ -1,5 +1,5 @@
 # F-of-E Tools
-This is the repository for the Foundations of Embedded Systems online tutorials, comprising the University of Cambridge Department of Engineering _GB3: RISC-V Processor Design_ IIA (3rd year yundergraduate) project and the University of Cambridge Department of Engineering _4B25: Embedded Systems_ IIB (4th year / M.Sc.) course.
+This is the repository for the Foundations of Embedded Systems online tutorials, comprising the University of Cambridge Department of Engineering _GB3: RISC-V Processor Design_ IIA (3rd year undergraduate) project and the University of Cambridge Department of Engineering _4B25: Embedded Systems_ IIB (4th year / M.Sc.) course.
 
 The project is organized and run by the [Physical Computation Laboratory](http://physcomp.eng.cam.ac.uk). This repository includes several other repositories as git submodules, including the [`Sunflower`](https://github.com/physical-computation/sunflower-simulator) processor emulator (RISC-V and SuperH), the [`Narvie`](https://github.com/physical-computation/narvie) RISC-V read-eval-print-loop (REPL) for interactive instruction emulation on the iCE40 FPGA, and the [`yosys`](https://github.com/YosysHQ/yosys), [`ArachnePNR`](https://github.com/YosysHQ/arachne-pnr), and [`NextPNR`](https://github.com/YosysHQ/nextpnr) tools. 
 
