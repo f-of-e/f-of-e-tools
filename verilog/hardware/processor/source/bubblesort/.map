@@ -1,0 +1,154 @@
+Archive member included to satisfy reference by file (symbol)
+
+/data/f-of-e-tools/tools/sunflower//sys/libOS/eOS/libeOS-riscv.a(print.o)
+                              bsort.o (print)
+/data/f-of-e-tools/tools/sunflower//tools/tools-lib/riscv/libgcc.a(div.o)
+                              /data/f-of-e-tools/tools/sunflower//sys/libOS/eOS/libeOS-riscv.a(print.o) (__divsi3)
+
+Discarded input sections
+
+ .group         0x0000000000000000        0x8 /data/f-of-e-tools/tools/sunflower//sys/libOS/eOS/libeOS-riscv.a(print.o)
+ .group         0x0000000000000000        0x8 /data/f-of-e-tools/tools/sunflower//sys/libOS/eOS/libeOS-riscv.a(print.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+Address of section .text set to 0x8004000
+
+.text           0x0000000008004000      0xe54
+                0x0000000008004000                _text = .
+ *(.text)
+ .text          0x0000000008004000       0x20 init-riscv.o
+                0x0000000008004000                _start
+                0x0000000008004014                __errno
+ .text          0x0000000008004020      0x1a8 misc.o
+                0x0000000008004020                sccputc
+                0x000000000800408c                devlogprintputc
+                0x00000000080040c4                xudelay
+                0x0000000008004110                xusleep
+                0x0000000008004164                pow10
+ .text          0x00000000080041c8       0x90 devrtc.o
+                0x00000000080041c8                devrtc_getusecs
+ .text          0x0000000008004258      0x1a0 bsort.o
+                0x0000000008004258                main
+ .text          0x00000000080043f8      0x9a8 /data/f-of-e-tools/tools/sunflower//sys/libOS/eOS/libeOS-riscv.a(print.o)
+                0x0000000008004c24                print
+                0x0000000008004c70                lprint
+                0x0000000008004cbc                fprint
+                0x0000000008004d0c                sprint
+                0x0000000008004d58                snprint
+ .text          0x0000000008004da0       0xb4 /data/f-of-e-tools/tools/sunflower//tools/tools-lib/riscv/libgcc.a(div.o)
+                0x0000000008004da0                __divsi3
+                0x0000000008004da8                __udivsi3
+                0x0000000008004df0                __umodsi3
+                0x0000000008004e24                __modsi3
+ *(.strings)
+                0x0000000008004e54                _etext = .
+
+.srodata        0x0000000008004e54        0x4
+ .srodata       0x0000000008004e54        0x4 bsort.o
+                0x0000000008004e54                bsort_input_len
+
+.rodata         0x0000000008004e58        0xe
+ .rodata        0x0000000008004e58        0xe bsort.o
+
+.rodata.str1.4  0x0000000008004e68       0x14
+ .rodata.str1.4
+                0x0000000008004e68       0x14 /data/f-of-e-tools/tools/sunflower//sys/libOS/eOS/libeOS-riscv.a(print.o)
+                                         0x11 (size before relaxing)
+
+.rela.dyn       0x0000000008004e7c        0x0
+ .rela.text     0x0000000008004e7c        0x0 init-riscv.o
+
+.tors           0x0000000008004e7c        0x0
+                0x0000000008004e7c                ___ctors = .
+ *(.ctors)
+                0x0000000008004e7c                ___ctors_end = .
+                0x0000000008004e7c                ___dtors = .
+ *(.dtors)
+                0x0000000008004e7c                ___dtors_end = .
+
+.data           0x0000000008004e7c       0x3f
+                0x0000000008004e7c                _data = .
+ *(.data)
+ .data          0x0000000008004e7c        0x0 init-riscv.o
+ .data          0x0000000008004e7c        0x0 misc.o
+ .data          0x0000000008004e7c        0x0 devrtc.o
+ .data          0x0000000008004e7c       0x3b bsort.o
+                0x0000000008004e7c                bsort_input
+ .data          0x0000000008004eb7        0x0 /data/f-of-e-tools/tools/sunflower//sys/libOS/eOS/libeOS-riscv.a(print.o)
+ .data          0x0000000008004eb7        0x0 /data/f-of-e-tools/tools/sunflower//tools/tools-lib/riscv/libgcc.a(div.o)
+ *(.gcc_exc*)
+                0x0000000008004eb7                ___EH_FRAME_BEGIN__ = .
+ *(.eh_fram*)
+                0x0000000008004eb7                ___EH_FRAME_END__ = .
+                0x0000000008004eb7        0x4 LONG 0x0
+                0x0000000008004ebb                _edata = .
+
+.bss            0x0000000008004ebb        0x0
+                0x0000000008004ebb                _bss = .
+ *(.bss)
+ .bss           0x0000000008004ebb        0x0 init-riscv.o
+ .bss           0x0000000008004ebb        0x0 misc.o
+ .bss           0x0000000008004ebb        0x0 devrtc.o
+ .bss           0x0000000008004ebb        0x0 bsort.o
+ .bss           0x0000000008004ebb        0x0 /data/f-of-e-tools/tools/sunflower//sys/libOS/eOS/libeOS-riscv.a(print.o)
+ .bss           0x0000000008004ebb        0x0 /data/f-of-e-tools/tools/sunflower//tools/tools-lib/riscv/libgcc.a(div.o)
+ *(COMMON)
+                0x0000000008004ebb                _ebss = .
+                0x0000000008004ebb                _end = .
+LOAD init-riscv.o
+LOAD misc.o
+LOAD devrtc.o
+LOAD bsort.o
+LOAD /data/f-of-e-tools/tools/sunflower//sys/libOS/eOS/libeOS-riscv.a
+LOAD /data/f-of-e-tools/tools/sunflower//tools/tools-lib/riscv/libgcc.a
+OUTPUT(bsort elf32-littleriscv)
+
+.comment        0x0000000000000000       0x11
+ .comment       0x0000000000000000       0x11 misc.o
+                                         0x12 (size before relaxing)
+ .comment       0x0000000000000011       0x12 devrtc.o
+ .comment       0x0000000000000011       0x12 bsort.o
+ .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower//sys/libOS/eOS/libeOS-riscv.a(print.o)
+
+.debug_frame    0x0000000000000000      0x23c
+ .debug_frame   0x0000000000000000      0x23c /data/f-of-e-tools/tools/sunflower//sys/libOS/eOS/libeOS-riscv.a(print.o)
+
+.debug_info     0x0000000000000000      0x7ca
+ .debug_info    0x0000000000000000      0x7a4 /data/f-of-e-tools/tools/sunflower//sys/libOS/eOS/libeOS-riscv.a(print.o)
+ .debug_info    0x00000000000007a4       0x26 /data/f-of-e-tools/tools/sunflower//tools/tools-lib/riscv/libgcc.a(div.o)
+
+.debug_abbrev   0x0000000000000000      0x2f5
+ .debug_abbrev  0x0000000000000000      0x2e1 /data/f-of-e-tools/tools/sunflower//sys/libOS/eOS/libeOS-riscv.a(print.o)
+ .debug_abbrev  0x00000000000002e1       0x14 /data/f-of-e-tools/tools/sunflower//tools/tools-lib/riscv/libgcc.a(div.o)
+
+.debug_loc      0x0000000000000000      0xe16
+ .debug_loc     0x0000000000000000      0xe16 /data/f-of-e-tools/tools/sunflower//sys/libOS/eOS/libeOS-riscv.a(print.o)
+
+.debug_aranges  0x0000000000000000       0x40
+ .debug_aranges
+                0x0000000000000000       0x20 /data/f-of-e-tools/tools/sunflower//sys/libOS/eOS/libeOS-riscv.a(print.o)
+ .debug_aranges
+                0x0000000000000020       0x20 /data/f-of-e-tools/tools/sunflower//tools/tools-lib/riscv/libgcc.a(div.o)
+
+.debug_ranges   0x0000000000000000       0x18
+ .debug_ranges  0x0000000000000000       0x18 /data/f-of-e-tools/tools/sunflower//sys/libOS/eOS/libeOS-riscv.a(print.o)
+
+.debug_macro    0x0000000000000000      0x7d8
+ .debug_macro   0x0000000000000000       0x1a /data/f-of-e-tools/tools/sunflower//sys/libOS/eOS/libeOS-riscv.a(print.o)
+ .debug_macro   0x000000000000001a      0x766 /data/f-of-e-tools/tools/sunflower//sys/libOS/eOS/libeOS-riscv.a(print.o)
+ .debug_macro   0x0000000000000780       0x58 /data/f-of-e-tools/tools/sunflower//sys/libOS/eOS/libeOS-riscv.a(print.o)
+
+.debug_line     0x0000000000000000     0x12eb
+ .debug_line    0x0000000000000000     0x118f /data/f-of-e-tools/tools/sunflower//sys/libOS/eOS/libeOS-riscv.a(print.o)
+ .debug_line    0x000000000000118f      0x15c /data/f-of-e-tools/tools/sunflower//tools/tools-lib/riscv/libgcc.a(div.o)
+
+.debug_str      0x0000000000000000     0x26c6
+ .debug_str     0x0000000000000000     0x2641 /data/f-of-e-tools/tools/sunflower//sys/libOS/eOS/libeOS-riscv.a(print.o)
+                                       0x269f (size before relaxing)
+ .debug_str     0x0000000000002641       0x85 /data/f-of-e-tools/tools/sunflower//tools/tools-lib/riscv/libgcc.a(div.o)
