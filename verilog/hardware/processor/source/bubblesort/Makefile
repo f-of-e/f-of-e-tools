@@ -12,17 +12,18 @@ TOOLSLIB	= $(TREEROOT)/tools/tools-lib
 INCLUDES	= -I$(PREFIX)/include -I../port/  -I$(TREEROOT)/sys/include -I$(TREEROOT)/sys/kern/superH -I$(TREEROOT)/benchmarks/include -I$(TREEROOT)/sys/libOS/port
 OPTFLAGS	= -O0
 CFLAGS		= $(TARGET-ARCH-FLAGS) -march=rv32i -mabi=ilp32 -Wall # Do not do since we are linking mOS for libc implementation:	-nostdlib -fno-builtin 
+
 ASFLAGS		= --march=rv32i --mabi=ilp32
 LDFLAGS		= -Ttext $(LOADADDR) -L$(TOOLSLIB)/$(TARGET) -L$(TREEROOT)/sys/libOS/$(LIBOS) -Map $(PROGRAM).map
 LOADADDR	= 0x08004000
 
-
+SREC2HEX = srec2hex
 OBJS	=\
 	init-$(TARGET).o\
 	$(PROGRAM).o\
 
 
-all:	$(PROGRAM) $(PROGRAM).sr
+all:	$(PROGRAM) $(PROGRAM).sr Makefile
 
 $(PROGRAM): $(OBJS)
 	$(LD) $(LDFLAGS) $(OBJS) -o $@ -lprintf -lc -lgcc -lgloss
@@ -36,8 +37,12 @@ $(PROGRAM).o: $(PROGRAM).c Makefile
 init-$(TARGET).o: init-$(TARGET).S
 	$(CPP) init-$(TARGET).S > init-$(TARGET).i; $(AS) $(ASFLAGS) init-$(TARGET).i -o $@
 
-clean:
-	$(RM) init-$(TARGET).i *.o $(PROGRAM) $(PROGRAM).sr $(PROGRAM).map
-
 install: all
-	cp $(PROGRAM).sr ../../../
+	$(SREC2HEX) -b 4096 $(PROGRAM).sr
+	cp program.hex ../../programs
+	cp data.hex ../../programs
+
+clean:
+	$(RM) init.i *.o $(PROGRAM) $(PROGRAM).sr $(PROGRAM).map
+	$(RM) init-sf.i *.o $(PROGRAM-SF) $(PROGRAM-SF).sr $(PROGRAM-SF).map
+	$(RM) program.hex data.hex
