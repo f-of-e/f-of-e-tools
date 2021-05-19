@@ -1,7 +1,6 @@
 #include "sf-types.h"
 // #include "sh7708.h"
 #include "devscc.h"
-#include "printf.h"
 #include "bsort-input.h"
 
 
@@ -11,7 +10,6 @@ main(void)
 	int i;
 	int maxindex = bsort_input_len - 1;
 
-	printf_("\n\n[%s]\n", bsort_input);
 	while (maxindex > 0)
 	{
 		for (i = 0; i < maxindex; i++)
@@ -27,7 +25,6 @@ main(void)
 
 		maxindex--;
 	}
-	printf_("[%s]\n", bsort_input);
 
 	return 0;
 }

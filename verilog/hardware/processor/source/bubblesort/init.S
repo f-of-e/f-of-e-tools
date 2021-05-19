@@ -1,34 +1,9 @@
-	.global _sleep
+.globl _start
+.align	2
 
+_start:
 
-	.align	2
-start:
-	/*	Clear Status Reg	*/
-	AND	#0, r0
-	LDC	r0, sr
-
-	/*	Go !	*/
-	MOV.L	app_stack_addr, r15
-	MOV.L	start_addr, r0
-	JSR	@r0
-	NOP
-
-        /*      SYSCALL SYS_exit        */
-        mov     #1, r4
-        trapa   #34
-
-
-_sleep:
-	SLEEP
-	RTS
-	NOP
-
-
-
-	.align	2
-app_stack_addr:	
-	.long	(0x8000000 + (1 << 20))
-
-	.align	2
-start_addr:
-	.long	_main
+init:
+	nop
+	li		sp, 5120	# 4096 (== 0x1000) for the code section plus another 1k for the data section
+	j		main

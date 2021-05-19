@@ -1,5 +1,5 @@
 newnode		riscv
 sizemem		65536	
-srecl		"bsort-sf.sr"
+srecl		"template-sf.sr"
 run
 on
