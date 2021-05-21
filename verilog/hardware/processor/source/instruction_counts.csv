@@ -1,0 +1,67 @@
+﻿benchmark,,bubblesort,bsort_base,bsort_dryrun,bsort_double,bsort_swapping,bsort_branch,bsort_branch_simple,bsort_loading
+description,,"unmodified bsort benchmark, hence can't meassure some things",,"runs bsort twice, first time without moving anything","runs bsort twice, both ways","two cells are always swapped trice, to increase ALU operations","4 additional comparisons at each step of the bsort, at different positions","4 additional comparisons at each step of the bsort, at the same position",loading data 101x each time
+number of instructions for 1 run in sunflower,,71430,123137,144841,123143,256905,348985,260019,148383
+number of cycles for 1 run in sunflower,,95310,180167,216495,180181,357555,512095,399177,210219
+number of fetched instructions for 1 run in sunflower,,75040,130389,155867,130399,264157,369925,280959,159639
+average CPI in sunflower,,1.334313314,1.463142678,1.49470799,1.463185078,1.391779062,1.467383985,1.535183967,1.416732375
+execution frequency on hardware,,,,,,,,,
+average CPI on hardware,,,,,,,,,
+,,,,,,,,,
+dumpdistr,ni,,,,,,,,
+Instruction frequencies for 1 run in sunflower:,,,,,,,,,
+instruction,description,,,,,,,,
+LUI,place a 20 bit constant into top 20 bits of the rd register,9967,4,4,4,4,4,4,204
+AUIPC,add a constant to PC and save to rd register,1,1,1,1,1,1,1,1
+JAL,unconditional jump,63,128,128,130,128,128,128,530
+JALR,jump and link register,2,6,6,6,6,6,6,206
+BEQ,branch if equal,2,2,2,2,2,2,2,2
+BNE,branch if unequal,0,4,4,4,4,4,4,404
+BLT,branch if less than,1829,3657,3657,3659,3657,3657,3657,3657
+BGE,branc if greater,0,0,0,0,0,0,0,202
+BLTU,"branch if less than, unsigned",0,22,22,22,22,22,22,2222
+BGEU,"branc if greater, unsigned",1711,3426,3426,3426,3426,17114,17114,3826
+LB,"load an 8bit value from memory, sign extended",0,0,0,0,0,0,0,0
+LH,"load a 16bit value from memory, sign extended",0,0,0,0,0,0,0,0
+LW,load a 32bit value from memory,15346,50644,102988,50646,102988,122504,105396,54064
+LBU,"load an 8bit value from memory, zero extended",7784,15574,33022,15574,33022,42950,42950,16174
+LHU,"load a 16bit value from memory, zero extended",0,0,0,0,0,0,0,0
+SB,store bottom 8 bits,2181,4368,13092,4368,13092,4368,4368,4968
+SH,store bottom 16 bits,0,0,0,0,0,0,0,0
+SW,store 32 bits,1841,3708,3708,3708,3708,7130,3710,7128
+ADDI,add an 11bit constant to register,16375,12898,24530,12898,24530,36850,26586,22100
+SLTI,,0,0,0,0,0,0,0,0
+SLTIU,,0,0,0,0,0,0,0,0
+XORI,,0,0,0,0,0,0,0,0
+ORI,,0,0,0,0,0,0,0,0
+ANDI,bitwise AND an 11bit constant with register,2181,4370,13094,4370,13094,4370,4370,5170
+SLLI,,0,10,10,10,10,10,10,1010
+SRLI,,0,6,6,6,6,13694,6,606
+SRAI,,0,0,0,0,0,13688,0,0
+ADD,addition,9965,19936,46108,19936,46108,64422,47312,20536
+SUB,substraction,0,4,4,4,4,13692,4,404
+SLL,left logical shift,0,0,0,0,0,0,0,0
+SLT,less than,0,0,0,0,0,0,0,0
+SLTU,unsigned less than,0,0,0,0,0,0,0,0
+XOR,bitwise xor,2181,4364,13088,4364,13088,4364,4364,4564
+SRL,right logical shift,0,0,0,0,0,0,0,0
+SRA,right arithmetic shift,0,0,0,0,0,0,0,0
+OR,bitwise or,0,4,4,4,4,4,4,404
+AND,bitwise and,0,0,0,0,0,0,0,0
+FENCE,something about ordering IO access,0,0,0,0,0,0,0,0
+FENCE_I,sycnhronizing instruction and data streams,0,0,0,0,0,0,0,0
+ECALL,make a request to the supporting execution environment,1,1,1,1,1,1,1,1
+EBREAK,used by debuggers to cause control to be transferred back to a debugging environment,0,0,0,0,0,0,0,0
+CSRRW,,0,0,0,0,0,0,0,0
+CSRRS,,0,0,0,0,0,0,0,0
+CSRRC,,0,0,0,0,0,0,0,0
+CSRRWI,,0,0,0,0,0,0,0,0
+CSRRSI,,0,0,0,0,0,0,0,0
+CSRRCI,,0,0,0,0,0,0,0,0
+MUL,,0,0,0,0,0,0,0,0
+MULH,,0,0,0,0,0,0,0,0
+MULHSU,,0,0,0,0,0,0,0,0
+MULHU,,0,0,0,0,0,0,0,0
+DIV,,0,0,0,0,0,0,0,0
+DIVU,,0,0,0,0,0,0,0,0
+REM,,0,0,0,0,0,0,0,0
+REMU,,0,0,0,0,0,0,0,0
