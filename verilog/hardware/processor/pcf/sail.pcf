@@ -11,7 +11,7 @@ set_io led[3] B5 #13B
 set_io led[2] F2 #25B_G3
 set_io led[1] A5 #24A
 set_io led[0] A2 #10A
-
+# edited led[4] to see if LED is always on
 
 #set_io tx A1 #36B
 #set_io rx A2 #37A
