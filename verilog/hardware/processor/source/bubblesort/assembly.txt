@@ -1,0 +1,108 @@
+
+bsort:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <_start>:
+init():
+       0:	00000013          	nop
+       4:	00001137          	lui	sp,0x1
+       8:	40010113          	addi	sp,sp,1024 # 1400 <bsort_input+0x3fc>
+       c:	0040006f          	j	10 <main>
+
+00000010 <main>:
+main():
+      10:	fe010113          	addi	sp,sp,-32
+      14:	00812e23          	sw	s0,28(sp)
+      18:	02010413          	addi	s0,sp,32
+      1c:	03b00793          	li	a5,59
+      20:	fff78793          	addi	a5,a5,-1
+      24:	fef42423          	sw	a5,-24(s0)
+      28:	13c0006f          	j	164 <main+0x154>
+      2c:	fe042623          	sw	zero,-20(s0)
+      30:	11c0006f          	j	14c <main+0x13c>
+      34:	000017b7          	lui	a5,0x1
+      38:	00478713          	addi	a4,a5,4 # 1004 <bsort_input>
+      3c:	fec42783          	lw	a5,-20(s0)
+      40:	00f707b3          	add	a5,a4,a5
+      44:	0007c703          	lbu	a4,0(a5)
+      48:	fec42783          	lw	a5,-20(s0)
+      4c:	00178693          	addi	a3,a5,1
+      50:	000017b7          	lui	a5,0x1
+      54:	00478793          	addi	a5,a5,4 # 1004 <bsort_input>
+      58:	00f687b3          	add	a5,a3,a5
+      5c:	0007c783          	lbu	a5,0(a5)
+      60:	0ee7f063          	bleu	a4,a5,140 <main+0x130>
+      64:	000017b7          	lui	a5,0x1
+      68:	00478713          	addi	a4,a5,4 # 1004 <bsort_input>
+      6c:	fec42783          	lw	a5,-20(s0)
+      70:	00f707b3          	add	a5,a4,a5
+      74:	0007c703          	lbu	a4,0(a5)
+      78:	fec42783          	lw	a5,-20(s0)
+      7c:	00178693          	addi	a3,a5,1
+      80:	000017b7          	lui	a5,0x1
+      84:	00478793          	addi	a5,a5,4 # 1004 <bsort_input>
+      88:	00f687b3          	add	a5,a3,a5
+      8c:	0007c783          	lbu	a5,0(a5)
+      90:	00f747b3          	xor	a5,a4,a5
+      94:	0ff7f713          	andi	a4,a5,255
+      98:	000017b7          	lui	a5,0x1
+      9c:	00478693          	addi	a3,a5,4 # 1004 <bsort_input>
+      a0:	fec42783          	lw	a5,-20(s0)
+      a4:	00f687b3          	add	a5,a3,a5
+      a8:	00e78023          	sb	a4,0(a5)
+      ac:	fec42783          	lw	a5,-20(s0)
+      b0:	00178713          	addi	a4,a5,1
+      b4:	000017b7          	lui	a5,0x1
+      b8:	00478793          	addi	a5,a5,4 # 1004 <bsort_input>
+      bc:	00f707b3          	add	a5,a4,a5
+      c0:	0007c703          	lbu	a4,0(a5)
+      c4:	000017b7          	lui	a5,0x1
+      c8:	00478693          	addi	a3,a5,4 # 1004 <bsort_input>
+      cc:	fec42783          	lw	a5,-20(s0)
+      d0:	00f687b3          	add	a5,a3,a5
+      d4:	0007c783          	lbu	a5,0(a5)
+      d8:	fec42683          	lw	a3,-20(s0)
+      dc:	00168693          	addi	a3,a3,1
+      e0:	00f747b3          	xor	a5,a4,a5
+      e4:	0ff7f713          	andi	a4,a5,255
+      e8:	000017b7          	lui	a5,0x1
+      ec:	00478793          	addi	a5,a5,4 # 1004 <bsort_input>
+      f0:	00f687b3          	add	a5,a3,a5
+      f4:	00e78023          	sb	a4,0(a5)
+      f8:	000017b7          	lui	a5,0x1
+      fc:	00478713          	addi	a4,a5,4 # 1004 <bsort_input>
+     100:	fec42783          	lw	a5,-20(s0)
+     104:	00f707b3          	add	a5,a4,a5
+     108:	0007c703          	lbu	a4,0(a5)
+     10c:	fec42783          	lw	a5,-20(s0)
+     110:	00178693          	addi	a3,a5,1
+     114:	000017b7          	lui	a5,0x1
+     118:	00478793          	addi	a5,a5,4 # 1004 <bsort_input>
+     11c:	00f687b3          	add	a5,a3,a5
+     120:	0007c783          	lbu	a5,0(a5)
+     124:	00f747b3          	xor	a5,a4,a5
+     128:	0ff7f713          	andi	a4,a5,255
+     12c:	000017b7          	lui	a5,0x1
+     130:	00478693          	addi	a3,a5,4 # 1004 <bsort_input>
+     134:	fec42783          	lw	a5,-20(s0)
+     138:	00f687b3          	add	a5,a3,a5
+     13c:	00e78023          	sb	a4,0(a5)
+     140:	fec42783          	lw	a5,-20(s0)
+     144:	00178793          	addi	a5,a5,1
+     148:	fef42623          	sw	a5,-20(s0)
+     14c:	fec42703          	lw	a4,-20(s0)
+     150:	fe842783          	lw	a5,-24(s0)
+     154:	eef740e3          	blt	a4,a5,34 <main+0x24>
+     158:	fe842783          	lw	a5,-24(s0)
+     15c:	fff78793          	addi	a5,a5,-1
+     160:	fef42423          	sw	a5,-24(s0)
+     164:	fe842783          	lw	a5,-24(s0)
+     168:	ecf042e3          	bgtz	a5,2c <main+0x1c>
+     16c:	00000793          	li	a5,0
+     170:	00078513          	mv	a0,a5
+     174:	01c12403          	lw	s0,28(sp)
+     178:	02010113          	addi	sp,sp,32
+     17c:	00008067          	ret
+	...

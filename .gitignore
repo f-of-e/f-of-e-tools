@@ -1,0 +1,7 @@
+*._*
+*.o
+*.sr
+*.map
+*bsort
+*bsort-sf
+*.i
