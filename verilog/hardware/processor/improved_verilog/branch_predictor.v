@@ -154,16 +154,16 @@ module branch_predictor(
 		if (branch_mem_sig_reg) begin
 			integer m = branch_addr[2:0]; // Access Local History Table using last two bits of Branch Address
 			if (m == 0) begin
-				
+				//use p1
 			end 
 			if (m == 1) begin
-				
+				//use p2
 			end
 			if (m == 2) begin
-				
+				//use p3
 			end
 			if (m == 3) begin
-				
+				//use p4
 			end
 			LHT[m][1] <= actual_branch_decision_input;
 			LHT[m][0] <= LHT[m][0];
