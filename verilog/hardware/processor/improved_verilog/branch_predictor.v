@@ -54,74 +54,26 @@ module branch_predictor(
 	/*
 	 *	inputs
 	 */
-	input		clk_input;
-	input		actual_branch_decision_input;
-	input		branch_decode_sig_input;
-	input		branch_mem_sig_input;
-	input [31:0]	in_addr_input;
-	input [31:0]	offset_input;
+	input		clk;
+	input		actual_branch_decision;
+	input		branch_decode_sig;
+	input		branch_mem_sig;
+	input [31:0]	in_addr;
+	input [31:0]	offset;
 
 
 	/*
 	 *	outputs
 	 */
-	output [31:0]	branch_addr_output;
-	output		prediction_output;
+	output [31:0]	branch_addr;
+	output		prediction;
 
 	/*
 	 *	internal state (2,2) branch predictor
 	 */
-	`define size = 2
-	reg [3:0]	LHT[0:size - 1];
-
+	reg [3:0]	LHT[0:2 - 1];
+	reg [3:0]	LPT[0:2 - 1];
 	reg		branch_mem_sig_reg;
-
-
-	two_bit_branch_predictor p1(
-		.c_clk(clk_input),
-		.c_actual_branch_decision(actual_branch_decision_input),
-		.c_branch_decode_sig(branch_decode_signal_input),
-		.c_branch_mem_sig(branch_mem_sig_input),
-		.c_in_addr(in_addr_input),
-		.c_offset(offset_input),
-		.c_branch_mem_sig_reg(branch_mem_sig_reg),
-		.c_branch_addr(branch_addr_output),
-		.c_prediction(prediction_output)
-	);
-	two_bit_branch_predictor p2(
-		.c_clk(clk_input),
-		.c_actual_branch_decision(actual_branch_decision_input),
-		.c_branch_decode_sig(branch_decode_signal_input),
-		.c_branch_mem_sig(branch_mem_sig_input),
-		.c_in_addr(in_addr_input),
-		.c_offset(offset_input),
-		.c_branch_mem_sig_reg(branch_mem_sig_reg),
-		.c_branch_addr(branch_addr_output),
-		.c_prediction(prediction_output)
-	);
-	two_bit_branch_predictor p3(
-		.c_clk(clk_input),
-		.c_actual_branch_decision(actual_branch_decision_input),
-		.c_branch_decode_sig(branch_decode_signal_input),
-		.c_branch_mem_sig(branch_mem_sig_input),
-		.c_in_addr(in_addr_input),
-		.c_offset(offset_input),
-		.c_branch_mem_sig_reg(branch_mem_sig_reg),
-		.c_branch_addr(branch_addr_output),
-		.c_prediction(prediction_output)
-	);
-	two_bit_branch_predictor p4(
-		.c_clk(clk_input),
-		.c_actual_branch_decision(actual_branch_decision_input),
-		.c_branch_decode_sig(branch_decode_signal_input),
-		.c_branch_mem_sig(branch_mem_sig_input),
-		.c_in_addr(in_addr_input),
-		.c_offset(offset_input),
-		.c_branch_mem_sig_reg(branch_mem_sig_reg),
-		.c_branch_addr(branch_addr_output),
-		.c_prediction(prediction_output)// I assume we do not need to assign prediction output since it is done by p4
-	);
-
 
 	/*
 	 *	The `initial` statement below uses Yosys's support for nonzero
@@ -133,10 +85,12 @@ module branch_predictor(
 	 *	the design should instead use a reset signal going to
 	 *	modules in the design and to thereby set the values.
 	 */
+	integer k;
 	initial begin	 
-	for (k = 0; k < size ; k = k + 1) // Initialise Local History Table to all 0s (no previous branches have been taken)
+	for (k = 0; k < 3 ; k = k + 1) // Initialise Local History Table to all 0s (no previous branches have been taken)
 	begin 
-		LHT[k] = 2'b00; 
+		LHT[k] = 2'b00;
+		LPT[k] = 2'b00;
 	end 
 	branch_mem_sig_reg = 1'b0; // 0
 	end
@@ -150,25 +104,18 @@ module branch_predictor(
 	 *	therefore can use branch_mem_sig as every branch is followed by
 	 *	a bubble, so a 0 to 1 transition
 	 */
+	integer m = branch_addr[2:0]; // Access Local History Table using last two bits of Branch Address
+	integer n = LHT[m]; // LHT value is the access index to LPT
 	always @(posedge clk) begin
 		if (branch_mem_sig_reg) begin
-			integer m = branch_addr[2:0]; // Access Local History Table using last two bits of Branch Address
-			if (m == 0) begin
-				//use p1
-			end 
-			if (m == 1) begin
-				//use p2
-			end
-			if (m == 2) begin
-				//use p3
-			end
-			if (m == 3) begin
-				//use p4
-			end
-			LHT[m][1] <= actual_branch_decision_input;
-			LHT[m][0] <= LHT[m][0];
+			// 2-bit branch predictor
+			LPT[n][1] <= (LPT[n][1]&LPT[n][0]) | (LPT[n][0]&actual_branch_decision) | (LPT[n][1]&actual_branch_decision);
+			LPT[n][0] <= (LPT[n][1]&(!LPT[n][0])) | ((!LPT[n][0])&actual_branch_decision) | (LPT[n][1]&actual_branch_decision);
+			// Now update the LHT table (counter)
+			LHT[m][1] <= actual_branch_decision;
+			LHT[m][0] <= LHT[m][1];
 		end
 	end
-	assign prediction = prediction_output;
-	assign branch_addr = branch_addr_output;
+	assign branch_addr = in_addr + offset;
+	assign prediction = LPT[n][1] & branch_decode_sig;
 endmodule

@@ -40,16 +40,15 @@
  *		Branch Predictor FSM
  */
 
-module two_bit_branch_predictor(
-		c_clk,
-		c_actual_branch_decision,
-		c_branch_decode_sig,
-		c_branch_mem_sig,
-		c_in_addr,
-		c_offset,
-		c_branch_mem_sig_reg,
-		c_branch_addr,
-		c_prediction
+module branch_predictor(
+		clk,
+		actual_branch_decision,
+		branch_decode_sig,
+		branch_mem_sig,
+		in_addr,
+		offset,
+		branch_addr,
+		prediction
 	);
 
 	/*
@@ -61,7 +60,6 @@ module two_bit_branch_predictor(
 	input		branch_mem_sig;
 	input [31:0]	in_addr;
 	input [31:0]	offset;
-	input branch_mem_sig_reg;
 
 	/*
 	 *	outputs
@@ -74,6 +72,7 @@ module two_bit_branch_predictor(
 	 */
 	reg [1:0]	s;
 
+	reg		branch_mem_sig_reg;
 
 	/*
 	 *	The `initial` statement below uses Yosys's support for nonzero
@@ -87,6 +86,11 @@ module two_bit_branch_predictor(
 	 */
 	initial begin
 		s = 2'b00;
+		branch_mem_sig_reg = 1'b0;
+	end
+
+	always @(negedge clk) begin
+		branch_mem_sig_reg <= branch_mem_sig;
 	end
 
 	/*
@@ -96,11 +100,11 @@ module two_bit_branch_predictor(
 	 */
 	always @(posedge clk) begin
 		if (branch_mem_sig_reg) begin
-			s[1] <= (s[1]&s[0]) | (s[0]&actual_branch_decision) | (s[1]&actual_branch_decision);
+			s[1] <= (s[1]&s[0]) |  (s[0]&actual_branch_decision) | (s[1]&actual_branch_decision);
 			s[0] <= (s[1]&(!s[0])) | ((!s[0])&actual_branch_decision) | (s[1]&actual_branch_decision);
 		end
 	end
 
-	assign c_branch_addr = in_addr + offset;
-	assign c_prediction = s[1] & branch_decode_sig;
+	assign branch_addr = in_addr + offset;
+	assign prediction = s[1] & branch_decode_sig;
 endmodule
