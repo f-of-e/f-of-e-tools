@@ -1,12 +1,11 @@
-DESIGN	= sail
-
-# Note: Removed -q from yosys -q ../../../yscripts/$(DESIGN).ys to allow for output
+DESIGN	= sail_improved # Original design: sail, Improved design: sail_improved
+PROGRAM = bsorttry
 
 sail-nextpnr:
 	cp programs/data.hex verilog/
 	cp programs/program.hex verilog/
-	yosys ../../../yscripts/$(DESIGN).ys 
-	nextpnr-ice40 --up5k --package uwg30 --json $(DESIGN).json --pcf pcf/$(DESIGN).pcf --asc $(DESIGN).asc
+	yosys -q ../../../yscripts/$(DESIGN).ys -l $(DESIGN)_synthesis_$(PROGRAM).txt
+	nextpnr-ice40 -q --up5k --package uwg30 --json $(DESIGN).json --pcf pcf/$(DESIGN).pcf --asc $(DESIGN).asc -l $(DESIGN)_pnr_$(PROGRAM).txt
 	icetime -p pcf/sail.pcf -P uwg30 -d up5k -t sail.asc
 	icepack $(DESIGN).asc $(DESIGN).bin
 
