@@ -40,7 +40,7 @@
  *	cpu top-level
  */
 
-
+`define USE_ADDER_DSP
 
 module cpu(
 			clk,
