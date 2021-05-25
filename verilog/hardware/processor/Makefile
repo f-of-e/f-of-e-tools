@@ -1,6 +1,8 @@
 DESIGN	= sail_improved # Original design: sail, Improved design: sail_improved
 PROGRAM = bsorttry
 
+# Makefile outputs the log file for yosys and nextpnr in .txt files
+
 sail-nextpnr:
 	cp programs/data.hex verilog/
 	cp programs/program.hex verilog/
