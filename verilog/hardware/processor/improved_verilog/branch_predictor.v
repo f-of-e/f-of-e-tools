@@ -67,12 +67,20 @@ module branch_predictor(
 	 */
 	output [31:0]	branch_addr;
 	output		prediction;
+    /*
+	output [1:0]	check0;
+	output [1:0]	check1;
+	output [1:0]	check2;
+	output [1:0]	check3;
+	output [1:0]	check4;
+    */
+
 
 	/*
 	 *	internal state (2,2) branch predictor
 	 */
-	reg [3:0]	LHT[0:2 - 1];
-	reg [3:0]	LPT[0:2 - 1];
+	reg [1:0]	LHT[0:4 - 1];
+	reg [1:0]	LPT[0:4 - 1];
 	reg		branch_mem_sig_reg;
 
 	/*
@@ -87,10 +95,10 @@ module branch_predictor(
 	 */
 	integer k;
 	initial begin	 
-	for (k = 0; k < 3 ; k = k + 1) // Initialise Local History Table to all 0s (no previous branches have been taken)
+	for (k = 0; k < 4 ; k = k + 1) // Initialise Local History Table to all 0s (no previous branches have been taken)
 	begin 
-		LHT[k] = 2'b00;
-		LPT[k] = 2'b00;
+		LHT[k] = 2'b0;
+		LPT[k] = 2'b0;
 	end 
 	branch_mem_sig_reg = 1'b0; // 0
 	end
@@ -104,18 +112,23 @@ module branch_predictor(
 	 *	therefore can use branch_mem_sig as every branch is followed by
 	 *	a bubble, so a 0 to 1 transition
 	 */
-	integer m = branch_addr[2:0]; // Access Local History Table using last two bits of Branch Address
-	integer n = LHT[m]; // LHT value is the access index to LPT
+	/*
+	assign check0 = LPT[2'b0_0];
+	assign check1 = LPT[2'b0_1];
+	assign check2 = LPT[2'b1_0];
+	assign check3 = LPT[2'b1_1];
+	assign check4 = LPT[LHT[branch_addr[1:0]]];
+	*/
 	always @(posedge clk) begin
 		if (branch_mem_sig_reg) begin
 			// 2-bit branch predictor
-			LPT[n][1] <= (LPT[n][1]&LPT[n][0]) | (LPT[n][0]&actual_branch_decision) | (LPT[n][1]&actual_branch_decision);
-			LPT[n][0] <= (LPT[n][1]&(!LPT[n][0])) | ((!LPT[n][0])&actual_branch_decision) | (LPT[n][1]&actual_branch_decision);
+			LPT[LHT[branch_addr[1:0]]][1] <= (LPT[LHT[branch_addr[1:0]]][1]&LPT[LHT[branch_addr[1:0]]][0]) | (LPT[LHT[branch_addr[1:0]]][0]&actual_branch_decision) | (LPT[LHT[branch_addr[1:0]]][1]&actual_branch_decision);
+			LPT[LHT[branch_addr[1:0]]][0] <= (LPT[LHT[branch_addr[1:0]]][1]&(!LPT[LHT[branch_addr[1:0]]][0])) | ((!LPT[LHT[branch_addr[1:0]]][0])&actual_branch_decision) | (LPT[LHT[branch_addr[1:0]]][1]&actual_branch_decision);
 			// Now update the LHT table (counter)
-			LHT[m][1] <= actual_branch_decision;
-			LHT[m][0] <= LHT[m][1];
+			LHT[branch_addr[1:0]][1] <= actual_branch_decision;
+			LHT[branch_addr[1:0]][0] <= LHT[branch_addr[1:0]][1];
 		end
 	end
+	assign prediction = LPT[LHT[branch_addr[1:0]]][1] & branch_decode_sig;
 	assign branch_addr = in_addr + offset;
-	assign prediction = LPT[n][1] & branch_decode_sig;
 endmodule
