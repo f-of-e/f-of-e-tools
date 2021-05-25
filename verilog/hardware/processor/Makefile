@@ -1,4 +1,5 @@
-DESIGN	= sail_improved # Original design: sail, Improved design: sail_improved
+DESIGN	= sail_improved
+# Original design: sail, Improved design: sail_improved
 PROGRAM = bsorttry
 
 # Makefile outputs the log file for yosys and nextpnr in .txt files
