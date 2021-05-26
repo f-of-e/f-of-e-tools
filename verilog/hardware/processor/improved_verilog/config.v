@@ -1,5 +1,6 @@
 // Adders
 // `define USE_ADDER_DSP
+`define USE_CORRELATING
  
  
 // Clock
