@@ -7,7 +7,7 @@ PROGRAM = bsorttry
 sail-nextpnr:
 	cp programs/data.hex verilog/
 	cp programs/program.hex verilog/
-	yosys -q ../../../yscripts/$(DESIGN).ys -l $(DESIGN)_synthesis_$(PROGRAM).txt
+	yosys ../../../yscripts/$(DESIGN).ys -l $(DESIGN)_synthesis_$(PROGRAM).txt
 	nextpnr-ice40 -q --up5k --package uwg30 --json $(DESIGN).json --pcf pcf/$(DESIGN).pcf --asc $(DESIGN).asc -l $(DESIGN)_pnr_$(PROGRAM).txt
 	icetime -p pcf/sail.pcf -P uwg30 -d up5k -t sail.asc > $(DESIGN)_icetime_$(PROGRAM).txt
 	icepack $(DESIGN).asc $(DESIGN).bin
