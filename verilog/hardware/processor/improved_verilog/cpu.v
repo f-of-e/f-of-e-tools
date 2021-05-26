@@ -170,8 +170,6 @@ module cpu(
 	wire			mistake_trigger;
 	wire			decode_ctrl_mux_sel;
 	wire			inst_mux_sel;
-    `define USE_ADDER_DSP = 1'b0;
-    `define USE_CORRELATING = 1'b1;
 
     
 
@@ -488,6 +486,7 @@ module cpu(
 		);
 
 	//Branch Predictor
+    
      `ifdef USE_CORRELATING
         branch_predictor branch_predictor_FSM(
         .clk(clk),
@@ -500,6 +499,7 @@ module cpu(
         .prediction(predict)
     );
     `else
+    
     two_bit_branch_predictor branch_predictor_FSM(
         .clk(clk),
         .actual_branch_decision(actual_branch_decision),
