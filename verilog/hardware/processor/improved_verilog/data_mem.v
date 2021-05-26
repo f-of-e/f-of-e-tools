@@ -96,7 +96,9 @@ module data_mem (clk, addr, write_data, memwrite, memread, sign_mask, read_data,
 	/*
 	 *	Buffer to store address
 	 */
-	reg [31:0]		addr_buf;
+	// Reflect changes in addr size
+	//reg [31:0]		addr_buf;
+	reg [11:0]			addr_buf;
 
 	/*
 	 *	Sign_mask buffer
@@ -108,8 +110,8 @@ module data_mem (clk, addr, write_data, memwrite, memread, sign_mask, read_data,
 	 *
 	 *	(Bad practice: The constant for the size should be a `define).
 	 */
-	 `define memsize = 1024;
-	reg [31:0]		data_block[0:memsize - 1];
+	 //`define memsize = 1024;
+	reg [31:0]		data_block[0:1024 - 1];
 
 	/*
 	 *	wire assignments
@@ -288,8 +290,8 @@ module data_mem (clk, addr, write_data, memwrite, memread, sign_mask, read_data,
 				 *	Subtract out the size of the instruction memory.
 				 *	(Bad practice: The constant should be a `define).
 				 */
-				`define instruction_mem_size = 32'h1000;
-				word_buf <= data_block[addr_buf_block_addr - instruction_mem_size];
+				//`define instruction_mem_size = 32'h1000;
+				word_buf <= data_block[addr_buf_block_addr - 32'h1000];
 				if(memread_buf==1'b1) begin
 					state <= READ;
 				end
@@ -311,8 +313,8 @@ module data_mem (clk, addr, write_data, memwrite, memread, sign_mask, read_data,
 				 *	Subtract out the size of the instruction memory.
 				 *	(Bad practice: The constant should be a `define).
 				 */
-				`define instruction_mem_size = 32'h1000;
-				data_block[addr_buf_block_addr - instruction_mem_size] <= replacement_word;
+				//`define instruction_mem_size = 32'h1000;
+				data_block[addr_buf_block_addr - 32'h1000] <= replacement_word;
 				state <= IDLE;
 			end
 
