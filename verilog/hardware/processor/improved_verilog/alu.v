@@ -75,6 +75,25 @@ module alu(ALUctl, A, B, ALUOut, Branch_Enable);
 		Branch_Enable = 1'b0;
 	end
 
+	wire [31:0] add_output;
+	wire [31:0] sub_output;
+
+	`ifdef USE_ADDER_DSP
+		adder_dsp alu_adder(
+			.input1(A),
+			.input2(B),
+			.out(add_output)
+		);
+	`endif 
+
+	`ifdef USE_SUBTRACTOR_DSP
+		subtractor_dsp alu_subtractor(
+			.input1(A),
+			.input2(B),
+			.out(sub_output)
+		);
+	`endif 
+
 	always @(ALUctl, A, B) begin
 		case (ALUctl[3:0])
 			/*
@@ -90,13 +109,24 @@ module alu(ALUctl, A, B, ALUOut, Branch_Enable);
 			/*
 			 *	ADD (the fields also match AUIPC, all loads, all stores, and ADDI)
 			 */
-			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_ADD:	ALUOut = A + B;
+			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_ADD:	
+			
+			`ifdef USE_ADDER_DSP
+				ALUOut = add_output;
+			`elsif 
+				ALUOut = A + B;
+			`endif 
 
 			/*
 			 *	SUBTRACT (the fields also matches all branches)
 			 */
-			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_SUB:	ALUOut = A - B;
+			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_SUB:	
 
+			`ifdef USE_SUBTRACTOR_DSP
+				ALUOut = sub_output;
+			`elsif 
+				ALUOut = A - B;
+			`endif 
 			/*
 			 *	SLT (the fields also matches all the other SLT variants)
 			 */

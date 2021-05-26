@@ -40,7 +40,7 @@
  *		Branch Predictor FSM
  */
 
-module branch_predictor(
+module two_bit_branch_predictor(
 		clk,
 		actual_branch_decision,
 		branch_decode_sig,
