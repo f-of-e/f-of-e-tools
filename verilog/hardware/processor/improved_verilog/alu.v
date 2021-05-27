@@ -75,6 +75,25 @@ module alu(ALUctl, A, B, ALUOut, Branch_Enable);
 		Branch_Enable = 1'b0;
 	end
 
+	wire [31:0] add_output;
+	wire [31:0] sub_output;
+
+	`ifdef USE_ADDER_DSP
+		adder_dsp alu_adder(
+			.input1(A),
+			.input2(B),
+			.out(add_output)
+		);
+	`endif
+
+	`ifdef USE_SUBTRACTOR_DSP
+		subtractor_dsp alu_subtractor(
+			.input1(A),
+			.input2(B),
+			.out(sub_output)
+		);
+	`endif
+
 	always @(ALUctl, A, B) begin
 		case (ALUctl[3:0])
 			/*
