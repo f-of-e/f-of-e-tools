@@ -45,7 +45,7 @@ module data_mem (clk, addr, write_data, memwrite, memread, sign_mask, read_data,
 		addr is used only to assign bits to addr_buff, which in turn assigns bits to addr_buf_block_addr and addr_buf_byte_offset
 		which require bits 11 to 0 only. Instruction memory substraction in FSM is unaffected by reducing address size bus. 
 		*/
-		input [11:0]		addr;
+		input[13:0]		addr;
 	`else
 		input [31:0]		addr;
 	`endif
@@ -101,7 +101,7 @@ module data_mem (clk, addr, write_data, memwrite, memread, sign_mask, read_data,
 	 */
 	`ifdef `USE_SMALL_DATA_ADDR
 		// Reflect changes in addr size
-		reg [11:0]			addr_buf;
+		reg [13:0]			addr_buf;
 	`else
 		reg [31:0]		addr_buf;
 	`endif

@@ -69,7 +69,7 @@ module cpu(
 	input [31:0]		data_mem_out;
 	`ifdef `USE_SMALL_DATA_ADDR
 		// Reduction of bits to reflect changes in data_mem.v
-		output [11:0]		data_mem_addr; 
+		output [13:0]		data_mem_addr; 
 	`else
 		output [31:0]		data_mem_addr;
 	`endif
@@ -551,7 +551,7 @@ module cpu(
 	//Data Memory Connections
 	`ifdef `USE_SMALL_DATA_ADDR
 		// Reduction in bits consistent with data_mem.v
-		assign data_mem_addr = lui_result[11:0];
+		assign data_mem_addr = lui_result[13:0];
 	`else
 		assign data_mem_addr = lui_result;
 	`endif
