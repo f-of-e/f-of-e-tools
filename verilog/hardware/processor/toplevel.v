@@ -81,9 +81,9 @@ module top (led);
 	wire[31:0]	inst_in;
 	wire[31:0]	inst_out;
 	wire[31:0]	data_out;
-	`ifdef `USE_SMALL_DATA_ADDR
+	`ifdef USE_SMALL_DATA_ADDR
 		 // Change size of data_addr to be consistent with data_mem
-		wire[13:0]	data_addr;
+		wire[11:0]	data_addr;
 	`else
 		wire[31:0]	data_addr;
 	`endif
