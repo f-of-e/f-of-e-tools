@@ -1,6 +1,6 @@
 // Adders
-// `define USE_ADDER_DSP
-// `define USE-SUBTRACTOR_DSP
+`define USE_ADDER_DSP
+`define USE_SUBTRACTOR_DSP
 // `define USE_CORRELATING
  
  
