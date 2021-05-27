@@ -47,6 +47,12 @@
 module pll_clk(clk_hf, clk);
 	input clk_hf;
 	output clk;
+	
+	`ifdef `CLK_PLL_DIV_REG
+		wire[`CLK_PLL_DIV_REG:0] clk_mf;
+	`else
+		wire[0:0] clk_mf;
+	`endif
 
 	// wire RST_i = 1'b0
 	
@@ -61,7 +67,7 @@ module pll_clk(clk_hf, clk);
 		.LATCHINPUTVALUE(1'b0),
 		.RESETB(1'b1),
 		.PLLOUTGLOBAL(),
-		.PLLOUTCORE(clk),
+		.PLLOUTCORE(clk_mf[0]),
 		.LOCK(),
 		.SDO(),
 		.SCLK(),
@@ -82,5 +88,22 @@ module pll_clk(clk_hf, clk);
 	defparam pll40_i.ENABLE_ICEGATE = 1'b0;
 	defparam pll40_i.TEST_MODE = 1'b0;
 	defparam pll40_i.EXTERNAL_DIVIDE_FACTOR = 1;
+	
+	`ifdef `CLK_PLL_DIV_REG
+		reg[`CLK_PLL_DIV_REG-1:0] divider_regs;
+		
+		integer i;
+		for (i = 0; i < `CLK_PLL_DIV_REG - 1; i = i + 1) begin
+			assign clk_mf[i+1] = divider_regs[i];
+			
+			always @(posedge clk_mf[i]) begin
+				divider_regs[i] <= !divider_regs[i];
+			end
+		end
+		assign clk = clk_mf[`CLK_PLL_DIV_REG ];
+	`else
+		assign clk = clk_mf[0];
+	`endif
+	
 
 endmodule
