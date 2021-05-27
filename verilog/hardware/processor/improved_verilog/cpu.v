@@ -67,9 +67,12 @@ module cpu(
 	 *	Data Memory
 	 */
 	input [31:0]		data_mem_out;
-	// Reduction of bits to reflect changes in data_mem.v
-	//output [31:0]		data_mem_addr;
-	output [11:0]		data_mem_addr; 
+	`ifdef `USE_SMALL_DATA_ADDR
+		// Reduction of bits to reflect changes in data_mem.v
+		output [11:0]		data_mem_addr; 
+	`else
+		output [31:0]		data_mem_addr;
+	`endif
 	output [31:0]		data_mem_WrData;
 	output			data_mem_memwrite;
 	output			data_mem_memread;
@@ -546,9 +549,12 @@ module cpu(
 	assign inst_mem_in = pc_out;
 
 	//Data Memory Connections
-	// Reduction in bits consistent with data_mem.v
-	//assign data_mem_addr = lui_result;
-	assign data_mem_addr = lui_result[11:0];
+	`ifdef `USE_SMALL_DATA_ADDR
+		// Reduction in bits consistent with data_mem.v
+		assign data_mem_addr = lui_result[11:0];
+	`else
+		assign data_mem_addr = lui_result;
+	`endif
 	assign data_mem_WrData = wb_fwd2_mux_out;
 	assign data_mem_memwrite = ex_cont_mux_out[4];
 	assign data_mem_memread = ex_cont_mux_out[5];
