@@ -64,20 +64,20 @@ module adder_dsp(input1, input2, out);
 		.O(out),
 		.CLK(),			// Asynchronous Adder
 		.CE(1'b0),   	// Disable Clock
-		.IRSTTOP(1'b0),
-		.IRSTBOT(1'b0),
-		.ORSTTOP(1'b0),
-		.ORSTBOT(1'b0),
-		.AHOLD(1'b0),
-		.BHOLD(1'b0),
-		.CHOLD(1'b0),
-		.DHOLD(1'b0),
-		.OHOLDTOP(1'b0),	// Updates at next clock edge
-		.OHOLDBOT(1'b0),	// Updates at next clock edge
-		.OLOADTOP(1'b0),
+		.IRSTTOP(),		// Resets don't matter since not registered = not using D-latches
+		.IRSTBOT(),
+		.ORSTTOP(),
+		.ORSTBOT(),
+		.AHOLD(),			//  Holds don't matter since not registered
+		.BHOLD(),
+		.CHOLD(),
+		.DHOLD(),
+		.OHOLDTOP(),		// Doesn't matter, output not registered
+		.OHOLDBOT(),
+		.OLOADTOP(1'b0),	// 0: load sum output
 		.OLOADBOT(1'b0),
-		.ADDSUBTOP(1'b0),	// Add
-		.ADDSUBBOT(1'b0),	// Add
+		.ADDSUBTOP(1'b0),	// 0: Add; 1: subtract
+		.ADDSUBBOT(1'b0),	// 0: Add; 1: subtract
 		.CO(),
 		.CI(),
 		//MAC cascading ports.
@@ -86,27 +86,25 @@ module adder_dsp(input1, input2, out);
 		.SIGNEXTIN(),
 		.SIGNEXTOUT()
 		);
-	// mult_8x8_all_pipelined_unsigned [24:0] = 001_0000010_0000010_0111_0110
-	// 					 32 bit ADDSUB [24:0] = 001_0010001_1010001_0000_1111
-	// Read configuration settings [24:0] from left to right while filling the instance parameters.
-		defparam i_sbmac16.B_SIGNED = 1'b0 ;
+	
+		defparam i_sbmac16.B_SIGNED = 1'b0 ;					// 0: unsigned
 		defparam i_sbmac16.A_SIGNED = 1'b0 ;
-		defparam i_sbmac16.MODE_8x8 = 1'b1 ;
-		defparam i_sbmac16.BOTADDSUB_CARRYSELECT = 2'b00 ;
-		defparam i_sbmac16.BOTADDSUB_UPPERINPUT = 1'b1 ;
-		defparam i_sbmac16.BOTADDSUB_LOWERINPUT = 2'b00 ;
-		defparam i_sbmac16.BOTOUTPUT_SELECT = 2'b01 ;
-		defparam i_sbmac16.TOPADDSUB_CARRYSELECT = 2'b10 ;
-		defparam i_sbmac16.TOPADDSUB_UPPERINPUT = 1'b1 ;
-		defparam i_sbmac16.TOPADDSUB_LOWERINPUT = 2'b00 ;
-		defparam i_sbmac16.TOPOUTPUT_SELECT = 2'b01 ;
-		defparam i_sbmac16.PIPELINE_16x16_MULT_REG2 = 1'b0 ;
+		defparam i_sbmac16.MODE_8x8 = 1'b1 ;					// 1: Power saving mode (doesn't affect function)
+		defparam i_sbmac16.BOTADDSUB_CARRYSELECT = 2'b00 ;		// 00: Carry in = 0
+		defparam i_sbmac16.BOTADDSUB_UPPERINPUT = 1'b1 ;		// 1: input D
+		defparam i_sbmac16.BOTADDSUB_LOWERINPUT = 2'b00 ;		// 00: input B
+		defparam i_sbmac16.BOTOUTPUT_SELECT = 2'b00 ;			// default value (00), not registered
+		defparam i_sbmac16.TOPADDSUB_CARRYSELECT = 2'b11 ;		// 11: Cascade CO from lower block
+		defparam i_sbmac16.TOPADDSUB_UPPERINPUT = 1'b1 ;		// 1: input C
+		defparam i_sbmac16.TOPADDSUB_LOWERINPUT = 2'b00 ;		// 00: input A
+		defparam i_sbmac16.TOPOUTPUT_SELECT = 2'b00 ;  			// default value (00), not registered
+		defparam i_sbmac16.PIPELINE_16x16_MULT_REG2 = 1'b0 ;	// default values(0), pipeline not registered
 		defparam i_sbmac16.PIPELINE_16x16_MULT_REG1 = 1'b0 ;
 		defparam i_sbmac16.BOT_8x8_MULT_REG = 1'b0 ;
 		defparam i_sbmac16.TOP_8x8_MULT_REG = 1'b0 ;
-		defparam i_sbmac16.D_REG = 1'b1 ;
-		defparam i_sbmac16.B_REG = 1'b1 ;
-		defparam i_sbmac16.A_REG = 1'b1 ;
-		defparam i_sbmac16.C_REG = 1'b1 ;
+		defparam i_sbmac16.D_REG = 1'b0 ;  						// default values (0), A, B, C, D not registered
+		defparam i_sbmac16.B_REG = 1'b0 ;
+		defparam i_sbmac16.A_REG = 1'b0 ;
+		defparam i_sbmac16.C_REG = 1'b0 ;
 
 endmodule

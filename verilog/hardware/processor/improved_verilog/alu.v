@@ -111,22 +111,22 @@ module alu(ALUctl, A, B, ALUOut, Branch_Enable);
 			 */
 			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_ADD:	
 			
-			`ifdef USE_ADDER_DSP
-				ALUOut = add_output;
-			`elsif 
-				ALUOut = A + B;
-			`endif 
+				`ifdef USE_ADDER_DSP
+					ALUOut = add_output;
+				`else 
+					ALUOut = A + B;
+				`endif 
 
 			/*
 			 *	SUBTRACT (the fields also matches all branches)
 			 */
-			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_SUB:	
+			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_SUB: 
 
-			`ifdef USE_SUBTRACTOR_DSP
-				ALUOut = sub_output;
-			`elsif 
-				ALUOut = A - B;
-			`endif 
+				`ifdef USE_SUBTRACTOR_DSP
+					ALUOut = sub_output;
+				`else 
+					ALUOut = A - B;
+				`endif 
 			/*
 			 *	SLT (the fields also matches all the other SLT variants)
 			 */
