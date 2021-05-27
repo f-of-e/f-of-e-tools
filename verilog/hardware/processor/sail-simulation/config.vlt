@@ -1,0 +1,4 @@
+`verilator_config
+lint_off -rule WIDTH
+lint_off -rule UNUSED
+lint_off -rule DECLFILENAME
