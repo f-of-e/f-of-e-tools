@@ -1,4 +1,4 @@
-read_verilog verilog/adder.v verilog/cpu.v verilog/mux2to1.v verilog/alu_control.v verilog/pipeline_registers.v verilog/alu.v verilog/program_counter.v verilog/branch_decide.v verilog/forwarding_unit.v verilog/branch_predictor.v verilog/imm_gen.v verilog/control_unit.v verilog/instruction_mem.v verilog/data_mem.v verilog/register_file.v verilog/CSR.v verilog/dataMem_mask_gen.v toplevel.v
+read_verilog verilog/adder.v verilog/cpu.v verilog/mux2to1.v verilog/alu_control.v verilog/pipeline_registers.v verilog/alu.v verilog/program_counter.v verilog/branch_decide.v verilog/forwarding_unit.v verilog/branch_predictor.v verilog/imm_gen.v verilog/control_unit.v verilog/instruction_mem.v verilog/data_mem.v verilog/register_file.v verilog/CSR.v verilog/dataMem_mask_gen.v toplevel_original.v
 
 synth_ice40 -noflatten -blif sail.blif
 

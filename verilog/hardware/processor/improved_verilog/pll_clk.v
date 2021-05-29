@@ -48,7 +48,7 @@ module pll_clk(clk_hf, clk);
 	input clk_hf;
 	output clk;
 	
-	`ifdef `CLK_PLL_DIV_REG
+	`ifdef CLK_PLL_DIV_REG
 		wire[`CLK_PLL_DIV_REG:0] clk_mf;
 	`else
 		wire[0:0] clk_mf;
@@ -89,7 +89,7 @@ module pll_clk(clk_hf, clk);
 	defparam pll40_i.TEST_MODE = 1'b0;
 	defparam pll40_i.EXTERNAL_DIVIDE_FACTOR = 1;
 	
-	`ifdef `CLK_PLL_DIV_REG
+	`ifdef CLK_PLL_DIV_REG
 		reg[`CLK_PLL_DIV_REG-1:0] divider_regs;
 		
 		integer i;
