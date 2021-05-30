@@ -1,0 +1,125 @@
+$date
+	Sun May 30 19:37:06 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module branch_predictor_tb $end
+$var wire 1 ! prediction $end
+$var wire 2 " check0 [1:0] $end
+$var wire 32 # branch_addr [31:0] $end
+$var reg 1 $ actual_branch_decision $end
+$var reg 1 % branch_decode_sig $end
+$var reg 1 & branch_mem_sig $end
+$var reg 1 ' clk $end
+$var reg 32 ( in_addr [31:0] $end
+$var reg 32 ) offset [31:0] $end
+$scope module bp $end
+$var wire 1 $ actual_branch_decision $end
+$var wire 1 % branch_decode_sig $end
+$var wire 1 & branch_mem_sig $end
+$var wire 2 * check1 [1:0] $end
+$var wire 2 + check2 [1:0] $end
+$var wire 1 ' clk $end
+$var wire 32 , in_addr [31:0] $end
+$var wire 32 - offset [31:0] $end
+$var wire 1 ! prediction $end
+$var wire 2 . check0 [1:0] $end
+$var wire 32 / branch_addr [31:0] $end
+$var reg 1 0 branch_mem_sig_reg $end
+$var integer 32 1 k [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#1
+$dumpvars
+b100 1
+x0
+b100110001001011011100100 /
+b10 .
+b0 -
+b100110001001011011100100 ,
+b0 +
+b0 *
+b0 )
+b100110001001011011100100 (
+1'
+1&
+1%
+x$
+b100110001001011011100100 #
+b10 "
+0!
+$end
+#2
+10
+0'
+#3
+b10 *
+b0 +
+1'
+1$
+#4
+0'
+#5
+b1 *
+b0 +
+1'
+0$
+#6
+0'
+#7
+b10 *
+b0 +
+1'
+1$
+#8
+0'
+#9
+b1 *
+b1 +
+1'
+0$
+#10
+0'
+#11
+b10 *
+b0 +
+1'
+1$
+#12
+0'
+#13
+b11 *
+b0 +
+1'
+#14
+0'
+#15
+1!
+b1 *
+b10 +
+1'
+0$
+#16
+0'
+#17
+0!
+b10 *
+b1 +
+1'
+1$
+#18
+0'
+#19
+b11 *
+b0 +
+1'
+#20
+0'
+#21
+b1 +
+1'
