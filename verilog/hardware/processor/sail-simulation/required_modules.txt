@@ -23,4 +23,3 @@ improved_verilog/static_branch_predictor.v
 
 
 
-

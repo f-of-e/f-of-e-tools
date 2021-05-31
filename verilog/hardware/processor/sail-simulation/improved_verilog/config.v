@@ -17,7 +17,10 @@
 
 // branch prediction
 
-//`define USE_CORRELATING
+`define USE_CORRELATING
+//`define USE_ONE_BIT //Cannot be defined IF USE_CORRELATING is defined too!
+`define USE_BRANCH 
+//`define USE_STATIC //Cannot be defined IF USE_CORRELATING is defined too!
 
 
 // memory

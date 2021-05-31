@@ -2,3 +2,4 @@
 lint_off -rule WIDTH
 lint_off -rule UNUSED
 lint_off -rule DECLFILENAME
+lint_off -rule DEFPARAM
