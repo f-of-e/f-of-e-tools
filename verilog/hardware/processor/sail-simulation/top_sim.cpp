@@ -9,7 +9,7 @@
 #include <cstdio>
 enum
 {
-    kSimulationCycles = 300000,
+    kSimulationCycles = 1000000,
 };
 
 vluint64_t vtime = 0;
@@ -51,10 +51,12 @@ int main(int argc, char** argv, char** env)
         clk = not clk;
         top->clk = int(clk);
         top->eval();
+        
         if (tfp != NULL)
             {
                 tfp->dump (vtime);
             }
+        
         if (led != int(top->led))
         {
             led = int(top->led);
