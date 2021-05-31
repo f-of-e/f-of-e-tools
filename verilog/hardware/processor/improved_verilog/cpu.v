@@ -77,6 +77,12 @@ module cpu(
 	output			data_mem_memwrite;
 	output			data_mem_memread;
 	output [3:0]		data_mem_sign_mask;
+	/*
+	output [1:0]		check0;
+	output [1:0]		check1;
+	output [1:0]		check2;
+	*/
+
 
 	/*
 	 *	Program Counter
@@ -175,6 +181,10 @@ module cpu(
 	wire			mistake_trigger;
 	wire			decode_ctrl_mux_sel;
 	wire			inst_mux_sel;
+	wire[1:0] 			check0;
+	wire[1:0] 			check1;
+	wire[1:0] 			check2;
+
 
     
 
@@ -501,20 +511,42 @@ module cpu(
         .in_addr(if_id_out[31:0]),
         .offset(imm_out),
         .branch_addr(branch_predictor_addr),
-        .prediction(predict)
+        .prediction(predict),
+		.check0(check0),
+		.check1(check1),
+		.check2(check2)
+
     );
-    `else
-    
-    two_bit_branch_predictor branch_predictor_FSM(
-        .clk(clk),
-        .actual_branch_decision(actual_branch_decision),
-        .branch_decode_sig(cont_mux_out[6]),
-        .branch_mem_sig(ex_mem_out[6]),
-        .in_addr(if_id_out[31:0]),
-        .offset(imm_out),
-        .branch_addr(branch_predictor_addr),
-        .prediction(predict)
-    );
+    `elsif USE_ONE_BIT
+		one_bit_branch_predictor branch_predictor_FSM(
+			.clk(clk),
+			.actual_branch_decision(actual_branch_decision),
+			.branch_decode_sig(cont_mux_out[6]),
+			.branch_mem_sig(ex_mem_out[6]),
+			.in_addr(if_id_out[31:0]),
+			.offset(imm_out),
+			.branch_addr(branch_predictor_addr),
+			.prediction(predict)
+		);
+	`elsif USE_STATIC
+		static_branch_predictor branch_predictor_FSM(
+			.branch_decode_sig(cont_mux_out[6]),
+			.in_addr(if_id_out[31:0]),
+			.offset(imm_out),
+			.branch_addr(branch_predictor_addr),
+			.prediction(predict)
+		);
+	`else
+		two_bit_branch_predictor branch_predictor_FSM(
+			.clk(clk),
+			.actual_branch_decision(actual_branch_decision),
+			.branch_decode_sig(cont_mux_out[6]),
+			.branch_mem_sig(ex_mem_out[6]),
+			.in_addr(if_id_out[31:0]),
+			.offset(imm_out),
+			.branch_addr(branch_predictor_addr),
+			.prediction(predict)
+		);
 
     `endif
 	
