@@ -6,7 +6,7 @@ module pll_clk(clk_hf, clk);
 	`ifdef CLK_PLL_DIV_REG
 		wire[`CLK_PLL_DIV_REG:0] clk_mf;
 	`else
-		wire clk_mf;
+		wire[0:0] clk_mf;
 	`endif
 	
 	wire locked;
@@ -22,7 +22,7 @@ module pll_clk(clk_hf, clk);
 		.RESETB(1'b1),
 		.BYPASS(1'b0),
 		.REFERENCECLK(clk_hf),
-		.PLLOUTCORE(clk_mf)
+		.PLLOUTCORE(clk_mf[0])
 	);
 	
 	
@@ -32,7 +32,7 @@ module pll_clk(clk_hf, clk);
 			.clk(clk)
 		);
 	`else
-		assign clk = clk_mf;
+		assign clk = clk_mf[0];
 	`endif
 	
 
