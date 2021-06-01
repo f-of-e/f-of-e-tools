@@ -15,7 +15,7 @@ end
 always begin
 	#1 clk_f = ~clk_f;
 end
-localparam period = 20; //20s
+localparam period = 30; //30s
 always @(posedge clk_f) 
 	begin
 		$dumpfile ("clk_divisor.vcd");

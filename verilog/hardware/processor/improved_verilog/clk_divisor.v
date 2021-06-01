@@ -4,6 +4,7 @@ module clk_divisor(clk_hf, clk);
 	output clk;
 	reg[`CLK_PLL_DIV_REG-1:0] divider_regs;
 	wire[`CLK_PLL_DIV_REG:0] clk_mf;
+	
 	/* FOLLOWING CODE ASSUMES `CLK_PLL_DIV_REG = 3 */
 	initial begin
 		divider_regs[0] = 0;
@@ -27,7 +28,7 @@ module clk_divisor(clk_hf, clk);
 	assign clk_mf[2] = divider_regs[1];
 	assign clk_mf[3] = divider_regs[2];
 
-	assign clk = clk_mf[`CLK_PLL_DIV_REG - 1];
+	assign clk = clk_mf[`CLK_PLL_DIV_REG];
 
 
 endmodule
