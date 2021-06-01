@@ -288,7 +288,7 @@ module data_mem (clk, addr, write_data, memwrite, memread, sign_mask, read_data,
 	 *	LED register interfacing with I/O
 	 */
 	always @(posedge clk) begin
-		if(memwrite == 1'b1 && addr == 32'h2000) begin
+		if(memwrite == 1'b1 && addr == 14'h2000) begin
 			led_reg <= write_data;
 		end
 	end
