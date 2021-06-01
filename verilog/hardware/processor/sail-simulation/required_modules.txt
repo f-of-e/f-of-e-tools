@@ -20,6 +20,7 @@ improved_verilog/dataMem_mask_gen.v
 improved_verilog/two_bit_branch_predictor.v
 improved_verilog/one_bit_branch_predictor.v
 improved_verilog/static_branch_predictor.v
+improved_verilog/clk_divisor.v
 
 
 

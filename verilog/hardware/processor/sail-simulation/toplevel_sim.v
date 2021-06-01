@@ -47,14 +47,14 @@ module top_sim (clk, led);
 
 	wire		clk_proc;
 	wire		data_clk_stall;
-	wire 		clk_f;
+	//wire 		clk_f;
 	
-	/* Clock division */
+	/* Clock division 
 	clk_divisor net_clk(
 		.clk_hf(clk),
 		.clk(clk_f)
 	);
-		
+	
 	/*
 	 *	Memory interface
 	 */
@@ -86,7 +86,7 @@ module top_sim (clk, led);
 	);
 
 	data_mem data_mem_inst(
-			.clk(clk_f),
+			.clk(clk),
 			.addr(data_addr),
 			.write_data(data_WrData),
 			.memwrite(data_memwrite), 
@@ -97,5 +97,5 @@ module top_sim (clk, led);
 			.clk_stall(data_clk_stall)
 		);
 
-	assign clk_proc = (data_clk_stall) ? 1'b1 : clk_f;
+	assign clk_proc = (data_clk_stall) ? 1'b1 : clk;
 endmodule

@@ -69,7 +69,7 @@ module pll_clk(clk_hf, clk);
 				divider_regs[i] <= !divider_regs[i];
 			end
 		end
-		assign clk = clk_mf[`CLK_PLL_DIV_REG ];
+		assign clk = clk_mf[`CLK_PLL_DIV_REG];
 	`else
 		assign clk = clk_mf[0];
 	`endif
