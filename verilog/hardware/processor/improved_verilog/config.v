@@ -1,12 +1,12 @@
 // DSP blocks
 
-// `define USE_ADDER_DSP
-// `define USE_SUBTRACTOR_DSP
+`define USE_ADDER_DSP
+`define USE_SUBTRACTOR_DSP
 
  
 // Clock
 
-//`define USE_PLL_CLK
+`define USE_PLL_CLK
 `define CLK_PLL_DIVF 0
 `define CLK_PLL_DIVR 1
 `define CLK_PLL_DIVQ 0
@@ -25,5 +25,5 @@
 
 // memory
 
-//`define USE_SMALL_DATA_ADDR // Suspect it has no effect -> "WARNING resizing ..." when running yosys
-//`define USE_MEMORY_OPTIMIZATIONS
+`define USE_SMALL_DATA_ADDR // Suspect it has no effect -> "WARNING resizing ..." when running yosys
+`define USE_MEMORY_OPTIMIZATIONS
