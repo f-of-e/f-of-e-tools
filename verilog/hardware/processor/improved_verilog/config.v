@@ -6,7 +6,7 @@
  
 // Clock
 
-`define USE_PLL_CLK
+//`define USE_PLL_CLK
 `define CLK_PLL_DIVF 0
 `define CLK_PLL_DIVR 1
 `define CLK_PLL_DIVQ 0
