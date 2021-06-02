@@ -10,7 +10,7 @@ sail-nextpnr:
 	sudo iceprog -S $(DESIGN).bin
 
 sail-simulation:
-	verilator -Wall -Wno-UNOPTFLAT --cc -f required_modules.txt config.vlt -Isail-core/include improved_verilog/config.v --trace --top-module top_sim --exe top_sim.cpp -Mdir verilator_sim -CFLAGS "-g -O3"
+	verilator -Wall -Wno-UNOPTFLAT --cc -f required_modules.txt config.vlt -Isail-core/include --trace --top-module top_sim --exe top_sim.cpp -Mdir verilator_sim -CFLAGS "-g -O3"
 	make -j -C verilator_sim -f Vtop_sim.mk
 	verilator_sim/Vtop_sim
 

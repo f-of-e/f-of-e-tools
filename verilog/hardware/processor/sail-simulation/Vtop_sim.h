@@ -88,11 +88,11 @@ VL_MODULE(Vtop_sim) {
     IData/*31:0*/ top_sim__DOT__data_mem_inst__DOT__write_out1;
     QData/*63:0*/ top_sim__DOT__processor__DOT__if_id_out;
     IData/*31:0*/ top_sim__DOT__processor__DOT__register_files__DOT__regfile[32];
-    IData/*31:0*/ top_sim__DOT__processor__DOT__ControlAndStatus_registers__DOT__csr_file[8192];
+    IData/*31:0*/ top_sim__DOT__processor__DOT__ControlAndStatus_registers__DOT__csr_file[1024];
     CData/*1:0*/ top_sim__DOT__processor__DOT__branch_predictor_FSM__DOT__LHT[4];
     CData/*1:0*/ top_sim__DOT__processor__DOT__branch_predictor_FSM__DOT__LPT[4];
     IData/*31:0*/ top_sim__DOT__inst_mem__DOT__instruction_memory[4096];
-    IData/*31:0*/ top_sim__DOT__data_mem_inst__DOT__data_block[8192];
+    IData/*31:0*/ top_sim__DOT__data_mem_inst__DOT__data_block[1024];
     
     // LOCAL VARIABLES
     // Internals; generally not touched by application code
