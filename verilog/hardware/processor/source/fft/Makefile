@@ -32,26 +32,26 @@ $(INIT).o: $(INIT).S
 	$(AS) $(ASFLAGS) $(INIT).S -o $(INIT).o
 
 $(PROGRAM): $(OBJS)
-	$(LD) $(LDFLAGS) $(OBJS) -o $@ -lc -lm -lgcc
+	$(LD) $(LDFLAGS) $(OBJS) -o $@ -lm -lc -lgcc
 
 $(PROGRAM).sr:$(PROGRAM)
 	$(OBJCOPY) -O srec $(PROGRAM) $@
 
 $(PROGRAM).o: $(PROGRAM).c Makefile
-	$(CC) $(CFLAGS) $(OPTFLAGS) -c $(PROGRAM).c
+	$(CC) $(CFLAGS) $(OPTFLAGS) -c $(PROGRAM).c -lm -lc
 
 
 $(INIT-SF).o: $(INIT-SF).S
 	$(CPP) $(INIT-SF).S > $(INIT-SF).i; $(AS) $(ASFLAGS) $(INIT-SF).i -o $(INIT-SF).o
 
 $(PROGRAM-SF): $(OBJS-SF)
-	$(LD) $(LDFLAGS-SF) $(OBJS-SF) -o $@ -lc -lm -lgcc -lgloss
+	$(LD) $(LDFLAGS-SF) $(OBJS-SF) -o $@ -lm -lc -lgcc -lgloss
 
 $(PROGRAM-SF).sr:$(PROGRAM-SF)
 	$(OBJCOPY) -O srec $(PROGRAM-SF) $@
 
 install: all
-	$(SREC2HEX) -b 30000 $(PROGRAM).sr
+	$(SREC2HEX) -b 41808 $(PROGRAM).sr
 	cp program.hex ../../programs
 	cp data.hex ../../programs
 

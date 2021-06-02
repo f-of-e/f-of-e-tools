@@ -2,12 +2,10 @@
 #include <math.h>
 #include <complex.h>
 #include "bsort.h"
-#include "string.h"
-//#include "sf-types.h"
+#include "sf-types.h"
 #include <stdlib.h>
 #include <stdbool.h>
 #include <float.h>
-
 
 double PI;
 int MAX = 8;
@@ -94,16 +92,18 @@ void run()
     bool Equiv = true;
     for(int i = 0; i< MAX; i++)
     {
-        if (nearlyequal(data[i],ifft_data[i]) != true)
+        if (nearlyequal(data[i], ifft_data[i]) != true)
         {
             Equiv = false;
             break;
         }
     }
+    
     if (Equiv)
     {
         *gDebugLedsMemoryMappedRegister = 0xFF;
     }
+     
 
 }
 
