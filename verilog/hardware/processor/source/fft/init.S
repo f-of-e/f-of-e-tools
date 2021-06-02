@@ -5,5 +5,5 @@ _start:
 
 init:
 	nop
-	li		sp, 42832	# 41808 (== 0xA350) for the code section plus another 1k for the data section
+	li		sp, 35348	# 34324 (== 0x8614) for the code section plus another 1k for the data section
 	j		main
