@@ -8,12 +8,12 @@ The correct way to clone this repository to get the hardware and firmware submod
 
 	git clone --recursive https://github.com/f-of-e/f-of-e-tools.git
 
-To update all submodules
+*If* you wish to update all submodules, then do
 
 	git pull --recurse-submodules
 	git submodule update --remote --recursive
 
-If you forgot to clone with `--recursive`, and end up with empty submodule directories, you can remedy this with
+If you forgot to clone with `--recursive` and end up with empty submodule directories, you can remedy this with
 
 	git submodule update --init --recursive
 
