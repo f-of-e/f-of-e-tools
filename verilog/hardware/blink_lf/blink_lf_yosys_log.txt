@@ -508,7 +508,7 @@ Optimizing module blink.
 2.12.16. Finished OPT passes. (There is nothing left to do.)
 
 2.13. Executing WREDUCE pass (reducing word size of cells).
-Removed top 7 bits (of 32) from port B of cell blink.$gt$blink_lf.v:25$382 ($gt).
+Removed top 19 bits (of 32) from port B of cell blink.$gt$blink_lf.v:25$382 ($gt).
 Removed top 31 bits (of 32) from port B of cell blink.$add$blink_lf.v:30$384 ($add).
 
 2.14. Executing PEEPOPT pass (run peephole optimizers).
@@ -740,7 +740,7 @@ Successfully finished Verilog frontend.
 2.31.3. Continuing TECHMAP pass.
 Using template $paramod$6a42b6fefed750f8a1c58eab59479d960557103c\_80_ice40_alu for cells of type $alu.
 Using extmapper simplemap for cells of type $logic_not.
-Using template $paramod$400c7651a899d7a17809b04e69e36ebc18745d70\_80_ice40_alu for cells of type $alu.
+Using template $paramod$3111a1a8e90c88cc8c163ba5aed0203d96ddc46d\_80_ice40_alu for cells of type $alu.
 Using extmapper simplemap for cells of type $sdff.
 Using extmapper simplemap for cells of type $dffe.
 Using extmapper simplemap for cells of type $xor.
@@ -754,7 +754,7 @@ No more expansions possible.
 
 2.32.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module blink.
-<suppressed ~138 debug messages>
+<suppressed ~133 debug messages>
 
 2.32.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\blink'.
@@ -765,7 +765,7 @@ Removed a total of 33 cells.
 
 2.32.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \blink..
-Removed 0 unused cells and 42 unused wires.
+Removed 0 unused cells and 37 unused wires.
 <suppressed ~1 debug messages>
 
 2.32.5. Finished fast OPT passes.
@@ -1053,6 +1053,6 @@ Found and reported 0 problems.
 
 3. Executing JSON backend.
 
-End of script. Logfile hash: f31ac37f6a, CPU: user 0.44s system 0.00s, MEM: 55.14 MB peak
+End of script. Logfile hash: a34935ace0, CPU: user 0.42s system 0.02s, MEM: 55.12 MB peak
 Yosys 0.17+9 (git sha1 3f8fb28cd, gcc 12.1.0 -march=x86-64 -mtune=generic -O2 -fno-plt -fexceptions -fstack-clash-protection -fcf-protection -fPIC -Os)
-Time spent: 32% 12x read_verilog (0 sec), 12% 19x opt_clean (0 sec), ...
+Time spent: 32% 12x read_verilog (0 sec), 13% 19x opt_clean (0 sec), ...
