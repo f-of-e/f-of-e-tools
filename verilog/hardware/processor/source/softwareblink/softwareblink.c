@@ -10,6 +10,9 @@ main(void)
 	 *	to the address. See the PCF file for how those 8 pins are
 	 *	mapped.
 	 */
+
+	*gDebugLedsMemoryMappedRegister = 0xFF;
+
 	while(1)
 	{
 		// *gDebugLedsMemoryMappedRegister = 0xFF;
