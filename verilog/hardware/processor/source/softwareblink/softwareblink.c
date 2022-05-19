@@ -19,7 +19,7 @@ main(void)
 		 */
 		for (int j = 0; j < kSpinDelay; j++);
 
-		// *gDebugLedsMemoryMappedRegister = 0x00;
+		*gDebugLedsMemoryMappedRegister = 0x00;
 
 		/*
 		 *	Spin
