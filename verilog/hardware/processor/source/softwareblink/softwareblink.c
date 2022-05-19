@@ -12,18 +12,18 @@ main(void)
 	 */
 	while(1)
 	{
-		*gDebugLedsMemoryMappedRegister = 0x00;
-
-		/*
-		 *	Spin
-		 */
-		for (int j = 0; j < kSpinDelay; j++);		
-
-		*gDebugLedsMemoryMappedRegister = 0xFF;
+		// *gDebugLedsMemoryMappedRegister = 0xFF;
 
 		/*
 		 *	Spin
 		 */
 		for (int j = 0; j < kSpinDelay; j++);
+
+		// *gDebugLedsMemoryMappedRegister = 0x00;
+
+		/*
+		 *	Spin
+		 */
+		for (int j = 0; j < kSpinDelay; j++);		
 	}
 }
