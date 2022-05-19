@@ -9,4 +9,4 @@ enum
  *	to the address. See the PCF file for how those 8 pins are
  *	mapped.
  */
-volatile unsigned int *		gDebugLedsMemoryMappedRegister = (unsigned int *)0x2000;
+volatile unsigned char *		gDebugLedsMemoryMappedRegister = (unsigned int *)0x2000;
