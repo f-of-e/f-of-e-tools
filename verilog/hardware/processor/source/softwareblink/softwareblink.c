@@ -11,11 +11,9 @@ main(void)
 	 *	mapped.
 	 */
 
-	*gDebugLedsMemoryMappedRegister = 0xFF;
-
 	while(1)
 	{
-		// *gDebugLedsMemoryMappedRegister = 0xFF;
+		*gDebugLedsMemoryMappedRegister = 0xFF;
 
 		/*
 		 *	Spin
