@@ -1,6 +1,6 @@
 enum
 {
-	kSpinDelay = 4000,
+	kSpinDelay = 1, // 400000
 };
 
 /*
