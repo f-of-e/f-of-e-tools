@@ -11,6 +11,8 @@ main(void)
 	 *	mapped.
 	 */
 
+    volatile unsigned int *		gDebugLedsMemoryMappedRegister = (unsigned int *)0x2000;
+
 	while(1)
 	{
 		*gDebugLedsMemoryMappedRegister = 0xFF;

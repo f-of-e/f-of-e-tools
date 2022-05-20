@@ -252,7 +252,7 @@ LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a
  *(.got)
  *(.igot)
 
-.sdata          0x0000000008005e90        0xc
+.sdata          0x0000000008005e90        0x8
                 0x0000000008006690                __global_pointer$ = (. + 0x800)
  *(.srodata.cst16)
  *(.srodata.cst8)
@@ -262,19 +262,17 @@ LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a
  .srodata       0x0000000008005e90        0x4 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
                 0x0000000008005e90                _global_impure_ptr
  *(.sdata .sdata.* .gnu.linkonce.s.*)
- .sdata         0x0000000008005e94        0x4 softwareblink.o
-                0x0000000008005e94                gDebugLedsMemoryMappedRegister
- .sdata         0x0000000008005e98        0x4 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
-                0x0000000008005e98                _impure_ptr
-                0x0000000008005e9c                _edata = .
+ .sdata         0x0000000008005e94        0x4 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+                0x0000000008005e94                _impure_ptr
+                0x0000000008005e98                _edata = .
                 [!provide]                        PROVIDE (edata, .)
-                0x0000000008005e9c                . = .
-                0x0000000008005e9c                __bss_start = .
+                0x0000000008005e98                . = .
+                0x0000000008005e98                __bss_start = .
 
-.sbss           0x0000000008005e9c        0x4
+.sbss           0x0000000008005e98        0x4
  *(.dynsbss)
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
- .sbss          0x0000000008005e9c        0x4 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+ .sbss          0x0000000008005e98        0x4 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
  *(.scommon)
 
 .bss            0x0000000008005ea0       0x10
