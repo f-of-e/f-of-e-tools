@@ -1,0 +1,544 @@
+Archive member included to satisfy reference by file (symbol)
+
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+                              init-sf.o (exit)
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+                              /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o) (_global_impure_ptr)
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+                              /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o) (__call_exitprocs)
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(addsf3.o)
+                              schlieren128.o (__addsf3)
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divsf3.o)
+                              schlieren128.o (__divsf3)
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subsf3.o)
+                              schlieren128.o (__subsf3)
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(muldi3.o)
+                              /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divsf3.o) (__mulsi3)
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(div.o)
+                              /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divsf3.o) (__divsi3)
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+                              /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(addsf3.o) (__clzsi2)
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
+                              /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o) (__clz_tab)
+/data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+                              /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o) (_exit)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+Address of section .text set to 0x8004000
+LOAD init-sf.o
+LOAD schlieren128.o
+LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a
+LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a
+LOAD /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a
+                [!provide]                        PROVIDE (__executable_start, SEGMENT_START ("text-segment", 0x10000))
+                0x0000000000010074                . = (SEGMENT_START ("text-segment", 0x10000) + SIZEOF_HEADERS)
+
+.interp
+ *(.interp)
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.hash
+ *(.hash)
+
+.gnu.hash
+ *(.gnu.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rela.dyn       0x0000000000010074        0x0
+ *(.rela.init)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ .rela.text     0x0000000000010074        0x0 init-sf.o
+ *(.rela.fini)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rela.ctors)
+ *(.rela.dtors)
+ *(.rela.got)
+ *(.rela.sdata .rela.sdata.* .rela.gnu.linkonce.s.*)
+ *(.rela.sbss .rela.sbss.* .rela.gnu.linkonce.sb.*)
+ *(.rela.sdata2 .rela.sdata2.* .rela.gnu.linkonce.s2.*)
+ *(.rela.sbss2 .rela.sbss2.* .rela.gnu.linkonce.sb2.*)
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+                [!provide]                        PROVIDE (__rela_iplt_start, .)
+ *(.rela.iplt)
+                [!provide]                        PROVIDE (__rela_iplt_end, .)
+
+.rela.plt
+ *(.rela.plt)
+
+.init
+ *(SORT(.init))
+
+.plt
+ *(.plt)
+
+.iplt
+ *(.iplt)
+
+.text           0x0000000008004000     0x1a5c
+ *(.text.unlikely .text.*_unlikely .text.unlikely.*)
+ *(.text.exit .text.exit.*)
+ *(.text.startup .text.startup.*)
+ *(.text.hot .text.hot.*)
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x0000000008004000       0x1c init-sf.o
+                0x0000000008004000                _start
+                0x0000000008004010                __errno
+ .text          0x000000000800401c      0x18c schlieren128.o
+                0x000000000800401c                Schlieren
+                0x0000000008004084                main
+ .text          0x00000000080041a8       0x34 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+                0x00000000080041a8                exit
+ .text          0x00000000080041dc        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+ .text          0x00000000080041dc      0x11c /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+                0x00000000080041dc                __call_exitprocs
+ .text          0x00000000080042f8      0x498 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(addsf3.o)
+                0x00000000080042f8                __addsf3
+ .text          0x0000000008004790      0x424 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divsf3.o)
+                0x0000000008004790                __divsf3
+ .text          0x0000000008004bb4      0x4b8 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subsf3.o)
+                0x0000000008004bb4                __subsf3
+ .text          0x000000000800506c       0x24 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(muldi3.o)
+                0x000000000800506c                __mulsi3
+ .text          0x0000000008005090       0xb4 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(div.o)
+                0x0000000008005090                __divsi3
+                0x0000000008005098                __udivsi3
+                0x00000000080050e0                __umodsi3
+                0x0000000008005114                __modsi3
+ .text          0x0000000008005144       0x94 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+                0x0000000008005144                __clzsi2
+ .text          0x00000000080051d8        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
+ .text          0x00000000080051d8      0x884 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+                0x000000000800527c                __syscall_error
+                0x00000000080052ac                _open
+                0x00000000080052f4                _openat
+                0x0000000008005338                _lseek
+                0x0000000008005380                _read
+                0x00000000080053c8                _write
+                0x0000000008005410                _fstat
+                0x0000000008005478                _stat
+                0x00000000080054e0                _lstat
+                0x0000000008005548                _fstatat
+                0x00000000080055a8                _access
+                0x00000000080055f4                _faccessat
+                0x0000000008005638                _close
+                0x0000000008005688                _link
+                0x00000000080056d4                _unlink
+                0x0000000008005724                _execve
+                0x0000000008005748                _fork
+                0x000000000800576c                _getpid
+                0x0000000008005774                _kill
+                0x0000000008005798                _wait
+                0x00000000080057bc                _isatty
+                0x00000000080057ec                _gettimeofday
+                0x000000000800583c                _times
+                0x00000000080058e0                _ftime
+                0x00000000080058fc                _utime
+                0x0000000008005904                _chown
+                0x000000000800590c                _chmod
+                0x0000000008005914                _chdir
+                0x000000000800591c                _getcwd
+                0x0000000008005924                _sysconf
+                0x0000000008005940                _sbrk
+                0x0000000008005a20                _exit
+ *(.gnu.warning)
+
+.fini
+ *(SORT(.fini))
+                [!provide]                        PROVIDE (__etext, .)
+                [!provide]                        PROVIDE (_etext, .)
+                [!provide]                        PROVIDE (etext, .)
+
+.rodata         0x0000000008005a5c      0x180
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata        0x0000000008005a5c       0x80 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divsf3.o)
+ .rodata        0x0000000008005adc      0x100 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
+                0x0000000008005adc                __clz_tab
+
+.rodata1
+ *(.rodata1)
+
+.sdata2
+ *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
+
+.sbss2
+ *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+ *(.eh_frame_entry .eh_frame_entry.*)
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.gnu_extab
+ *(.gnu_extab*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+                0x0000000008006000                . = DATA_SEGMENT_ALIGN (CONSTANT (MAXPAGESIZE), CONSTANT (COMMONPAGESIZE))
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.gnu_extab
+ *(.gnu_extab)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+
+.tdata
+ *(.tdata .tdata.* .gnu.linkonce.td.*)
+
+.tbss
+ *(.tbss .tbss.* .gnu.linkonce.tb.*)
+ *(.tcommon)
+
+.preinit_array  0x0000000008006000        0x0
+                [!provide]                        PROVIDE (__preinit_array_start, .)
+ *(.preinit_array)
+                [!provide]                        PROVIDE (__preinit_array_end, .)
+
+.init_array     0x0000000008006000        0x0
+                [!provide]                        PROVIDE (__init_array_start, .)
+ *(SORT(.init_array.*) SORT(.ctors.*))
+ *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
+                [!provide]                        PROVIDE (__init_array_end, .)
+
+.fini_array     0x0000000008006000        0x0
+                [!provide]                        PROVIDE (__fini_array_start, .)
+ *(SORT(.fini_array.*) SORT(.dtors.*))
+ *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
+                [!provide]                        PROVIDE (__fini_array_end, .)
+
+.ctors
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
+ *(SORT(.ctors.*))
+ *(.ctors)
+
+.dtors
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
+ *(SORT(.dtors.*))
+ *(.dtors)
+
+.jcr
+ *(.jcr)
+
+.data.rel.ro
+ *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
+ *(.data.rel.ro .data.rel.ro.* .gnu.linkonce.d.rel.ro.*)
+
+.dynamic
+ *(.dynamic)
+                0x0000000008006000                . = DATA_SEGMENT_RELRO_END (., 0x0)
+
+.data           0x0000000008006000      0x828
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x0000000008006000        0x0 init-sf.o
+ .data          0x0000000008006000      0x400 schlieren128.o
+                0x0000000008006000                temp
+                0x0000000008006200                humidity
+ .data          0x0000000008006400        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+ .data          0x0000000008006400      0x428 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+ .data          0x0000000008006828        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+ .data          0x0000000008006828        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(addsf3.o)
+ .data          0x0000000008006828        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divsf3.o)
+ .data          0x0000000008006828        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subsf3.o)
+ .data          0x0000000008006828        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(muldi3.o)
+ .data          0x0000000008006828        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(div.o)
+ .data          0x0000000008006828        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+ .data          0x0000000008006828        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
+ .data          0x0000000008006828        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+
+.data1
+ *(.data1)
+
+.got
+ *(.got.plt)
+ *(.igot.plt)
+ *(.got)
+ *(.igot)
+
+.sdata          0x0000000008006828        0x8
+                0x0000000008007028                __global_pointer$ = (. + 0x800)
+ *(.srodata.cst16)
+ *(.srodata.cst8)
+ *(.srodata.cst4)
+ *(.srodata.cst2)
+ *(.srodata .srodata.*)
+ .srodata       0x0000000008006828        0x4 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+                0x0000000008006828                _global_impure_ptr
+ *(.sdata .sdata.* .gnu.linkonce.s.*)
+ .sdata         0x000000000800682c        0x4 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+                0x000000000800682c                _impure_ptr
+                0x0000000008006830                _edata = .
+                [!provide]                        PROVIDE (edata, .)
+                0x0000000008006830                . = .
+                0x0000000008006830                __bss_start = .
+
+.sbss           0x0000000008006830        0x4
+ *(.dynsbss)
+ *(.sbss .sbss.* .gnu.linkonce.sb.*)
+ .sbss          0x0000000008006830        0x4 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+ *(.scommon)
+
+.bss            0x0000000008006838       0x10
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x0000000008006838        0x0 init-sf.o
+ .bss           0x0000000008006838        0x0 schlieren128.o
+ .bss           0x0000000008006838        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+ .bss           0x0000000008006838        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+ .bss           0x0000000008006838        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+ .bss           0x0000000008006838        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(addsf3.o)
+ .bss           0x0000000008006838        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divsf3.o)
+ .bss           0x0000000008006838        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subsf3.o)
+ .bss           0x0000000008006838        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(muldi3.o)
+ .bss           0x0000000008006838        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(div.o)
+ .bss           0x0000000008006838        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+ .bss           0x0000000008006838        0x0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
+ .bss           0x0000000008006838       0x10 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+ *(COMMON)
+                0x0000000008006848                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x0000000008006848                . = ALIGN (0x4)
+                0x0000000008006848                . = SEGMENT_START ("ldata-segment", .)
+                0x0000000008006848                . = ALIGN (0x4)
+                0x0000000008006848                _end = .
+                [!provide]                        PROVIDE (end, .)
+                0x0000000008006848                . = DATA_SEGMENT_END (.)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x11
+ *(.comment)
+ .comment       0x0000000000000000       0x11 schlieren128.o
+                                         0x12 (size before relaxing)
+ .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+ .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+ .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+ .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(addsf3.o)
+ .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divsf3.o)
+ .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subsf3.o)
+ .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+ .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
+ .comment       0x0000000000000011       0x12 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000      0x150
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+ .debug_aranges
+                0x0000000000000020       0x18 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+ .debug_aranges
+                0x0000000000000038       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+ .debug_aranges
+                0x0000000000000058       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(addsf3.o)
+ .debug_aranges
+                0x0000000000000078       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divsf3.o)
+ .debug_aranges
+                0x0000000000000098       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subsf3.o)
+ .debug_aranges
+                0x00000000000000b8       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(muldi3.o)
+ .debug_aranges
+                0x00000000000000d8       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(div.o)
+ .debug_aranges
+                0x00000000000000f8       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+ .debug_aranges
+                0x0000000000000118       0x18 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
+ .debug_aranges
+                0x0000000000000130       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000     0x604f
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x0000000000000000      0x9d8 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+ .debug_info    0x00000000000009d8      0x936 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+ .debug_info    0x000000000000130e      0x9f3 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+ .debug_info    0x0000000000001d01      0x351 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(addsf3.o)
+ .debug_info    0x0000000000002052      0x3c3 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divsf3.o)
+ .debug_info    0x0000000000002415      0x351 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subsf3.o)
+ .debug_info    0x0000000000002766       0x26 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(muldi3.o)
+ .debug_info    0x000000000000278c       0x26 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(div.o)
+ .debug_info    0x00000000000027b2      0xba6 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+ .debug_info    0x0000000000003358      0xb39 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
+ .debug_info    0x0000000000003e91     0x21be /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+
+.debug_abbrev   0x0000000000000000     0x136d
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000      0x21c /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+ .debug_abbrev  0x000000000000021c      0x1b8 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+ .debug_abbrev  0x00000000000003d4      0x24f /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+ .debug_abbrev  0x0000000000000623      0x191 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(addsf3.o)
+ .debug_abbrev  0x00000000000007b4      0x171 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divsf3.o)
+ .debug_abbrev  0x0000000000000925      0x191 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subsf3.o)
+ .debug_abbrev  0x0000000000000ab6       0x14 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(muldi3.o)
+ .debug_abbrev  0x0000000000000aca       0x14 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(div.o)
+ .debug_abbrev  0x0000000000000ade      0x242 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+ .debug_abbrev  0x0000000000000d20      0x1e8 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
+ .debug_abbrev  0x0000000000000f08      0x465 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+
+.debug_line     0x0000000000000000     0x4163
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x0000000000000000      0x22d /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+ .debug_line    0x000000000000022d      0x13a /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+ .debug_line    0x0000000000000367      0x3ab /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+ .debug_line    0x0000000000000712      0x9f1 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(addsf3.o)
+ .debug_line    0x0000000000001103      0x75a /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divsf3.o)
+ .debug_line    0x000000000000185d      0xa56 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subsf3.o)
+ .debug_line    0x00000000000022b3       0x86 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(muldi3.o)
+ .debug_line    0x0000000000002339      0x15c /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(div.o)
+ .debug_line    0x0000000000002495      0x2ca /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+ .debug_line    0x000000000000275f      0x1f6 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
+ .debug_line    0x0000000000002955     0x180e /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+
+.debug_frame    0x0000000000000000      0x8b0
+ *(.debug_frame)
+ .debug_frame   0x0000000000000000       0x30 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+ .debug_frame   0x0000000000000030       0x90 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+ .debug_frame   0x00000000000000c0       0x64 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(addsf3.o)
+ .debug_frame   0x0000000000000124       0x94 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divsf3.o)
+ .debug_frame   0x00000000000001b8       0x5c /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subsf3.o)
+ .debug_frame   0x0000000000000214       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+ .debug_frame   0x0000000000000234      0x67c /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+
+.debug_str      0x0000000000000000      0xf9f
+ *(.debug_str)
+ .debug_str     0x0000000000000000      0x51f /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+                                        0x5a5 (size before relaxing)
+ .debug_str     0x000000000000051f       0xa1 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-impure.o)
+                                        0x559 (size before relaxing)
+ .debug_str     0x00000000000005c0       0x59 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+                                        0x5a2 (size before relaxing)
+ .debug_str     0x0000000000000619      0x225 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(addsf3.o)
+                                        0x2aa (size before relaxing)
+ .debug_str     0x000000000000083e      0x163 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divsf3.o)
+                                        0x314 (size before relaxing)
+ .debug_str     0x00000000000009a1       0x2a /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subsf3.o)
+                                        0x2aa (size before relaxing)
+ .debug_str     0x00000000000009cb       0x34 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(muldi3.o)
+                                         0x88 (size before relaxing)
+ .debug_str     0x00000000000009ff       0x23 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(div.o)
+                                         0x85 (size before relaxing)
+ .debug_str     0x0000000000000a22      0x18f /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+                                        0x734 (size before relaxing)
+ .debug_str     0x0000000000000bb1      0x717 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clz.o)
+ .debug_str     0x0000000000000bb1      0x3ee /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+                                        0x979 (size before relaxing)
+
+.debug_loc      0x0000000000000000     0x35ec
+ *(.debug_loc)
+ .debug_loc     0x0000000000000000       0x1e /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-exit.o)
+ .debug_loc     0x000000000000001e      0x16e /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+ .debug_loc     0x000000000000018c      0x92c /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(addsf3.o)
+ .debug_loc     0x0000000000000ab8      0x981 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divsf3.o)
+ .debug_loc     0x0000000000001439      0x934 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subsf3.o)
+ .debug_loc     0x0000000000001d6d       0xf5 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+ .debug_loc     0x0000000000001e62     0x178a /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x0000000000000000      0x738
+ *(.debug_ranges)
+ .debug_ranges  0x0000000000000000       0x20 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libc.a(lib_a-__call_atexit.o)
+ .debug_ranges  0x0000000000000020      0x1f0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(addsf3.o)
+ .debug_ranges  0x0000000000000210       0xc0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(divsf3.o)
+ .debug_ranges  0x00000000000002d0      0x1e0 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(subsf3.o)
+ .debug_ranges  0x00000000000004b0       0x30 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgcc.a(_clzsi2.o)
+ .debug_ranges  0x00000000000004e0      0x258 /data/f-of-e-tools/tools/sunflower/tools/tools-lib/riscv/libgloss.a(syscalls.o)
+
+.debug_macro
+ *(.debug_macro)
+
+.debug_addr
+ *(.debug_addr)
+
+.gnu.attributes
+ *(.gnu.attributes)
+
+/DISCARD/
+ *(.note.GNU-stack)
+ *(.gnu_debuglink)
+ *(.gnu.lto_*)
+OUTPUT(schlieren128-sf elf32-littleriscv)
