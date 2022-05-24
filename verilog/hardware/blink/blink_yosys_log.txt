@@ -3,7 +3,7 @@
  |                                                                            |
  |  yosys -- Yosys Open SYnthesis Suite                                       |
  |                                                                            |
- |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Copyright (C) 2012 - 2020  Claire Wolf <claire@symbioticeda.com>          |
  |                                                                            |
  |  Permission to use, copy, modify, and/or distribute this software for any  |
  |  purpose with or without fee is hereby granted, provided that the above    |
@@ -19,22 +19,22 @@
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.17+9 (git sha1 3f8fb28cd, gcc 12.1.0 -march=x86-64 -mtune=generic -O2 -fno-plt -fexceptions -fstack-clash-protection -fcf-protection -fPIC -Os)
+ Yosys 0.9+2406 (git sha1 c98cde88, clang 10.0.0-4ubuntu1 -fPIC -Os)
 
 
--- Parsing `blink.v' using frontend ` -vlog2k' --
+-- Parsing `blink.v' using frontend `verilog' --
 
 1. Executing Verilog-2005 frontend: blink.v
 Parsing Verilog input from `blink.v' to AST representation.
-Storing AST representation for module `$abstract\blink'.
+Generating RTLIL representation for module `\blink'.
 Successfully finished Verilog frontend.
 
 -- Running command `synth_ice40 -blif blink.blif; write_json blink.json' --
 
 2. Executing SYNTH_ICE40 pass.
 
-2.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/ice40/cells_sim.v
-Parsing Verilog input from `/usr/bin/../share/yosys/ice40/cells_sim.v' to AST representation.
+2.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/cells_sim.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/cells_sim.v' to AST representation.
 Generating RTLIL representation for module `\SB_IO'.
 Generating RTLIL representation for module `\SB_GB_IO'.
 Generating RTLIL representation for module `\SB_GB'.
@@ -90,19 +90,15 @@ Successfully finished Verilog frontend.
 2.2. Executing HIERARCHY pass (managing design hierarchy).
 
 2.2.1. Finding top of design hierarchy..
-root of   0 design levels: $abstract\blink     
-Automatically selected $abstract\blink as design top module.
+root of   1 design levels: blink               
+Automatically selected blink as design top module.
 
-2.2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\blink'.
-Generating RTLIL representation for module `\blink'.
+2.2.2. Analyzing design hierarchy..
+Top module:  \blink
 
 2.2.3. Analyzing design hierarchy..
 Top module:  \blink
-
-2.2.4. Analyzing design hierarchy..
-Top module:  \blink
-Removing unused module `$abstract\blink'.
-Removed 1 unused modules.
+Removed 0 unused modules.
 
 2.3. Executing PROC pass (convert processes to netlists).
 
@@ -110,269 +106,45 @@ Removed 1 unused modules.
 Cleaned up 0 empty switches.
 
 2.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
-Marked 1 switch rules as full_case in process $proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1386$241 in module SB_DFFNES.
-Marked 1 switch rules as full_case in process $proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1328$234 in module SB_DFFNESS.
-Marked 1 switch rules as full_case in process $proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1251$230 in module SB_DFFNER.
-Marked 1 switch rules as full_case in process $proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1193$223 in module SB_DFFNESR.
-Marked 1 switch rules as full_case in process $proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1122$220 in module SB_DFFNS.
-Marked 1 switch rules as full_case in process $proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1072$217 in module SB_DFFNSS.
-Marked 1 switch rules as full_case in process $proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1001$214 in module SB_DFFNR.
-Marked 1 switch rules as full_case in process $proc$/usr/bin/../share/yosys/ice40/cells_sim.v:951$211 in module SB_DFFNSR.
-Marked 1 switch rules as full_case in process $proc$/usr/bin/../share/yosys/ice40/cells_sim.v:789$203 in module SB_DFFES.
-Marked 1 switch rules as full_case in process $proc$/usr/bin/../share/yosys/ice40/cells_sim.v:731$196 in module SB_DFFESS.
-Marked 1 switch rules as full_case in process $proc$/usr/bin/../share/yosys/ice40/cells_sim.v:654$192 in module SB_DFFER.
-Marked 1 switch rules as full_case in process $proc$/usr/bin/../share/yosys/ice40/cells_sim.v:596$185 in module SB_DFFESR.
-Marked 1 switch rules as full_case in process $proc$/usr/bin/../share/yosys/ice40/cells_sim.v:525$182 in module SB_DFFS.
-Marked 1 switch rules as full_case in process $proc$/usr/bin/../share/yosys/ice40/cells_sim.v:475$179 in module SB_DFFSS.
-Marked 1 switch rules as full_case in process $proc$/usr/bin/../share/yosys/ice40/cells_sim.v:404$176 in module SB_DFFR.
-Marked 1 switch rules as full_case in process $proc$/usr/bin/../share/yosys/ice40/cells_sim.v:354$173 in module SB_DFFSR.
-Marked 1 switch rules as full_case in process $proc$blink.v:24$381 in module blink.
+Marked 1 switch rules as full_case in process $proc$blink.v:24$1 in module blink.
 Removed a total of 0 dead cases.
 
 2.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
-Removed 9 redundant assignments.
-Promoted 24 assignments to connections.
+Removed 1 redundant assignment.
+Promoted 2 assignments to connections.
 
 2.3.4. Executing PROC_INIT pass (extract init attributes).
-Found init rule in `\SB_DFFNES.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$244'.
-  Set init value: \Q = 1'0
-Found init rule in `\SB_DFFNESS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$240'.
-  Set init value: \Q = 1'0
-Found init rule in `\SB_DFFNER.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$233'.
-  Set init value: \Q = 1'0
-Found init rule in `\SB_DFFNESR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$229'.
-  Set init value: \Q = 1'0
-Found init rule in `\SB_DFFNS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$222'.
-  Set init value: \Q = 1'0
-Found init rule in `\SB_DFFNSS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$219'.
-  Set init value: \Q = 1'0
-Found init rule in `\SB_DFFNR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$216'.
-  Set init value: \Q = 1'0
-Found init rule in `\SB_DFFNSR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$213'.
-  Set init value: \Q = 1'0
-Found init rule in `\SB_DFFNE.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$210'.
-  Set init value: \Q = 1'0
-Found init rule in `\SB_DFFN.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$208'.
-  Set init value: \Q = 1'0
-Found init rule in `\SB_DFFES.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$206'.
-  Set init value: \Q = 1'0
-Found init rule in `\SB_DFFESS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$202'.
-  Set init value: \Q = 1'0
-Found init rule in `\SB_DFFER.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$195'.
-  Set init value: \Q = 1'0
-Found init rule in `\SB_DFFESR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$191'.
-  Set init value: \Q = 1'0
-Found init rule in `\SB_DFFS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$184'.
-  Set init value: \Q = 1'0
-Found init rule in `\SB_DFFSS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$181'.
-  Set init value: \Q = 1'0
-Found init rule in `\SB_DFFR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$178'.
-  Set init value: \Q = 1'0
-Found init rule in `\SB_DFFSR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$175'.
-  Set init value: \Q = 1'0
-Found init rule in `\SB_DFFE.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$172'.
-  Set init value: \Q = 1'0
-Found init rule in `\SB_DFF.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$170'.
-  Set init value: \Q = 1'0
-Found init rule in `\blink.$proc$blink.v:8$386'.
+Found init rule in `\blink.$proc$blink.v:8$6'.
   Set init value: \count = 0
-Found init rule in `\blink.$proc$blink.v:7$385'.
+Found init rule in `\blink.$proc$blink.v:7$5'.
   Set init value: \LEDstatus = 1'1
 
 2.3.5. Executing PROC_ARST pass (detect async resets in processes).
-Found async reset \S in `\SB_DFFNES.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1386$241'.
-Found async reset \R in `\SB_DFFNER.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1251$230'.
-Found async reset \S in `\SB_DFFNS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1122$220'.
-Found async reset \R in `\SB_DFFNR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1001$214'.
-Found async reset \S in `\SB_DFFES.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:789$203'.
-Found async reset \R in `\SB_DFFER.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:654$192'.
-Found async reset \S in `\SB_DFFS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:525$182'.
-Found async reset \R in `\SB_DFFR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:404$176'.
 
-2.3.6. Executing PROC_ROM pass (convert switches to ROMs).
-Converted 0 switches.
-<suppressed ~19 debug messages>
-
-2.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
-Creating decoders for process `\SB_DFFNES.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$244'.
-Creating decoders for process `\SB_DFFNES.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1386$241'.
-     1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFNESS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$240'.
-Creating decoders for process `\SB_DFFNESS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1328$234'.
-     1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFNER.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$233'.
-Creating decoders for process `\SB_DFFNER.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1251$230'.
-     1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFNESR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$229'.
-Creating decoders for process `\SB_DFFNESR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1193$223'.
-     1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFNS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$222'.
-Creating decoders for process `\SB_DFFNS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1122$220'.
-     1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFNSS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$219'.
-Creating decoders for process `\SB_DFFNSS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1072$217'.
-     1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFNR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$216'.
-Creating decoders for process `\SB_DFFNR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1001$214'.
-     1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFNSR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$213'.
-Creating decoders for process `\SB_DFFNSR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:951$211'.
-     1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFNE.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$210'.
-Creating decoders for process `\SB_DFFNE.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:906$209'.
-     1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFN.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$208'.
-Creating decoders for process `\SB_DFFN.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:868$207'.
-Creating decoders for process `\SB_DFFES.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$206'.
-Creating decoders for process `\SB_DFFES.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:789$203'.
-     1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFESS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$202'.
-Creating decoders for process `\SB_DFFESS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:731$196'.
-     1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFER.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$195'.
-Creating decoders for process `\SB_DFFER.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:654$192'.
-     1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFESR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$191'.
-Creating decoders for process `\SB_DFFESR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:596$185'.
-     1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$184'.
-Creating decoders for process `\SB_DFFS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:525$182'.
-     1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFSS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$181'.
-Creating decoders for process `\SB_DFFSS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:475$179'.
-     1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$178'.
-Creating decoders for process `\SB_DFFR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:404$176'.
-     1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFSR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$175'.
-Creating decoders for process `\SB_DFFSR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:354$173'.
-     1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFFE.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$172'.
-Creating decoders for process `\SB_DFFE.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:309$171'.
-     1/1: $0\Q[0:0]
-Creating decoders for process `\SB_DFF.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$170'.
-Creating decoders for process `\SB_DFF.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:271$169'.
-Creating decoders for process `\blink.$proc$blink.v:8$386'.
-Creating decoders for process `\blink.$proc$blink.v:7$385'.
-Creating decoders for process `\blink.$proc$blink.v:24$381'.
+2.3.6. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\blink.$proc$blink.v:8$6'.
+Creating decoders for process `\blink.$proc$blink.v:7$5'.
+Creating decoders for process `\blink.$proc$blink.v:24$1'.
      1/2: $0\count[31:0]
      2/2: $0\LEDstatus[0:0]
 
-2.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+2.3.7. Executing PROC_DLATCH pass (convert process syncs to latches).
 
-2.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
-Creating register for signal `\SB_DFFNES.\Q' using process `\SB_DFFNES.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1386$241'.
-  created $adff cell `$procdff$437' with negative edge clock and positive level reset.
-Creating register for signal `\SB_DFFNESS.\Q' using process `\SB_DFFNESS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1328$234'.
-  created $dff cell `$procdff$438' with negative edge clock.
-Creating register for signal `\SB_DFFNER.\Q' using process `\SB_DFFNER.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1251$230'.
-  created $adff cell `$procdff$439' with negative edge clock and positive level reset.
-Creating register for signal `\SB_DFFNESR.\Q' using process `\SB_DFFNESR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1193$223'.
-  created $dff cell `$procdff$440' with negative edge clock.
-Creating register for signal `\SB_DFFNS.\Q' using process `\SB_DFFNS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1122$220'.
-  created $adff cell `$procdff$441' with negative edge clock and positive level reset.
-Creating register for signal `\SB_DFFNSS.\Q' using process `\SB_DFFNSS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1072$217'.
-  created $dff cell `$procdff$442' with negative edge clock.
-Creating register for signal `\SB_DFFNR.\Q' using process `\SB_DFFNR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1001$214'.
-  created $adff cell `$procdff$443' with negative edge clock and positive level reset.
-Creating register for signal `\SB_DFFNSR.\Q' using process `\SB_DFFNSR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:951$211'.
-  created $dff cell `$procdff$444' with negative edge clock.
-Creating register for signal `\SB_DFFNE.\Q' using process `\SB_DFFNE.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:906$209'.
-  created $dff cell `$procdff$445' with negative edge clock.
-Creating register for signal `\SB_DFFN.\Q' using process `\SB_DFFN.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:868$207'.
-  created $dff cell `$procdff$446' with negative edge clock.
-Creating register for signal `\SB_DFFES.\Q' using process `\SB_DFFES.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:789$203'.
-  created $adff cell `$procdff$447' with positive edge clock and positive level reset.
-Creating register for signal `\SB_DFFESS.\Q' using process `\SB_DFFESS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:731$196'.
-  created $dff cell `$procdff$448' with positive edge clock.
-Creating register for signal `\SB_DFFER.\Q' using process `\SB_DFFER.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:654$192'.
-  created $adff cell `$procdff$449' with positive edge clock and positive level reset.
-Creating register for signal `\SB_DFFESR.\Q' using process `\SB_DFFESR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:596$185'.
-  created $dff cell `$procdff$450' with positive edge clock.
-Creating register for signal `\SB_DFFS.\Q' using process `\SB_DFFS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:525$182'.
-  created $adff cell `$procdff$451' with positive edge clock and positive level reset.
-Creating register for signal `\SB_DFFSS.\Q' using process `\SB_DFFSS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:475$179'.
-  created $dff cell `$procdff$452' with positive edge clock.
-Creating register for signal `\SB_DFFR.\Q' using process `\SB_DFFR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:404$176'.
-  created $adff cell `$procdff$453' with positive edge clock and positive level reset.
-Creating register for signal `\SB_DFFSR.\Q' using process `\SB_DFFSR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:354$173'.
-  created $dff cell `$procdff$454' with positive edge clock.
-Creating register for signal `\SB_DFFE.\Q' using process `\SB_DFFE.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:309$171'.
-  created $dff cell `$procdff$455' with positive edge clock.
-Creating register for signal `\SB_DFF.\Q' using process `\SB_DFF.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:271$169'.
-  created $dff cell `$procdff$456' with positive edge clock.
-Creating register for signal `\blink.\LEDstatus' using process `\blink.$proc$blink.v:24$381'.
-  created $dff cell `$procdff$457' with positive edge clock.
-Creating register for signal `\blink.\count' using process `\blink.$proc$blink.v:24$381'.
-  created $dff cell `$procdff$458' with positive edge clock.
+2.3.8. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\blink.\LEDstatus' using process `\blink.$proc$blink.v:24$1'.
+  created $dff cell `$procdff$353' with positive edge clock.
+Creating register for signal `\blink.\count' using process `\blink.$proc$blink.v:24$1'.
+  created $dff cell `$procdff$354' with positive edge clock.
 
-2.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
-
-2.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Removing empty process `SB_DFFNES.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$244'.
-Found and cleaned up 1 empty switch in `\SB_DFFNES.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1386$241'.
-Removing empty process `SB_DFFNES.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1386$241'.
-Removing empty process `SB_DFFNESS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$240'.
-Found and cleaned up 2 empty switches in `\SB_DFFNESS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1328$234'.
-Removing empty process `SB_DFFNESS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1328$234'.
-Removing empty process `SB_DFFNER.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$233'.
-Found and cleaned up 1 empty switch in `\SB_DFFNER.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1251$230'.
-Removing empty process `SB_DFFNER.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1251$230'.
-Removing empty process `SB_DFFNESR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$229'.
-Found and cleaned up 2 empty switches in `\SB_DFFNESR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1193$223'.
-Removing empty process `SB_DFFNESR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1193$223'.
-Removing empty process `SB_DFFNS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$222'.
-Removing empty process `SB_DFFNS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1122$220'.
-Removing empty process `SB_DFFNSS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$219'.
-Found and cleaned up 1 empty switch in `\SB_DFFNSS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1072$217'.
-Removing empty process `SB_DFFNSS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1072$217'.
-Removing empty process `SB_DFFNR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$216'.
-Removing empty process `SB_DFFNR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:1001$214'.
-Removing empty process `SB_DFFNSR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$213'.
-Found and cleaned up 1 empty switch in `\SB_DFFNSR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:951$211'.
-Removing empty process `SB_DFFNSR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:951$211'.
-Removing empty process `SB_DFFNE.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$210'.
-Found and cleaned up 1 empty switch in `\SB_DFFNE.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:906$209'.
-Removing empty process `SB_DFFNE.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:906$209'.
-Removing empty process `SB_DFFN.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$208'.
-Removing empty process `SB_DFFN.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:868$207'.
-Removing empty process `SB_DFFES.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$206'.
-Found and cleaned up 1 empty switch in `\SB_DFFES.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:789$203'.
-Removing empty process `SB_DFFES.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:789$203'.
-Removing empty process `SB_DFFESS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$202'.
-Found and cleaned up 2 empty switches in `\SB_DFFESS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:731$196'.
-Removing empty process `SB_DFFESS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:731$196'.
-Removing empty process `SB_DFFER.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$195'.
-Found and cleaned up 1 empty switch in `\SB_DFFER.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:654$192'.
-Removing empty process `SB_DFFER.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:654$192'.
-Removing empty process `SB_DFFESR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$191'.
-Found and cleaned up 2 empty switches in `\SB_DFFESR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:596$185'.
-Removing empty process `SB_DFFESR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:596$185'.
-Removing empty process `SB_DFFS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$184'.
-Removing empty process `SB_DFFS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:525$182'.
-Removing empty process `SB_DFFSS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$181'.
-Found and cleaned up 1 empty switch in `\SB_DFFSS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:475$179'.
-Removing empty process `SB_DFFSS.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:475$179'.
-Removing empty process `SB_DFFR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$178'.
-Removing empty process `SB_DFFR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:404$176'.
-Removing empty process `SB_DFFSR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$175'.
-Found and cleaned up 1 empty switch in `\SB_DFFSR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:354$173'.
-Removing empty process `SB_DFFSR.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:354$173'.
-Removing empty process `SB_DFFE.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$172'.
-Found and cleaned up 1 empty switch in `\SB_DFFE.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:309$171'.
-Removing empty process `SB_DFFE.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:309$171'.
-Removing empty process `SB_DFF.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:0$170'.
-Removing empty process `SB_DFF.$proc$/usr/bin/../share/yosys/ice40/cells_sim.v:271$169'.
-Removing empty process `blink.$proc$blink.v:8$386'.
-Removing empty process `blink.$proc$blink.v:7$385'.
-Found and cleaned up 1 empty switch in `\blink.$proc$blink.v:24$381'.
-Removing empty process `blink.$proc$blink.v:24$381'.
-Cleaned up 19 empty switches.
-
-2.3.12. Executing OPT_EXPR pass (perform const folding).
-Optimizing module blink.
+2.3.9. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `blink.$proc$blink.v:8$6'.
+Removing empty process `blink.$proc$blink.v:7$5'.
+Found and cleaned up 1 empty switch in `\blink.$proc$blink.v:24$1'.
+Removing empty process `blink.$proc$blink.v:24$1'.
+Cleaned up 1 empty switch.
 
 2.4. Executing FLATTEN pass (flatten design).
+No more expansions possible.
 
 2.5. Executing TRIBUF pass.
 
@@ -387,8 +159,8 @@ Removed 0 unused cells and 6 unused wires.
 <suppressed ~1 debug messages>
 
 2.9. Executing CHECK pass (checking for obvious problems).
-Checking module blink...
-Found and reported 0 problems.
+checking module blink..
+found and reported 0 problems.
 
 2.10. Executing OPT pass (performing simple optimizations).
 
@@ -415,7 +187,7 @@ Performed a total of 0 changes.
 Finding identical cells in module `\blink'.
 Removed a total of 0 cells.
 
-2.10.6. Executing OPT_DFF pass (perform DFF optimizations).
+2.10.6. Executing OPT_RMDFF pass (remove dff with constant values).
 
 2.10.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \blink..
@@ -425,35 +197,54 @@ Optimizing module blink.
 
 2.10.9. Finished OPT passes. (There is nothing left to do.)
 
-2.11. Executing FSM pass (extract and optimize FSM).
+2.11. Executing WREDUCE pass (reducing word size of cells).
+Removed top 7 bits (of 32) from port B of cell blink.$gt$blink.v:25$2 ($gt).
+Removed top 31 bits (of 32) from port B of cell blink.$add$blink.v:30$4 ($add).
 
-2.11.1. Executing FSM_DETECT pass (finding FSMs in design).
+2.12. Executing PEEPOPT pass (run peephole optimizers).
 
-2.11.2. Executing FSM_EXTRACT pass (extracting FSM from design).
-
-2.11.3. Executing FSM_OPT pass (simple optimizations of FSMs).
-
-2.11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.13. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \blink..
 
-2.11.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+2.14. Executing SHARE pass (SAT-based resource sharing).
 
-2.11.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+2.15. Executing TECHMAP pass (map to technology primitives).
 
-2.11.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+2.15.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/cmp2lut.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/cmp2lut.v' to AST representation.
+Generating RTLIL representation for module `\_90_lut_cmp_'.
+Successfully finished Verilog frontend.
 
-2.11.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+2.15.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~30 debug messages>
 
-2.12. Executing OPT pass (performing simple optimizations).
-
-2.12.1. Executing OPT_EXPR pass (perform const folding).
+2.16. Executing OPT_EXPR pass (perform const folding).
 Optimizing module blink.
 
-2.12.2. Executing OPT_MERGE pass (detect identical cells).
+2.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \blink..
+
+2.18. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module blink:
+  creating $macc model for $add$blink.v:30$4 ($add).
+  creating $alu model for $macc $add$blink.v:30$4.
+  creating $alu model for $gt$blink.v:25$2 ($gt): new $alu
+  creating $alu cell for $gt$blink.v:25$2: $auto$alumacc.cc:485:replace_alu$356
+  creating $alu cell for $add$blink.v:30$4: $auto$alumacc.cc:485:replace_alu$361
+  created 2 $alu and 0 $macc cells.
+
+2.19. Executing OPT pass (performing simple optimizations).
+
+2.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module blink.
+<suppressed ~2 debug messages>
+
+2.19.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\blink'.
 Removed a total of 0 cells.
 
-2.12.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+2.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \blink..
   Creating internal representation of mux trees.
   Evaluating internal representation of mux trees.
@@ -461,173 +252,103 @@ Running muxtree optimizer on module \blink..
 Removed 0 multiplexer ports.
 <suppressed ~2 debug messages>
 
-2.12.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+2.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \blink.
 Performed a total of 0 changes.
 
-2.12.5. Executing OPT_MERGE pass (detect identical cells).
+2.19.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\blink'.
 Removed a total of 0 cells.
 
-2.12.6. Executing OPT_DFF pass (perform DFF optimizations).
-Adding SRST signal on $procdff$458 ($dff) from module blink (D = $add$blink.v:30$384_Y, Q = \count, rval = 0).
-Adding EN signal on $procdff$457 ($dff) from module blink (D = $logic_not$blink.v:26$383_Y, Q = \LEDstatus).
+2.19.6. Executing OPT_RMDFF pass (remove dff with constant values).
 
-2.12.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.19.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \blink..
-Removed 2 unused cells and 2 unused wires.
-<suppressed ~3 debug messages>
+Removed 1 unused cells and 2 unused wires.
+<suppressed ~2 debug messages>
 
-2.12.8. Executing OPT_EXPR pass (perform const folding).
+2.19.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module blink.
 
-2.12.9. Rerunning OPT passes. (Maybe there is more to do..)
+2.19.9. Rerunning OPT passes. (Maybe there is more to do..)
 
-2.12.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+2.19.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \blink..
   Creating internal representation of mux trees.
-  No muxes found in this module.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
 Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
 
-2.12.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+2.19.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \blink.
 Performed a total of 0 changes.
 
-2.12.12. Executing OPT_MERGE pass (detect identical cells).
+2.19.12. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\blink'.
 Removed a total of 0 cells.
 
-2.12.13. Executing OPT_DFF pass (perform DFF optimizations).
+2.19.13. Executing OPT_RMDFF pass (remove dff with constant values).
 
-2.12.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.19.14. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \blink..
 
-2.12.15. Executing OPT_EXPR pass (perform const folding).
+2.19.15. Executing OPT_EXPR pass (perform const folding).
 Optimizing module blink.
 
-2.12.16. Finished OPT passes. (There is nothing left to do.)
+2.19.16. Finished OPT passes. (There is nothing left to do.)
 
-2.13. Executing WREDUCE pass (reducing word size of cells).
-Removed top 7 bits (of 32) from port B of cell blink.$gt$blink.v:25$382 ($gt).
-Removed top 31 bits (of 32) from port B of cell blink.$add$blink.v:30$384 ($add).
+2.20. Executing FSM pass (extract and optimize FSM).
 
-2.14. Executing PEEPOPT pass (run peephole optimizers).
+2.20.1. Executing FSM_DETECT pass (finding FSMs in design).
 
-2.15. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.20.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+2.20.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+2.20.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \blink..
 
-2.16. Executing SHARE pass (SAT-based resource sharing).
+2.20.5. Executing FSM_OPT pass (simple optimizations of FSMs).
 
-2.17. Executing TECHMAP pass (map to technology primitives).
+2.20.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
 
-2.17.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/cmp2lut.v
-Parsing Verilog input from `/usr/bin/../share/yosys/cmp2lut.v' to AST representation.
-Generating RTLIL representation for module `\_90_lut_cmp_'.
-Successfully finished Verilog frontend.
+2.20.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
 
-2.17.2. Continuing TECHMAP pass.
-No more expansions possible.
-<suppressed ~36 debug messages>
-
-2.18. Executing OPT_EXPR pass (perform const folding).
-Optimizing module blink.
-
-2.19. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \blink..
-
-2.20. Executing ALUMACC pass (create $alu and $macc cells).
-Extracting $alu and $macc cells in module blink:
-  creating $macc model for $add$blink.v:30$384 ($add).
-  creating $alu model for $macc $add$blink.v:30$384.
-  creating $alu model for $gt$blink.v:25$382 ($gt): new $alu
-  creating $alu cell for $gt$blink.v:25$382: $auto$alumacc.cc:485:replace_alu$463
-  creating $alu cell for $add$blink.v:30$384: $auto$alumacc.cc:485:replace_alu$468
-  created 2 $alu and 0 $macc cells.
+2.20.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
 
 2.21. Executing OPT pass (performing simple optimizations).
 
 2.21.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module blink.
-<suppressed ~2 debug messages>
 
 2.21.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\blink'.
 Removed a total of 0 cells.
 
-2.21.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module \blink..
-  Creating internal representation of mux trees.
-  No muxes found in this module.
-Removed 0 multiplexer ports.
+2.21.3. Executing OPT_RMDFF pass (remove dff with constant values).
 
-2.21.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module \blink.
-Performed a total of 0 changes.
-
-2.21.5. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\blink'.
-Removed a total of 0 cells.
-
-2.21.6. Executing OPT_DFF pass (perform DFF optimizations).
-
-2.21.7. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \blink..
-Removed 1 unused cells and 2 unused wires.
-<suppressed ~2 debug messages>
-
-2.21.8. Executing OPT_EXPR pass (perform const folding).
-Optimizing module blink.
-
-2.21.9. Rerunning OPT passes. (Maybe there is more to do..)
-
-2.21.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module \blink..
-  Creating internal representation of mux trees.
-  No muxes found in this module.
-Removed 0 multiplexer ports.
-
-2.21.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module \blink.
-Performed a total of 0 changes.
-
-2.21.12. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\blink'.
-Removed a total of 0 cells.
-
-2.21.13. Executing OPT_DFF pass (perform DFF optimizations).
-
-2.21.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \blink..
 
-2.21.15. Executing OPT_EXPR pass (perform const folding).
-Optimizing module blink.
-
-2.21.16. Finished OPT passes. (There is nothing left to do.)
+2.21.5. Finished fast OPT passes.
 
 2.22. Executing MEMORY pass.
 
 2.22.1. Executing OPT_MEM pass (optimize memories).
 Performed a total of 0 transformations.
 
-2.22.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
-Performed a total of 0 transformations.
+2.22.2. Executing MEMORY_DFF pass (merging $dff cells to $memrd and $memwr).
 
-2.22.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+2.22.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \blink..
 
-2.22.4. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+2.22.4. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
 
 2.22.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \blink..
 
-2.22.6. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
-
-2.22.7. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
-Performed a total of 0 transformations.
-
-2.22.8. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \blink..
-
-2.22.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+2.22.6. Executing MEMORY_COLLECT pass (generating $mem cells).
 
 2.23. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \blink..
@@ -636,8 +357,8 @@ Finding unused cells or wires in module \blink..
 
 2.25. Executing TECHMAP pass (map to technology primitives).
 
-2.25.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/ice40/brams_map.v
-Parsing Verilog input from `/usr/bin/../share/yosys/ice40/brams_map.v' to AST representation.
+2.25.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/brams_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/brams_map.v' to AST representation.
 Generating RTLIL representation for module `\$__ICE40_RAM4K'.
 Generating RTLIL representation for module `\$__ICE40_RAM4K_M0'.
 Generating RTLIL representation for module `\$__ICE40_RAM4K_M123'.
@@ -645,7 +366,6 @@ Successfully finished Verilog frontend.
 
 2.25.2. Continuing TECHMAP pass.
 No more expansions possible.
-<suppressed ~5 debug messages>
 
 2.26. Executing ICE40_BRAMINIT pass.
 
@@ -658,14 +378,14 @@ Optimizing module blink.
 Finding identical cells in module `\blink'.
 Removed a total of 0 cells.
 
-2.27.3. Executing OPT_DFF pass (perform DFF optimizations).
+2.27.3. Executing OPT_RMDFF pass (remove dff with constant values).
 
 2.27.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \blink..
 
 2.27.5. Finished fast OPT passes.
 
-2.28. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+2.28. Executing MEMORY_MAP pass (converting $mem cells to logic and flip-flops).
 
 2.29. Executing OPT pass (performing simple optimizations).
 
@@ -679,8 +399,10 @@ Removed a total of 0 cells.
 2.29.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \blink..
   Creating internal representation of mux trees.
-  No muxes found in this module.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
 Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
 
 2.29.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \blink.
@@ -690,7 +412,7 @@ Performed a total of 0 changes.
 Finding identical cells in module `\blink'.
 Removed a total of 0 cells.
 
-2.29.6. Executing OPT_DFF pass (perform DFF optimizations).
+2.29.6. Executing OPT_RMDFF pass (remove dff with constant values).
 
 2.29.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \blink..
@@ -704,8 +426,8 @@ Optimizing module blink.
 
 2.31. Executing TECHMAP pass (map to technology primitives).
 
-2.31.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/techmap.v
-Parsing Verilog input from `/usr/bin/../share/yosys/techmap.v' to AST representation.
+2.31.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/techmap.v' to AST representation.
 Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
 Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
 Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
@@ -720,35 +442,30 @@ Generating RTLIL representation for module `\_90_alu'.
 Generating RTLIL representation for module `\_90_macc'.
 Generating RTLIL representation for module `\_90_alumacc'.
 Generating RTLIL representation for module `\$__div_mod_u'.
-Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\$__div_mod'.
 Generating RTLIL representation for module `\_90_div'.
 Generating RTLIL representation for module `\_90_mod'.
-Generating RTLIL representation for module `\$__div_mod_floor'.
-Generating RTLIL representation for module `\_90_divfloor'.
-Generating RTLIL representation for module `\_90_modfloor'.
 Generating RTLIL representation for module `\_90_pow'.
 Generating RTLIL representation for module `\_90_pmux'.
-Generating RTLIL representation for module `\_90_demux'.
 Generating RTLIL representation for module `\_90_lut'.
 Successfully finished Verilog frontend.
 
-2.31.2. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/ice40/arith_map.v
-Parsing Verilog input from `/usr/bin/../share/yosys/ice40/arith_map.v' to AST representation.
+2.31.2. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/arith_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/arith_map.v' to AST representation.
 Generating RTLIL representation for module `\_80_ice40_alu'.
 Successfully finished Verilog frontend.
 
 2.31.3. Continuing TECHMAP pass.
-Using template $paramod$6a42b6fefed750f8a1c58eab59479d960557103c\_80_ice40_alu for cells of type $alu.
+Using template $paramod\_80_ice40_alu\A_SIGNED=0\B_SIGNED=0\A_WIDTH=1\B_WIDTH=32\Y_WIDTH=32 for cells of type $alu.
 Using extmapper simplemap for cells of type $logic_not.
-Using template $paramod$400c7651a899d7a17809b04e69e36ebc18745d70\_80_ice40_alu for cells of type $alu.
-Using extmapper simplemap for cells of type $sdff.
-Using extmapper simplemap for cells of type $dffe.
-Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_80_ice40_alu\A_SIGNED=0\B_SIGNED=0\A_WIDTH=25\B_WIDTH=32\Y_WIDTH=32 for cells of type $alu.
 Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $dff.
+Using extmapper simplemap for cells of type $xor.
 Using extmapper simplemap for cells of type $not.
 Using extmapper simplemap for cells of type $pos.
 No more expansions possible.
-<suppressed ~124 debug messages>
+<suppressed ~55 debug messages>
 
 2.32. Executing OPT pass (performing simple optimizations).
 
@@ -761,7 +478,7 @@ Finding identical cells in module `\blink'.
 <suppressed ~99 debug messages>
 Removed a total of 33 cells.
 
-2.32.3. Executing OPT_DFF pass (perform DFF optimizations).
+2.32.3. Executing OPT_RMDFF pass (remove dff with constant values).
 
 2.32.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \blink..
@@ -773,8 +490,8 @@ Removed 0 unused cells and 42 unused wires.
 2.33. Executing ICE40_OPT pass (performing simple optimizations).
 
 2.33.1. Running ICE40 specific optimizations.
-Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) blink.$auto$alumacc.cc:485:replace_alu$463.slice[0].carry: CO=$auto$alumacc.cc:485:replace_alu$463.BB [0]
-Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) blink.$auto$alumacc.cc:485:replace_alu$468.slice[0].carry: CO=\count [0]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) blink.$auto$alumacc.cc:485:replace_alu$356.slice[0].carry: CO=$auto$alumacc.cc:485:replace_alu$356.BB [0]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) blink.$auto$alumacc.cc:485:replace_alu$361.slice[0].carry: CO=\count [0]
 
 2.33.2. Executing OPT_EXPR pass (perform const folding).
 Optimizing module blink.
@@ -783,7 +500,7 @@ Optimizing module blink.
 Finding identical cells in module `\blink'.
 Removed a total of 0 cells.
 
-2.33.4. Executing OPT_DFF pass (perform DFF optimizations).
+2.33.4. Executing OPT_RMDFF pass (remove dff with constant values).
 
 2.33.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \blink..
@@ -801,110 +518,195 @@ Optimizing module blink.
 Finding identical cells in module `\blink'.
 Removed a total of 0 cells.
 
-2.33.10. Executing OPT_DFF pass (perform DFF optimizations).
+2.33.10. Executing OPT_RMDFF pass (remove dff with constant values).
 
 2.33.11. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \blink..
 
 2.33.12. Finished OPT passes. (There is nothing left to do.)
 
-2.34. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+2.34. Executing DFF2DFFE pass (transform $dff to $dffe where applicable).
+Selected cell types for direct conversion:
+  $_DFF_PP1_ -> $__DFFE_PP1
+  $_DFF_PP0_ -> $__DFFE_PP0
+  $_DFF_PN1_ -> $__DFFE_PN1
+  $_DFF_PN0_ -> $__DFFE_PN0
+  $_DFF_NP1_ -> $__DFFE_NP1
+  $_DFF_NP0_ -> $__DFFE_NP0
+  $_DFF_NN1_ -> $__DFFE_NN1
+  $_DFF_NN0_ -> $__DFFE_NN0
+  $_DFF_N_ -> $_DFFE_NP_
+  $_DFF_P_ -> $_DFFE_PP_
+Transforming FF to FF+Enable cells in module blink:
+  converting $_DFF_P_ cell $auto$simplemap.cc:420:simplemap_dff$453 to $_DFFE_PP_ for $0\LEDstatus[0:0] -> \LEDstatus.
 
 2.35. Executing TECHMAP pass (map to technology primitives).
 
-2.35.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/ice40/ff_map.v
-Parsing Verilog input from `/usr/bin/../share/yosys/ice40/ff_map.v' to AST representation.
+2.35.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/cells_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/cells_map.v' to AST representation.
 Generating RTLIL representation for module `\$_DFF_N_'.
 Generating RTLIL representation for module `\$_DFF_P_'.
+Generating RTLIL representation for module `\$_DFFE_NN_'.
+Generating RTLIL representation for module `\$_DFFE_PN_'.
 Generating RTLIL representation for module `\$_DFFE_NP_'.
 Generating RTLIL representation for module `\$_DFFE_PP_'.
+Generating RTLIL representation for module `\$_DFF_NN0_'.
+Generating RTLIL representation for module `\$_DFF_NN1_'.
+Generating RTLIL representation for module `\$_DFF_PN0_'.
+Generating RTLIL representation for module `\$_DFF_PN1_'.
 Generating RTLIL representation for module `\$_DFF_NP0_'.
 Generating RTLIL representation for module `\$_DFF_NP1_'.
 Generating RTLIL representation for module `\$_DFF_PP0_'.
 Generating RTLIL representation for module `\$_DFF_PP1_'.
-Generating RTLIL representation for module `\$_DFFE_NP0P_'.
-Generating RTLIL representation for module `\$_DFFE_NP1P_'.
-Generating RTLIL representation for module `\$_DFFE_PP0P_'.
-Generating RTLIL representation for module `\$_DFFE_PP1P_'.
-Generating RTLIL representation for module `\$_SDFF_NP0_'.
-Generating RTLIL representation for module `\$_SDFF_NP1_'.
-Generating RTLIL representation for module `\$_SDFF_PP0_'.
-Generating RTLIL representation for module `\$_SDFF_PP1_'.
-Generating RTLIL representation for module `\$_SDFFCE_NP0P_'.
-Generating RTLIL representation for module `\$_SDFFCE_NP1P_'.
-Generating RTLIL representation for module `\$_SDFFCE_PP0P_'.
-Generating RTLIL representation for module `\$_SDFFCE_PP1P_'.
+Generating RTLIL representation for module `\$__DFFE_NN0'.
+Generating RTLIL representation for module `\$__DFFE_NN1'.
+Generating RTLIL representation for module `\$__DFFE_PN0'.
+Generating RTLIL representation for module `\$__DFFE_PN1'.
+Generating RTLIL representation for module `\$__DFFE_NP0'.
+Generating RTLIL representation for module `\$__DFFE_NP1'.
+Generating RTLIL representation for module `\$__DFFE_PP0'.
+Generating RTLIL representation for module `\$__DFFE_PP1'.
 Successfully finished Verilog frontend.
 
 2.35.2. Continuing TECHMAP pass.
-Using template \$_SDFF_PP0_ for cells of type $_SDFF_PP0_.
 Using template \$_DFFE_PP_ for cells of type $_DFFE_PP_.
+Using template \$_DFF_P_ for cells of type $_DFF_P_.
 No more expansions possible.
-<suppressed ~55 debug messages>
+<suppressed ~33 debug messages>
 
 2.36. Executing OPT_EXPR pass (perform const folding).
 Optimizing module blink.
-<suppressed ~1 debug messages>
+<suppressed ~2 debug messages>
 
 2.37. Executing SIMPLEMAP pass (map simple cells to gate primitives).
-Mapping blink.$auto$alumacc.cc:485:replace_alu$468.slice[0].carry ($lut).
+Mapping blink.$auto$alumacc.cc:485:replace_alu$361.slice[0].carry ($lut).
 
-2.38. Executing ICE40_OPT pass (performing simple optimizations).
+2.38. Executing ICE40_FFINIT pass (implement FF init values).
+Handling FF init values in blink.
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$485 (SB_DFF): \count [31] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$453 (SB_DFFE): \LEDstatus = 1
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$454 (SB_DFF): \count [0] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$455 (SB_DFF): \count [1] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$456 (SB_DFF): \count [2] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$457 (SB_DFF): \count [3] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$458 (SB_DFF): \count [4] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$459 (SB_DFF): \count [5] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$460 (SB_DFF): \count [6] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$461 (SB_DFF): \count [7] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$462 (SB_DFF): \count [8] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$463 (SB_DFF): \count [9] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$464 (SB_DFF): \count [10] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$465 (SB_DFF): \count [11] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$466 (SB_DFF): \count [12] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$467 (SB_DFF): \count [13] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$468 (SB_DFF): \count [14] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$469 (SB_DFF): \count [15] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$470 (SB_DFF): \count [16] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$471 (SB_DFF): \count [17] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$472 (SB_DFF): \count [18] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$473 (SB_DFF): \count [19] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$474 (SB_DFF): \count [20] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$475 (SB_DFF): \count [21] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$476 (SB_DFF): \count [22] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$477 (SB_DFF): \count [23] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$478 (SB_DFF): \count [24] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$479 (SB_DFF): \count [25] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$480 (SB_DFF): \count [26] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$481 (SB_DFF): \count [27] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$482 (SB_DFF): \count [28] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$483 (SB_DFF): \count [29] = 0
+FF init value for cell $auto$simplemap.cc:420:simplemap_dff$484 (SB_DFF): \count [30] = 0
 
-2.38.1. Running ICE40 specific optimizations.
+2.39. Executing ICE40_FFSSR pass (merge synchronous set/reset into FF cells).
+Merging set/reset $_MUX_ cells into SB_FFs in blink.
+  Merging $auto$simplemap.cc:277:simplemap_mux$451 (A=1'0, B=$add$blink.v:30$4_Y [31], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$485 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$420 (A=1'0, B=$auto$simplemap.cc:309:simplemap_lut$768, S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$454 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$421 (A=1'0, B=$add$blink.v:30$4_Y [1], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$455 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$422 (A=1'0, B=$add$blink.v:30$4_Y [2], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$456 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$423 (A=1'0, B=$add$blink.v:30$4_Y [3], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$457 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$424 (A=1'0, B=$add$blink.v:30$4_Y [4], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$458 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$425 (A=1'0, B=$add$blink.v:30$4_Y [5], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$459 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$426 (A=1'0, B=$add$blink.v:30$4_Y [6], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$460 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$427 (A=1'0, B=$add$blink.v:30$4_Y [7], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$461 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$428 (A=1'0, B=$add$blink.v:30$4_Y [8], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$462 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$429 (A=1'0, B=$add$blink.v:30$4_Y [9], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$463 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$430 (A=1'0, B=$add$blink.v:30$4_Y [10], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$464 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$431 (A=1'0, B=$add$blink.v:30$4_Y [11], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$465 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$432 (A=1'0, B=$add$blink.v:30$4_Y [12], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$466 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$433 (A=1'0, B=$add$blink.v:30$4_Y [13], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$467 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$434 (A=1'0, B=$add$blink.v:30$4_Y [14], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$468 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$435 (A=1'0, B=$add$blink.v:30$4_Y [15], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$469 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$436 (A=1'0, B=$add$blink.v:30$4_Y [16], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$470 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$437 (A=1'0, B=$add$blink.v:30$4_Y [17], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$471 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$438 (A=1'0, B=$add$blink.v:30$4_Y [18], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$472 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$439 (A=1'0, B=$add$blink.v:30$4_Y [19], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$473 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$440 (A=1'0, B=$add$blink.v:30$4_Y [20], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$474 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$441 (A=1'0, B=$add$blink.v:30$4_Y [21], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$475 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$442 (A=1'0, B=$add$blink.v:30$4_Y [22], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$476 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$443 (A=1'0, B=$add$blink.v:30$4_Y [23], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$477 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$444 (A=1'0, B=$add$blink.v:30$4_Y [24], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$478 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$445 (A=1'0, B=$add$blink.v:30$4_Y [25], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$479 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$446 (A=1'0, B=$add$blink.v:30$4_Y [26], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$480 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$447 (A=1'0, B=$add$blink.v:30$4_Y [27], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$481 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$448 (A=1'0, B=$add$blink.v:30$4_Y [28], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$482 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$449 (A=1'0, B=$add$blink.v:30$4_Y [29], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$483 (SB_DFF).
+  Merging $auto$simplemap.cc:277:simplemap_mux$450 (A=1'0, B=$add$blink.v:30$4_Y [30], S=$auto$alumacc.cc:502:replace_alu$358 [31]) into $auto$simplemap.cc:420:simplemap_dff$484 (SB_DFF).
 
-2.38.2. Executing OPT_EXPR pass (perform const folding).
+2.40. Executing ICE40_OPT pass (performing simple optimizations).
+
+2.40.1. Running ICE40 specific optimizations.
+
+2.40.2. Executing OPT_EXPR pass (perform const folding).
 Optimizing module blink.
-<suppressed ~14 debug messages>
+<suppressed ~47 debug messages>
 
-2.38.3. Executing OPT_MERGE pass (detect identical cells).
+2.40.3. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\blink'.
 <suppressed ~102 debug messages>
 Removed a total of 34 cells.
 
-2.38.4. Executing OPT_DFF pass (perform DFF optimizations).
+2.40.4. Executing OPT_RMDFF pass (remove dff with constant values).
 
-2.38.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.40.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \blink..
-Removed 0 unused cells and 203 unused wires.
-<suppressed ~1 debug messages>
+Removed 32 unused cells and 142 unused wires.
+<suppressed ~33 debug messages>
 
-2.38.6. Rerunning OPT passes. (Removed registers in this run.)
+2.40.6. Rerunning OPT passes. (Removed registers in this run.)
 
-2.38.7. Running ICE40 specific optimizations.
+2.40.7. Running ICE40 specific optimizations.
 
-2.38.8. Executing OPT_EXPR pass (perform const folding).
+2.40.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module blink.
 
-2.38.9. Executing OPT_MERGE pass (detect identical cells).
+2.40.9. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\blink'.
 Removed a total of 0 cells.
 
-2.38.10. Executing OPT_DFF pass (perform DFF optimizations).
+2.40.10. Executing OPT_RMDFF pass (remove dff with constant values).
 
-2.38.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.40.11. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \blink..
 
-2.38.12. Finished OPT passes. (There is nothing left to do.)
+2.40.12. Finished OPT passes. (There is nothing left to do.)
 
-2.39. Executing TECHMAP pass (map to technology primitives).
+2.41. Executing TECHMAP pass (map to technology primitives).
 
-2.39.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/ice40/latches_map.v
-Parsing Verilog input from `/usr/bin/../share/yosys/ice40/latches_map.v' to AST representation.
+2.41.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/latches_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/latches_map.v' to AST representation.
 Generating RTLIL representation for module `\$_DLATCH_N_'.
 Generating RTLIL representation for module `\$_DLATCH_P_'.
 Successfully finished Verilog frontend.
 
-2.39.2. Continuing TECHMAP pass.
+2.41.2. Continuing TECHMAP pass.
 No more expansions possible.
-<suppressed ~4 debug messages>
 
-2.40. Executing ABC pass (technology mapping using ABC).
+2.42. Executing ABC pass (technology mapping using ABC).
 
-2.40.1. Extracting gate netlist of module `\blink' to `<abc-temp-dir>/input.blif'..
+2.42.1. Extracting gate netlist of module `\blink' to `<abc-temp-dir>/input.blif'..
 Extracted 34 gates and 68 wires to a netlist network with 34 inputs and 34 outputs.
 
-2.40.1.1. Executing ABC.
+2.42.1.1. Executing ABC.
 Running ABC command: <yosys-exe-dir>/yosys-abc -s -f <abc-temp-dir>/abc.script 2>&1
 ABC: ABC command line: "source <abc-temp-dir>/abc.script".
 ABC: 
@@ -931,110 +733,124 @@ ABC: Node pairs (same polarity)                   =      34. (  97.14 % of names
 ABC: Total runtime =     0.00 sec
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
-2.40.1.2. Re-integrating ABC results.
+2.42.1.2. Re-integrating ABC results.
 ABC RESULTS:              $lut cells:       34
 ABC RESULTS:        internal signals:        0
 ABC RESULTS:           input signals:       34
 ABC RESULTS:          output signals:       34
 Removing temp directory.
 
-2.41. Executing ICE40_WRAPCARRY pass (wrap carries).
+2.43. Executing ICE40_WRAPCARRY pass (wrap carries).
 
-2.42. Executing TECHMAP pass (map to technology primitives).
+2.44. Executing TECHMAP pass (map to technology primitives).
 
-2.42.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/ice40/ff_map.v
-Parsing Verilog input from `/usr/bin/../share/yosys/ice40/ff_map.v' to AST representation.
+2.44.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/cells_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/cells_map.v' to AST representation.
 Generating RTLIL representation for module `\$_DFF_N_'.
 Generating RTLIL representation for module `\$_DFF_P_'.
+Generating RTLIL representation for module `\$_DFFE_NN_'.
+Generating RTLIL representation for module `\$_DFFE_PN_'.
 Generating RTLIL representation for module `\$_DFFE_NP_'.
 Generating RTLIL representation for module `\$_DFFE_PP_'.
+Generating RTLIL representation for module `\$_DFF_NN0_'.
+Generating RTLIL representation for module `\$_DFF_NN1_'.
+Generating RTLIL representation for module `\$_DFF_PN0_'.
+Generating RTLIL representation for module `\$_DFF_PN1_'.
 Generating RTLIL representation for module `\$_DFF_NP0_'.
 Generating RTLIL representation for module `\$_DFF_NP1_'.
 Generating RTLIL representation for module `\$_DFF_PP0_'.
 Generating RTLIL representation for module `\$_DFF_PP1_'.
-Generating RTLIL representation for module `\$_DFFE_NP0P_'.
-Generating RTLIL representation for module `\$_DFFE_NP1P_'.
-Generating RTLIL representation for module `\$_DFFE_PP0P_'.
-Generating RTLIL representation for module `\$_DFFE_PP1P_'.
-Generating RTLIL representation for module `\$_SDFF_NP0_'.
-Generating RTLIL representation for module `\$_SDFF_NP1_'.
-Generating RTLIL representation for module `\$_SDFF_PP0_'.
-Generating RTLIL representation for module `\$_SDFF_PP1_'.
-Generating RTLIL representation for module `\$_SDFFCE_NP0P_'.
-Generating RTLIL representation for module `\$_SDFFCE_NP1P_'.
-Generating RTLIL representation for module `\$_SDFFCE_PP0P_'.
-Generating RTLIL representation for module `\$_SDFFCE_PP1P_'.
+Generating RTLIL representation for module `\$__DFFE_NN0'.
+Generating RTLIL representation for module `\$__DFFE_NN1'.
+Generating RTLIL representation for module `\$__DFFE_PN0'.
+Generating RTLIL representation for module `\$__DFFE_PN1'.
+Generating RTLIL representation for module `\$__DFFE_NP0'.
+Generating RTLIL representation for module `\$__DFFE_NP1'.
+Generating RTLIL representation for module `\$__DFFE_PP0'.
+Generating RTLIL representation for module `\$__DFFE_PP1'.
 Successfully finished Verilog frontend.
 
-2.42.2. Continuing TECHMAP pass.
+2.44.2. Continuing TECHMAP pass.
 No more expansions possible.
-<suppressed ~22 debug messages>
-Removed 32 unused cells and 70 unused wires.
+Removed 32 unused cells and 39 unused wires.
 
-2.43. Executing OPT_LUT pass (optimize LUTs).
+2.45. Executing OPT_LUT pass (optimize LUTs).
 Discovering LUTs.
 Number of LUTs:       65
   1-LUT               34
-  2-LUT                1
-  3-LUT               30
-  with \SB_CARRY    (#0)   30
-  with \SB_CARRY    (#1)   30
+  2-LUT               31
 
 Eliminating LUTs.
 Number of LUTs:       65
   1-LUT               34
-  2-LUT                1
-  3-LUT               30
-  with \SB_CARRY    (#0)   30
-  with \SB_CARRY    (#1)   30
+  2-LUT               31
 
 Combining LUTs.
 Number of LUTs:       65
   1-LUT               34
-  2-LUT                1
-  3-LUT               30
-  with \SB_CARRY    (#0)   30
-  with \SB_CARRY    (#1)   30
+  2-LUT               31
 
 Eliminated 0 LUTs.
 Combined 0 LUTs.
-<suppressed ~190 debug messages>
+<suppressed ~132 debug messages>
 
-2.44. Executing TECHMAP pass (map to technology primitives).
+2.46. Executing TECHMAP pass (map to technology primitives).
 
-2.44.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/ice40/cells_map.v
-Parsing Verilog input from `/usr/bin/../share/yosys/ice40/cells_map.v' to AST representation.
+2.46.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/ice40/cells_map.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/ice40/cells_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DFF_N_'.
+Generating RTLIL representation for module `\$_DFF_P_'.
+Generating RTLIL representation for module `\$_DFFE_NN_'.
+Generating RTLIL representation for module `\$_DFFE_PN_'.
+Generating RTLIL representation for module `\$_DFFE_NP_'.
+Generating RTLIL representation for module `\$_DFFE_PP_'.
+Generating RTLIL representation for module `\$_DFF_NN0_'.
+Generating RTLIL representation for module `\$_DFF_NN1_'.
+Generating RTLIL representation for module `\$_DFF_PN0_'.
+Generating RTLIL representation for module `\$_DFF_PN1_'.
+Generating RTLIL representation for module `\$_DFF_NP0_'.
+Generating RTLIL representation for module `\$_DFF_NP1_'.
+Generating RTLIL representation for module `\$_DFF_PP0_'.
+Generating RTLIL representation for module `\$_DFF_PP1_'.
+Generating RTLIL representation for module `\$__DFFE_NN0'.
+Generating RTLIL representation for module `\$__DFFE_NN1'.
+Generating RTLIL representation for module `\$__DFFE_PN0'.
+Generating RTLIL representation for module `\$__DFFE_PN1'.
+Generating RTLIL representation for module `\$__DFFE_NP0'.
+Generating RTLIL representation for module `\$__DFFE_NP1'.
+Generating RTLIL representation for module `\$__DFFE_PP0'.
+Generating RTLIL representation for module `\$__DFFE_PP1'.
 Generating RTLIL representation for module `\$lut'.
 Successfully finished Verilog frontend.
 
-2.44.2. Continuing TECHMAP pass.
-Using template $paramod$fd904e9e35cfd343a9df248824bd3f1408724879\$lut for cells of type $lut.
-Using template $paramod\$lut\WIDTH=32'00000000000000000000000000000001\LUT=2'01 for cells of type $lut.
+2.46.2. Continuing TECHMAP pass.
+Using template $paramod\$lut\WIDTH=1\LUT=2'01 for cells of type $lut.
+Using template $paramod\$lut\WIDTH=4\LUT=16'0110100110010110 for cells of type $lut.
 No more expansions possible.
-<suppressed ~94 debug messages>
+<suppressed ~91 debug messages>
 Removed 0 unused cells and 130 unused wires.
 
-2.45. Executing AUTONAME pass.
-Renamed 663 objects in module blink (9 iterations).
-<suppressed ~166 debug messages>
+2.47. Executing AUTONAME pass.
+Renamed 1083 objects in module blink (14 iterations).
+<suppressed ~197 debug messages>
 
-2.46. Executing HIERARCHY pass (managing design hierarchy).
+2.48. Executing HIERARCHY pass (managing design hierarchy).
 
-2.46.1. Analyzing design hierarchy..
+2.48.1. Analyzing design hierarchy..
 Top module:  \blink
 
-2.46.2. Analyzing design hierarchy..
+2.48.2. Analyzing design hierarchy..
 Top module:  \blink
 Removed 0 unused modules.
 
-2.47. Printing statistics.
+2.49. Printing statistics.
 
 === blink ===
 
-   Number of wires:                 11
-   Number of wire bits:            197
-   Number of public wires:          11
-   Number of public wire bits:     197
+   Number of wires:                 42
+   Number of wire bits:            166
+   Number of public wires:          42
+   Number of public wire bits:     166
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1045,14 +861,14 @@ Removed 0 unused modules.
      SB_HFOSC                        1
      SB_LUT4                        65
 
-2.48. Executing CHECK pass (checking for obvious problems).
-Checking module blink...
-Found and reported 0 problems.
+2.50. Executing CHECK pass (checking for obvious problems).
+checking module blink..
+found and reported 0 problems.
 
-2.49. Executing BLIF backend.
+2.51. Executing BLIF backend.
 
 3. Executing JSON backend.
 
-End of script. Logfile hash: 992b0ddc04, CPU: user 0.45s system 0.03s, MEM: 54.94 MB peak
-Yosys 0.17+9 (git sha1 3f8fb28cd, gcc 12.1.0 -march=x86-64 -mtune=generic -O2 -fno-plt -fexceptions -fstack-clash-protection -fcf-protection -fPIC -Os)
-Time spent: 30% 12x read_verilog (0 sec), 15% 1x abc (0 sec), ...
+End of script. Logfile hash: 1613622253, CPU: user 0.45s system 0.04s, MEM: 52.08 MB peak
+Yosys 0.9+2406 (git sha1 c98cde88, clang 10.0.0-4ubuntu1 -fPIC -Os)
+Time spent: 43% 11x read_verilog (0 sec), 12% 18x opt_clean (0 sec), ...
