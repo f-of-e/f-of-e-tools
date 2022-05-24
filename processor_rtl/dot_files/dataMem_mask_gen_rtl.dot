@@ -1,0 +1,47 @@
+digraph "sign_mask_gen" {
+label="sign_mask_gen";
+rankdir="LR";
+remincross=true;
+n4 [ shape=octagon, label="func3", color="black", fontcolor="black" ];
+n5 [ shape=diamond, label="mask", color="black", fontcolor="black" ];
+n6 [ shape=octagon, label="sign_mask", color="black", fontcolor="black" ];
+{ rank="source"; n4;}
+{ rank="sink"; n6;}
+c9 [ shape=record, label="{{<p7> A}|$2\n$not|{<p8> Y}}" ];
+x0 [ shape=record, style=rounded, label="<s0> 2:2 - 0:0 " ];
+x0:e -> c9:p7:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, colorscheme="dark28", color="3", fontcolor="3", label=""];
+x1 [ shape=record, style=rounded, label="<s0> 0:0 - 3:3 " ];
+c9:p8:e -> x1:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, colorscheme="dark28", color="1", fontcolor="1", label=""];
+v2 [ label="3'000" ];
+v3 [ label="9'001011111" ];
+c12 [ shape=record, label="{{<p7> A|<p10> B|<p11> S}|$4\n$pmux|{<p8> Y}}" ];
+x4 [ shape=record, style=rounded, label="<s2> 0:0 - 2:2 |<s1> 0:0 - 1:1 |<s0> 0:0 - 0:0 " ];
+x4:e -> c12:p11:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, colorscheme="dark28", color="5", fontcolor="5", style="setlinewidth(3)", label="<3>"];
+v6 [ label="2'10" ];
+c13 [ shape=record, label="{{<p7> A|<p10> B}|$5_CMP0\n$eq|{<p8> Y}}" ];
+x5 [ shape=record, style=rounded, label="<s0> 1:0 - 1:0 " ];
+x5:e -> c13:p7:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, colorscheme="dark28", color="4", fontcolor="4", style="setlinewidth(3)", label="<2>"];
+v8 [ label="2'01" ];
+c14 [ shape=record, label="{{<p7> A|<p10> B}|$6_CMP0\n$eq|{<p8> Y}}" ];
+x7 [ shape=record, style=rounded, label="<s0> 1:0 - 1:0 " ];
+x7:e -> c14:p7:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, colorscheme="dark28", color="2", fontcolor="2", style="setlinewidth(3)", label="<2>"];
+c15 [ shape=record, label="{{<p7> A}|$7_CMP0\n$logic_not|{<p8> Y}}" ];
+x9 [ shape=record, style=rounded, label="<s0> 1:0 - 1:0 " ];
+x9:e -> c15:p7:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, colorscheme="dark28", color="4", fontcolor="4", style="setlinewidth(3)", label="<2>"];
+x10 [ shape=record, style=rounded, label="<s0> 2:0 - 2:0 " ];
+c13:p8:e -> x4:s0:w [colorscheme="dark28", color="2", fontcolor="2", label=""];
+c14:p8:e -> x4:s1:w [colorscheme="dark28", color="4", fontcolor="4", label=""];
+c15:p8:e -> x4:s2:w [colorscheme="dark28", color="8", fontcolor="8", label=""];
+n4:e -> x0:s0:w [colorscheme="dark28", color="4", fontcolor="4", label=""];
+n4:e -> x5:s0:w [colorscheme="dark28", color="4", fontcolor="4", style="setlinewidth(3)", label="<2>"];
+n4:e -> x7:s0:w [colorscheme="dark28", color="4", fontcolor="4", style="setlinewidth(3)", label="<2>"];
+n4:e -> x9:s0:w [colorscheme="dark28", color="4", fontcolor="4", style="setlinewidth(3)", label="<2>"];
+c12:p8:e -> n5:w [colorscheme="dark28", color="2", fontcolor="2", style="setlinewidth(3)", label="<3>"];
+n5:e -> x10:w [colorscheme="dark28", color="2", fontcolor="2", style="setlinewidth(3)", label="<3>"];
+x10:s0:e -> n6:w [colorscheme="dark28", color="3", fontcolor="3", style="setlinewidth(3)", label="<3>"];
+x1:s0:e -> n6:w [colorscheme="dark28", color="3", fontcolor="3", label=""];
+v2:e -> c12:p7:w [colorscheme="dark28", color="6", fontcolor="6", style="setlinewidth(3)", label="<3>"];
+v3:e -> c12:p10:w [colorscheme="dark28", color="3", fontcolor="3", style="setlinewidth(3)", label="<9>"];
+v6:e -> c13:p10:w [colorscheme="dark28", color="5", fontcolor="5", style="setlinewidth(3)", label="<2>"];
+v8:e -> c14:p10:w [colorscheme="dark28", color="6", fontcolor="6", style="setlinewidth(3)", label="<2>"];
+}

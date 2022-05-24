@@ -1,0 +1,16 @@
+digraph "mux2to1" {
+label="mux2to1";
+rankdir="LR";
+remincross=true;
+n1 [ shape=octagon, label="input0", color="black", fontcolor="black" ];
+n2 [ shape=octagon, label="input1", color="black", fontcolor="black" ];
+n3 [ shape=octagon, label="out", color="black", fontcolor="black" ];
+n4 [ shape=octagon, label="select", color="black", fontcolor="black" ];
+{ rank="source"; n1; n2; n4;}
+{ rank="sink"; n3;}
+c9 [ shape=record, label="{{<p5> A|<p6> B|<p7> S}|$1\n$mux|{<p8> Y}}" ];
+n1:e -> c9:p5:w [colorscheme="dark28", color="3", fontcolor="3", style="setlinewidth(3)", label="<32>"];
+n2:e -> c9:p6:w [colorscheme="dark28", color="1", fontcolor="1", style="setlinewidth(3)", label="<32>"];
+c9:p8:e -> n3:w [colorscheme="dark28", color="5", fontcolor="5", style="setlinewidth(3)", label="<32>"];
+n4:e -> c9:p7:w [colorscheme="dark28", color="4", fontcolor="4", label=""];
+}

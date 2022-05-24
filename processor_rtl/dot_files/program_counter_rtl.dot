@@ -1,0 +1,14 @@
+digraph "program_counter" {
+label="program_counter";
+rankdir="LR";
+remincross=true;
+n1 [ shape=octagon, label="clk", color="black", fontcolor="black" ];
+n2 [ shape=octagon, label="inAddr", color="black", fontcolor="black" ];
+n3 [ shape=octagon, label="outAddr", color="black", fontcolor="black" ];
+{ rank="source"; n1; n2;}
+{ rank="sink"; n3;}
+c7 [ shape=record, label="{{<p4> CLK|<p5> D}|$3\n$dff|{<p6> Q}}" ];
+n1:e -> c7:p4:w [colorscheme="dark28", color="3", fontcolor="3", label=""];
+n2:e -> c7:p5:w [colorscheme="dark28", color="1", fontcolor="1", style="setlinewidth(3)", label="<32>"];
+c7:p6:e -> n3:w [colorscheme="dark28", color="5", fontcolor="5", style="setlinewidth(3)", label="<32>"];
+}
